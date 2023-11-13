@@ -7,7 +7,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #fff;
-    font-family: 'Jost', sans-serif;
+    font-family: 'Jost', 'sans-serif';
     font-size: 14px;
 }
 .container {
@@ -16,7 +16,7 @@ body {
 .container .left {
     background: url(images-icons/left.png) no-repeat;
     height: 100vh;
-    width: 476px;
+    width: 500px;
     padding-left: 72px;
     padding-top: 72px;
     padding-right: 72px;
@@ -29,12 +29,30 @@ body {
 }
 .left p{
     color: #fff;
-    font-family: 'Open Sans';
     font-size: 18px;
+    font-family: 'Open Sans';
     /* Kodėl nepasikeičia dydis? */
     font-style: normal;
+    align-self: stretch;
     font-weight: 600px;
     line-height: 26px;
     width: 100%;
     height: auto;
+}
+.right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: ;
+}
+
+.top h1 {
+    font-family: 'Open Sans';
+    font-style: 18px;
+}
+.top p {
+    font-family: 'Open Sans';
+    font-size: 16px;
+    color: #6B7280;
+    padding-bottom: 20px;
 }
