@@ -1,0 +1,199 @@
+ /* Visų elementų pasirinkimas */
+ * {
+    /* Į bendrą plotį neįskaičiuojamos border ir padding reikšmės */
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: url(images/bg.png) no-repeat center center;
+}
+
+.contact {
+    position: relative;
+    background-color: white;
+    max-width: 1440px;
+    width: 100%;
+    margin: 100px auto;
+    border-radius: 40px;
+    padding: 30px 50px;
+    overflow: hidden;
+
+    /* Laikina savybė */
+    height: 600px;
+
+    font-family: 'Montserrat', sans-serif;
+}
+
+.contact::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #6DE1C2;
+    height: 100%;
+    width: 419px;
+    /* border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px; */
+}
+
+.contact-inner {
+    height: 550px;
+    display: flex;
+    position: relative;
+    z-index: 1;
+}
+
+.left {
+    background-color: rgb(214, 231, 225);
+    width: 50%;
+    /* Laikina savybė */
+    height: 100%;
+}
+
+.right {
+    background-color:blueviolet;
+    width: 50%;
+    /* Laikina savybė */
+    height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .contact-inner {
+        flex-direction: column;
+    }
+
+    .left,
+    .right {
+        width: 100%;
+    }
+}
+
+.get-in-touch {
+    display: flex;
+    font-weight: bolder;
+    font-size: 46px;
+    width: auto;
+    color: black;
+    position:relative;
+    word-spacing: 0;
+    letter-spacing: 1%;
+    text-align: left;
+    text-align: top;
+    text-shadow: 0px 4px 4px #000000;
+    padding-top: 10px;
+    padding-left: 10px;
+
+}
+.get-in-touch div {
+    color: #6DE1C2;
+    padding-left: 10px;
+}
+.textas {
+    font-size: 14px;
+    text-align: left;
+    text-align: top;
+    letter-spacing: 1%;
+    word-spacing: 0;
+    padding: 10px 50px 0px 10px;
+    width: auto;
+}
+.text-fields {
+    display: flex;
+    
+    justify-content: space-evenly; 
+    align-items: stretch; 
+    /* flex-flow: column; */ 
+    flex-direction: column;  
+    padding: 8px;
+    gap: 8px;
+}
+
+.text-fields > input {
+    background: none;
+    border: none;
+    border-bottom: 2px solid grey;
+    position:relative;
+}
+.field2 {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start; 
+    /* flex-flow: column; */ 
+    flex-direction: row;  
+    /* padding: 8px; */
+    gap: 8px;
+}
+.field2 > input {
+    background: none;
+    border: none;
+    border-bottom: 2px solid grey;
+    position:relative;
+}
+.drag-and-drop {
+    display: flex;
+    justify-content: center;
+    background: none;
+    border: 2px dashed grey;
+    width: auto;
+    height: 50px;
+    margin: 0px 8px 8px;
+}
+h1 {
+    display: block;
+    font-size: 10px;
+    margin: 0px 8px 8px;
+    color: grey;
+}
+label {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    line-height: 160%;
+    width: auto;
+    text-align: left;
+}
+button {
+    background-color: #0982FE;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 90%;
+    margin: auto 25px auto;
+}
+img {
+    width: 26px;
+    height: 26px;
+}
+.contacts {
+    color: #000000;
+    font-size: 13px;
+    letter-spacing: 2%;
+    text-align: left;
+    line-height: 20px;
+}
+.contacts div {
+    color: #DD5471;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;  
+    padding: 8px;
+    gap: 8px;
+}
+.bottom {
+    display: flex;
+    
+    justify-content: space-evenly;  
+    /* flex-flow: row; */ 
+    flex-direction: row;  
+    padding: 15px;
+    gap: 5px;
+}

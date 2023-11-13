@@ -1,0 +1,131 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", "sans-serif";
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    /* list-style savybė nurodo numeravimo ikonos tipą */
+    list-style: none;
+    /* Display flex savybė automatiškai išlygiuoja elementus  */
+    /* https://angrytools.com/css-flex/ */
+    display: flex;
+    /* Gap savybė nurodo tarpelį tarp elementų */
+    gap: 5%;
+}
+
+.logo {
+    height: 129px;
+    float: left;
+    position: relative;
+    width: 5%;
+}
+
+.uppline {
+    background-color: black;
+    justify-content: space-evenly;
+}
+
+#linetext {
+    margin: 0% 0% 0% 20%;
+}
+
+a {
+    text-decoration: none;
+    font-size: 20px;
+    color: whitesmoke;
+}
+a:hover {
+    color: grey;
+}
+a:active {
+    color: darkgrey;
+}
+/* header thead a {
+    font-size: 10px;
+} */
+
+header .container {
+    display: flex;
+    /* justify-content: space-around; */
+    /* justify-content: space-evenly; */
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 122px;
+    width: 100%;
+}
+.container {
+    width: 1180px;
+    margin: 0 auto;
+}
+
+.clr1 {
+    background-color:  #ab2027;
+}
+.clr2 {
+    background-color: rgb(167, 189, 190);
+}
+.clr3 {
+    background-color: beige;
+}
+.clr4 {
+    background-color: rgb(37, 36, 34);
+}
+
+.sticky {
+    position: fixed;
+    top: auto;
+    /* height: 2px; */
+    width: 100%;
+    transition: 0.6s;
+}
+
+section {
+    min-height: 250px;
+    width: 100%;
+}
+/* .imageParent {
+    position: relative;
+} */
+
+.image {
+    position:initial;
+    align-items: center;
+    padding: auto;
+    margin-left: 180px;
+} 
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+}
+.top-left {
+    color: white;
+    background-color: #ab2027;
+    font-size: 20px;
+    position:absolute;
+    top: 48%;
+    left: 20%;
+    transform: translate(-46%, -38%);
+    padding: 10px;
+}
+.bottom-left {
+    color: white;
+    background-color: #ab2027;
+    font-size: 20px;
+    position: absolute;
+    top: 85%;
+    left: 20%;
+    transform: translate(-46%, -38%);
+    padding: 10px;
+}
+
+a .bottom-left::after {
+    background-color: black;
+    filter: blur(20px);
+    border: 1px solid #black;
+}

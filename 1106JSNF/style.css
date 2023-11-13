@@ -1,0 +1,65 @@
+body {
+  margin: 20px 200px 20px 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  line-height: 25px;
+}
+
+.invoice {
+  font-size: 40px;
+  font-weight: bold;
+  color: grey;
+}
+
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color: black;
+  width: 800px;
+}
+
+.padding {
+  padding-top: 80px;
+  padding-bottom: 20px;
+}
+
+.paddingBot {
+  padding-bottom: 80px;
+}
+.underline {
+  font-weight: bolder;
+  color: #245799;
+  border-bottom: 1px solid black;
+}
+.table {
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 800px;
+}
+th {
+  text-align: center;
+  background-color: blue;
+  color: white;
+}
+
+.table td {
+  border: 1px solid black;
+}
+
+#totals {
+  border: none;
+  width: 800px;
+}
+
+#totals tr :nth-child(1) {
+  font-weight: bold;
+  padding-right: 20px;
+  text-align: right;
+}
+
+#totals tr :nth-child(2) {
+  text-align: right;
+  border-bottom: 1px solid grey;
+}

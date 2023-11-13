@@ -1,0 +1,115 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", "sans-serif";
+}
+
+header {
+  padding: 100px;
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  transition: 0.5s;
+  background: #ab2027;
+  color: white;
+  font-size: 20px;
+  z-index: 100000;
+}
+.flex-container {
+  display: flex;
+  padding: 100px;
+  position: relative;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  margin-right: 30px; /*nenusistato-sugrįžta prie krašto???*/
+  padding: 10px;
+  gap: 5px;
+}
+/* .flex-container > div {
+  padding: 8px;
+} */
+.logo {
+  height: 96px;
+  float: left;
+  position: relative;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 20px;
+  color: whitesmoke;
+}
+a:hover {
+  color: grey;
+}
+a:active {
+  color: darkgrey;
+}
+#content {
+  padding: 16px;
+}
+.container {
+  position: relative;
+  height: auto;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  height: 5px;
+  transition: 0.6s;
+}
+/* 
+.sticky + .content {
+  padding-top: 100px;
+} */
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+section {
+    height: 400px;
+}
+section .top {
+  height: 50px;
+}
+
+.top {
+  background-color: #ab2027;
+}
+.clr1 {
+    background-color: #fff;
+}
+.clr2 {
+    background-color: darkgray;
+}
+.clr3 {
+    background-color: #fff;
+}
+.clr4 {
+    background-color: black;
+}
+container {
+    width: auto;
+    margin: 0 auto;
+}
+footer {
+    text-align: center;
+    padding: 20px 0;
+}

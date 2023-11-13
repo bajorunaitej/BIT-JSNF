@@ -1,0 +1,226 @@
+/* Visų elementų pasirinkimas */
+* {
+    /* Į bendrą plotį neįskaičiuojamos border ir padding reikšmės */
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: url(images/bg.png) no-repeat center center;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    padding: 0 15px;
+}
+
+.contact {
+    position: relative;
+    background-color: white;
+    max-width: 1440px;
+    width: 100%;
+    margin: 100px auto;
+    border-radius: 40px;
+    padding: 50px 95px 40px;
+    overflow: hidden;
+}
+
+.contact::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #6DE1C2;
+    height: 100%;
+    width: 419px;
+    /* border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px; */
+}
+
+.contact h1 {
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 46px;
+    margin: 0;
+}
+
+.contact h1 span {
+    color: #6DE1C2;
+}
+
+.contact p {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.contact p.desktop {
+    line-height: 24px;
+    margin: 10px 0 20px;
+}
+
+.contact p.mobile {
+    display: none;
+}
+
+.contact .contact-inner {
+    display: flex;
+    position: relative;
+    z-index: 1;
+}
+
+.contact .left {
+    width: 49%;
+    padding-right: 65px;
+}
+
+.contact .right {
+    width: 51%;
+}
+
+.contact .right iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.contact input[type="text"],
+.contact input[type="tel"],
+.contact input[type="email"] {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #737B7D;
+    padding: 15px 15px;
+    font-size: 16px;
+    margin-bottom: 12px;
+} 
+
+.contact .input-group {
+    display: flex;
+    gap: 20px;
+}
+
+.contact .file-upload {
+    height: 104px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed #8E8E8E;
+    color: #8E8E8E;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.contact .file-upload-caption {
+    color: #8E8E8E;
+    font-size: 13px;
+    line-height: 160%;
+    margin-top: 7px;
+}
+
+.contact .agreement {
+    color: #383C3E;
+    margin: 25px 0 20px;
+} 
+
+.contact .agreement input {
+    margin-left: 0;
+}
+
+.contact .button {
+    width: 100%;
+    background: #0982FE;
+    color: white;
+    text-align: center;
+    padding: 19px 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 10px;
+}
+
+.contact-details {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.contact-details .box {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.contact-details .box img {
+    display: block;
+}
+
+.contact-details .value a,
+.contact-details .value {
+    color: #DD5471;
+}
+
+.width-30 {
+    width: 30%;
+}
+
+.width-70 {
+    width: 70%;
+}
+
+@media screen and (max-width: 1440px) {
+    .contact {
+        padding: 30px;
+    }
+
+    .contact .contact-details {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        padding: 0;
+    }
+    .contact {
+        margin: 0;
+        border-radius: 0;
+        padding: 15px 15px 0;
+    }
+
+    .contact::after {
+        width: 6px;
+    }
+
+    .contact h1 {
+        font-size: 32px;
+        text-align: center;
+    }
+
+    .contact-inner {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .contact .left,
+    .contact .right {
+        width: 100%;
+        padding: 0;
+    }
+
+    .contact .right iframe {
+        height: 415px;
+    }
+    
+    .contact .submit-button,
+    .contact .agreement,
+    .contact .contact-details {
+        padding: 0 33px;
+    }
+
+    .contact p.mobile {
+        display: block;
+        font-size: 24px;
+        text-align: center;
+        margin: 15px 0 0;
+    }
+
+    .contact p.desktop {
+        display: none;
+    }
+}

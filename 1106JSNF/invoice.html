@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invoice</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300&family=Roboto+Mono:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "DM Sans", sans-serif;
+        align-items: center;
+        width: 0 auto;
+        height: auto;
+      }
+      table tr table tbody tr:nth-child(even) {
+        background-color: #d6eeee;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td class="invoice">INVOICE</td>
+        <td colspan="2"></td>
+        <td style="text-align: center">
+          <img
+            src="https://media-exp1.licdn.com/dms/image/C560BAQFYHuLZ-8ow3g/company-logo_200_200/0/1562251999949?e=2159024400&v=beta&t=bsOByWZyArzaoK8ObM-y_TMjrxv0ctQ_9rdWEn8Fzuk"
+            alt="https://th.bing.com/th/id/R.2a36e27ea3c549365e306a50a24f5b5c?rik=k2zK%2blyMyMwz7Q&pid=ImgRaw&r=0"
+            class="padding-right"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>Your Company Name</td>
+        <td style="width: 40%" colspan="2"></td>
+        <td class="underline" style="text-align: center">2023-06-16</td>
+      </tr>
+      <tr>
+        <td>123 Street Address</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr>
+        <td>City, State, Zip/Post Code</td>
+        <td colspan="2"></td>
+        <td class="underline" style="text-align: center">20230616</td>
+      </tr>
+      <tr>
+        <td colspan="4">Phone Number</td>
+      </tr>
+      <tr>
+        <td class="paddingBot" colspan="4">Email Address</td>
+      </tr>
+      <tr>
+        <td class="underline" colspan="2">BILL TO</td>
+        <td class="underline" colspan="2">SHIP TO</td>
+      </tr>
+      <tr>
+        <td style="height: 10px"></td>
+      </tr>
+      <tr>
+        <td>Contact Name</td>
+        <td colspan="2"></td>
+        <td>Name / Dept</td>
+      </tr>
+      <tr>
+        <td>Client Company Name</td>
+        <td colspan="2"></td>
+        <td>Client Company Name</td>
+      </tr>
+      <tr>
+        <td>Address</td>
+        <td colspan="2"></td>
+        <td>Address</td>
+      </tr>
+      <tr>
+        <td class="paddingBot">Phone, Email</td>
+        <td colspan="2"></td>
+        <td class="paddingBot">Phone</td>
+      </tr>
+      <tr>
+        <table class="table">
+          <thead style="background-color: #3c78d8; color: white">
+            <td>DESCRIPTION</td>
+            <td>QTY</td>
+            <td>UNIT PRICE</td>
+            <td>TOTAL</td>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Monitorius</td>
+              <td>10</td>
+              <td>100.99</td>
+              <td>1,009.9</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>0.00</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>0.00</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>0.00</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>0.00</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>0.00</td>
+            </tr>
+          </tbody>
+          <table id="totals">
+            <tr>
+              <td>SUBTOTAL</td>
+              <td>1,009.9</td>
+            </tr>
+            <tr>
+              <td>DISCOUNT</td>
+              <td>0.00</td>
+            </tr>
+            <tr>
+              <td>BALANCE DUE</td>
+              <td style="align-items: center; background-color: #cfe2f3">
+                <strong>1,009.9</strong>
+              </td>
+            </tr>
+          </table>
+        </table>
+      </tr>
+    </table>
+  </body>
+</html>

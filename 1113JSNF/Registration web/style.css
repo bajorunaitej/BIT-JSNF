@@ -1,0 +1,9 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #2A2D35;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+}
