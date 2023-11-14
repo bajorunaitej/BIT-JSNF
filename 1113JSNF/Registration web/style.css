@@ -211,3 +211,21 @@ body {
     line-height: 26px;
     text-decoration: none;
 }
+
+/* Vaizdo perkėlimas ant mobiel versijos */
+
+/*  @media screen and (maxwidth- 768px*) {
+    left{
+        flex-direction: column/
+
+        nuotraukos su
+        texto panaikinimas - display:none;
+        rėmelis
+
+
+page side ir main:
+        nuotraukos aukštis:
+        plotis:100%
+
+        object fit:cover (nuotraukos išpozicionavimas per reikalingą visą duotą plotą)
+        

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transform</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 60px;
+        }
+
+        .color1 {
+            background-color: indigo;
+        }
+        .color2 {
+            background-color: rgb(0, 130, 41);
+        }
+        .color3 {
+            background-color: rgb(130, 0, 106);
+        }
+        .color4 {
+            background-color: rgb(0, 102, 130);
+        }
+        .rotate {
+        /* Norint paversti elementą */
+            transform: rotate(45deg);
+        }
+        .scale {
+            margin-top: 100px;
+            /* Mastelis */
+            transform: scale(1.2);
+        }
+
+        .skew {
+            margin-top: 100px;
+            transform: skew(-25deg, 50deg);
+        }
+
+        .translate {
+            /* transform: translate(0, -50px); */
+            position: absolute;
+            /* top: calc(50%-300px/2);
+            left: calc(50%-300px/2); */
+            top: 50px;
+            left: 50px;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="box color1 rotate">1</div>
+    <div class="box color2 scale">2</div>
+    <div class="box color3 skew">3</div>
+    <div class="box color4 translate">4</div>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni nostrum quia sequi quo pariatur placeat facilis hic tempora alias sint.
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textarea, outline</title>
+    <style>
+        input[type="text"] {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid rgb(187, 177, 177);
+            padding: 10px;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            outline: 10px solid red;
+            color: red;
+        }
+
+        textarea {
+            width: 100%;
+            height: 300px;
+            box-sizing: border-box;
+            border: 1px solid rgb(187, 177, 177);
+            padding: 10px;
+
+            /* Norint pašalinti textarea elemento modifikaciją */
+            resize: none;
+        }
+
+    </style>
+</head>
+<body>
+    <input type="text">
+    <h1>Textarea</h1>
+    <textarea name="" id="" cols="30" rows="10" placeholder="Įveskite žinutės tekstą"></textarea>
+</body>
+</html>
