@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Variables</title>
+    <style>
+
+        /* kintamasis "primary-color" yra paveldimas */
+        /* html {
+            --primary-color: rgb(174, 14, 14);
+        } */
+        
+        body {
+            --background-color: white;
+            --input-background-color: white;
+            --input-border-color: rgb(119, 115, 115);
+            --button-background-color: rgb(231, 219, 219);
+            --button-color: rgb(44, 38, 38);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: var(--background-color);
+        }
+        body.dark {
+            --background-color: rgb(83, 72, 72);
+            --input-background-color: rgb(136, 115, 115);
+            --input-border-color: rgb(78, 75, 75);
+            --button-background-color: rgb(161, 115, 115);
+            --button-color: rgb(237, 231, 231);
+        }
+
+        form {
+            text-align: center;
+            /* justify-content: center; */
+        }
+
+        input {
+            max-width: 768px;
+            width: 100%;
+            margin: 0;
+            border: 1px solid var(--input-border-color);
+            border-radius: 25px;
+            padding: 10px 25px;
+            display: block;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            background-color: var(--input-background-color)
+        }
+
+        button {
+            background-color: var(--button-background-color);
+            color: rgb(47, 45, 45);
+            border: none;
+            padding: 8px 10px;
+        }
+
+    </style>
+</head>
+<body class="dark">
+    <form>
+        <input type="text">
+        <button>Search</button>
+    </form>
+    
+</body>
+</html>
