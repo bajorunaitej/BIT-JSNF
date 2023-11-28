@@ -1,0 +1,75 @@
+:root {
+    --primary-color: rgba(96, 38, 127, 1);
+    --secondary-color: rgba(154, 84, 188, 1);
+}
+
+body {
+    margin: 0 auto;
+    background: white;
+}
+
+.headerLine {
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 5.72px;
+    margin: 0;
+    height: .5rem;
+    text-align: center;
+    vertical-align:bottom;
+}
+.headerLine p {
+    margin: auto;
+}
+.headerLine p a {
+    color: white;
+}
+.logo {
+    font-family: 'Comfortaa';
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-size: 2rem;
+    font-weight: 500;
+    width: fit-content;
+    height: fit-content;
+}
+
+.primaryNav a {
+    text-decoration: none;
+}
+.navbar ul {
+    list-style-type: none;
+    color: black;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: auto;
+    display: flex;
+    gap: 25px;
+}
+.requestDemo a {
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+.requestDemo {
+    border: 1px solid var(--secondary-color);
+    border-radius: 2.5px;
+    width: fit-content;
+    height: fit-content;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: .2rem .5rem;
+    background-color: white;
+}
+.navbar nav {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 11px 0 44px;
+    align-items: center;
+}
+.navbar {
+    box-shadow: 7px 3px rgba(128, 128, 128, 0.123);
+}
