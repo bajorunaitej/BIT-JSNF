@@ -35,10 +35,10 @@ body {
 
 .primaryNav a {
     text-decoration: none;
+    color: black;
 }
 .navbar ul {
     list-style-type: none;
-    color: black;
     font-size: 1rem;
     font-weight: 600;
     line-height: auto;
@@ -72,4 +72,102 @@ body {
 }
 .navbar {
     box-shadow: 7px 3px rgba(128, 128, 128, 0.123);
+}
+
+.hero {
+    font-family: 'Roboto';
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 23px;
+}
+
+.reqDemo a {
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: 'Roboto';
+    font-weight: 700;
+    color: white;
+}
+.reqDemo {
+    background: var(--secondary-color);
+    width: 150px;
+    height: 3rem;
+    border: none;
+    border-radius: 4px;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    margin-top: 23px;
+}
+
+.container1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 36px;
+}
+.outer-circle {
+    background: rgba(245, 225, 255, 0.3);
+    border-radius: 50%;
+    height:500px;
+    width:500px;
+}
+.inner-circle {
+    position: relative;
+    background: rgba(245, 225, 255, 0.8);
+    border-radius: 50%;
+    height:300px;
+    width:300px;
+    margin: 18px 0px 0px 100px;
+    display: flex;
+    justify-content: center;
+}
+.rectCollab {
+    position: relative;
+    font-family: 'Comfortaa';
+    color: var(--secondary-color);
+    background: white;
+    font-size: 2rem;
+    font-weight: 500;
+    border: 2px solid var(--secondary-color);
+    border-radius: 4px;
+    width: 125px;
+    height: 236px;
+    text-align: center;
+    margin: 10px 0px 0px 0px;
+    vertical-align: 50%;
+}
+.rectCollab p {
+    padding-top: 50%;
+}
+.explore {
+    font-size: 11px;
+    font-weight: 500;
+    font-family: 'Roboto';
+    background: white;
+    border: 2px solid var(--secondary-color);
+    border-radius: 4px;
+    width: 127px;
+    height: 27px;
+    margin-top: 20px;
+}
+.explore a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.topBrands h1 {
+    font-family: 'Roboto';
+    font-size: 22px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 98px;
+}
+
+.brands {
+    display: flex;
+    justify-content: center;
+    gap: 57px;
+    margin-top: 43px;
 }

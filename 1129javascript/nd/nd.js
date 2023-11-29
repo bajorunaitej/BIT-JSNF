@@ -69,7 +69,8 @@ else {
 
 
 // 4. ----------------------------------------------------
-let a = rand(0,25), b = rand(0,25), c = rand(0,25);
+// let a = rand(0,25), b = rand(0,25), c = rand(0,25);
+let a = 15, b = 15, c = 20;
 console.log(a, b, c);
 
 if(a<c && a>b) {
@@ -84,9 +85,14 @@ else if(b<a && b>c) {
 else if(b>a && b<c) {
     console.log(b)
 }
-else {
+else if(a==b || a==c || b==c ) {
+    console.log('Vidurinės reikšmės nėra')
+}
+else{
     console.log(c)
 }
+
+
 
 // 5. ----------------------------------------------------
 
