@@ -89,3 +89,6 @@ else {
 }
 
 // 5. ----------------------------------------------------
+
+let sk1 = rand(97,122), sk2 = rand(97,122), sk3 = rand(97,122);
+console.log(String.fromCharCode(sk1) + String.fromCharCode(sk2) + String.fromCharCode(sk3));

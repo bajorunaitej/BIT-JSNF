@@ -61,7 +61,7 @@ function rand(min, max) {
     return Math.floor(Math.random() * (max - min +1)) + min;
 }
 
-let skaicius = rand(97,120);
+let skaicius = rand(97,122);
 console.log(skaicius);
 
 console.log(String.fromCharCode(skaicius));
