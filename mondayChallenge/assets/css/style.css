@@ -71,7 +71,7 @@ body {
     align-items: center;
 }
 .navbar {
-    box-shadow: 7px 3px rgba(128, 128, 128, 0.123);
+    box-shadow: 0 5px 5px 0 #00000012;
 }
 
 .hero {
@@ -157,7 +157,8 @@ body {
     color: var(--primary-color);
 }
 
-.topBrands h1 {
+.topBrands h1,
+.howItHelps h1 {
     font-family: 'Roboto';
     font-size: 22px;
     font-weight: 500;
@@ -170,4 +171,81 @@ body {
     justify-content: center;
     gap: 57px;
     margin-top: 43px;
+}
+
+.vendorBtn {
+    background: var(--primary-color);
+    border: 3px solid var(--secondary-color);
+    border-radius: 3px;
+    font-family: 'Roboto';
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    width: 200px;
+    height: 30px;
+    cursor: pointer;
+}
+.siteBtn {
+    background: white;
+    color: black;
+    font-family: 'Roboto';
+    font-size: 15px;
+    font-weight: 600;
+    width: 240px;
+    height:30px;
+    border: none;
+    cursor: pointer;
+}
+.appBtns {
+    width: 480px;
+    height: 35px;
+    box-shadow: 0 15px 15px 0 #00000012;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.work,
+.project,
+.payment,
+.tutorials {
+    font-family: 'Roboto';
+    font-size: 15px;
+    font-weight: 300;
+    color: black;
+    width: 430px;
+    height: fit-content;
+    background: rgba(242, 242, 242, 1);
+    text-align: center;
+    padding: 20px;
+}
+
+.work span,
+.project span,
+.payment span,
+.tutorials span {
+    font-weight:600;
+}
+
+.project a,
+.payment a,
+.tutorials a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+.right {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.left img {
+    width: 250px;
+    height: 450px;
+}
+.container2 {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 70px;
 }
