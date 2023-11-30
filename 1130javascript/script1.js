@@ -48,3 +48,8 @@ else {
     console.log('Tekste nėra skaičių');
     
 }
+
+//vienos reikšmės priskyrimas keliems kintamiesiems
+let a, b, c;
+a = b = c = 10;
+console.log(a)
