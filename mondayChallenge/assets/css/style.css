@@ -6,6 +6,7 @@
 body {
     margin: 0 auto;
     background: white;
+    font-family: 'Roboto';
 }
 
 .headerLine {
@@ -75,7 +76,6 @@ body {
 }
 
 .hero {
-    font-family: 'Roboto';
     font-size: 2rem;
     font-weight: 500;
     text-align: center;
@@ -85,7 +85,6 @@ body {
 .reqDemo a {
     text-decoration: none;
     font-size: 1rem;
-    font-family: 'Roboto';
     font-weight: 700;
     color: white;
 }
@@ -144,7 +143,6 @@ body {
 .explore {
     font-size: 11px;
     font-weight: 500;
-    font-family: 'Roboto';
     background: white;
     border: 2px solid var(--secondary-color);
     border-radius: 4px;
@@ -159,7 +157,6 @@ body {
 
 .topBrands h1,
 .howItHelps h1 {
-    font-family: 'Roboto';
     font-size: 22px;
     font-weight: 500;
     text-align: center;
@@ -172,12 +169,15 @@ body {
     gap: 57px;
     margin-top: 43px;
 }
+.brands img {
+    width: 80px;
+    height: 80px;
+}
 
 .vendorBtn {
     background: var(--primary-color);
     border: 3px solid var(--secondary-color);
     border-radius: 3px;
-    font-family: 'Roboto';
     font-size: 15px;
     font-weight: 600;
     color: white;
@@ -188,7 +188,6 @@ body {
 .siteBtn {
     background: white;
     color: black;
-    font-family: 'Roboto';
     font-size: 15px;
     font-weight: 600;
     width: 240px;
@@ -208,7 +207,6 @@ body {
 .project,
 .payment,
 .tutorials {
-    font-family: 'Roboto';
     font-size: 15px;
     font-weight: 300;
     color: black;
@@ -248,4 +246,36 @@ body {
     justify-content: center;
     gap: 100px;
     margin-top: 70px;
+}
+
+.fsbFriendly h1 {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.fsbFriendly p {
+    font-size: 15px;
+    font-weight: 300;
+    width: fit-content;
+    width: 800px;
+    text-align: center;
+}
+
+.fsbFriendly img.videoPic {
+    position: relative;
+    width: 1000px;
+    height: 500px;
+    margin-top: 10px;
+    z-index: -1;
+}
+
+.fsbFriendly img.playBtn {
+
+}
+
+.fsbFriendly {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
 }
