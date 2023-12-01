@@ -13,19 +13,29 @@ console.log(line1);
 console.log(line2);
 
 // 2. ----------------------------------------------------
-let first = rand(0,2), second = rand(0,2), third = rand(0,2), forth = rand(0,2);
+let first = rand(0,2), 
+    second = rand(0,2), 
+    third = rand(0,2), 
+    forth = rand(0,2);
+
 numbers = [first, second, third, forth];
 console.log(numbers);
 
-let nulis = 0, vienas = 0, du = 0;
+let nulis = 0, 
+    vienas = 0, 
+    du = 0;
 
-if(first === 0) {
+if(first === 0 ) {
     nulis++
 } else if (first === 1) {
     vienas++
 } else {
     du++
 }
+
+// if(first === 0 ) nulis++;
+// else if (first === 1) vienas++;
+// else du++;
 
 if(second === 0) {
     nulis++
@@ -58,13 +68,17 @@ console.log('Dvejetai: ' + du);
 
 let pirmas = rand(0,4), antras = rand(0,4);
 console.log(pirmas, antras);
-if(pirmas>antras) {
-    let dalyba = pirmas/antras
-    console.log(dalyba.toFixed(2))
+if( pirmas===0 || antras === 0) {
+    console.log('Dalyba iš nulio negalima')
+}
+else if(pirmas===antras){
+    console.log('Abu skaičiai vienodi')
+}
+else if(pirmas>antras) {
+    console.log((pirmas/antras).toFixed(2))
 }
 else {
-    let dalyba = antras/pirmas
-    console.log(dalyba.toFixed(2))
+    console.log((antras/pirmas).toFixed(2))
 }
 
 

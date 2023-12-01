@@ -22,8 +22,12 @@ function categoryFourth(skaicius) {
     return rez;
 }
 function categoryFifth(skaicius) {
-    let rez = skaicius/4;
-    return rez;
+    if (skaicius%10===6 || skaicius%10===7) {
+        rez = skaicius / 4;
+        return rez;
+    }else{
+        console.log('Skaičius nepriklauso jokiai kategorijais')
+    }
 }
 sk = rand(0,99);
 if (sk <= 5) {
