@@ -156,7 +156,8 @@ body {
 }
 
 .topBrands h1,
-.howItHelps h1 {
+.howItHelps h1,
+.container3 h1{
     font-size: 22px;
     font-weight: 500;
     text-align: center;
@@ -265,17 +266,39 @@ body {
     position: relative;
     width: 1000px;
     height: 500px;
-    margin-top: 10px;
+    margin-top: 15px;
     z-index: -1;
 }
 
-/* .fsbFriendly img.playBtn {
-
-} */
+.fsbFriendly img.playBtn {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    margin-top: 360px;
+    text-align: center;
+    z-index: 2;
+}
 
 .fsbFriendly {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 25px;
+}
+
+.threePics img {
+    height: 180px;
+    width: fit-content;
+}
+.threePics p {
+    font-size: 15px;
+}
+.threePics p span {
+    color: var(--primary-color);
+}
+
+.threePics {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 23px;
 }
