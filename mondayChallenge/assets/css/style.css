@@ -269,9 +269,9 @@ body {
     z-index: -1;
 }
 
-.fsbFriendly img.playBtn {
+/* .fsbFriendly img.playBtn {
 
-}
+} */
 
 .fsbFriendly {
     display: flex;
