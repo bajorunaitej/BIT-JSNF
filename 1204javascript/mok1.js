@@ -6,7 +6,7 @@
 let people = ['jonas', 'petras', 'algis']
 let i = 0;
 while(i <= people.length) {
-    console.log(people[i].charAt(0).toUpperCase());
+    console.log(people[i].toUpperCase());
     i++;
 }
 
