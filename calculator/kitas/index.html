@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skaičiuotuvas</title>
+</head>
+<body>
+
+    <input type="number" id='x' placeholder="Įveskite skaičių">
+    <select name="operation" id="operation">
+        <option value="-">- (atimtis)</option>
+        <option value="+">+ (sudėtis)</option>
+        <option value="*">* (daugyba)</option>
+        <option value="/">/ (dalyba)</option>
+        <option value="**">x²(kėlimas laipsniu)</option>
+    </select>
+    <input type="number" id='y' placeholder="Įveskite skaičių">
+
+    <button onclick="calculate()">Apskaičiuoti</button>
+    <p id="rez"></p>
+
+    <script src="calc.js"></script>
+</body>
+</html>
+
+<!-- User interface - tai, ką mato vartotojas -->
