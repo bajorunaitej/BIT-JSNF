@@ -111,3 +111,26 @@ let sk1 = rand(97, 122),
 console.log(
   String.fromCharCode(sk1) + String.fromCharCode(sk2) + String.fromCharCode(sk3)
 );
+
+//6. -----------------------------------------------------
+
+let text = "The planet {{planet}} is the third planet from the {{star}}. {{planet}} is the only astronomical object known to harbor life. According to radiometric dating and other sources of evidence, {{planet}} formed over {{age}} ago. {{planet}}'s gravity interacts with other objects in space, especially the {{star}} and the {{satellite}}, {{planet}}'s only natural satellite."
+
+console.log(text);
+
+// let planet = text.replaceAll('{{planet}}','Earth');
+// let star = text.replaceAll('{{star}}','Sun');
+// let age = text.replaceAll('{{age}}','4.54 billion years');
+// let satellite = text.replaceAll('{{satellite}}','moon');
+
+let change = console.log(text.replaceAll('{{planet}}','Earth').replaceAll('{{star}}','Sun').replaceAll('{{age}}','4.54 billion years').replaceAll('{{satellite}}','moon'));
+
+//7. -----------------------------------------------------
+
+function randWithDecimals(min, max) {
+  return Number((Math.random() * (max-min) + min).toFixed(2));
+}
+
+let skaicius = randWithDecimals(5,20);
+console.log(skaicius);
+
