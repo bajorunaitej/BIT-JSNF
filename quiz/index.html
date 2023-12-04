@@ -5,22 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
     <link rel="icon" href="answer.png">
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Quiz</h1>
-        <div id="quiz"></div>
-        <div id="result" class="result"></div>
-        <button id="submit" class="button">Submit</button>
-        <button id="showAnswer" class="button hide">Show answers: </button>
-    </div>
+    <h1>Quiz</h1>
+    <h2>Answer questions:</h2>
 
-    <h1>Viktorina</h1>
+    <p>1. What is the capital of France?<br></p>
+    <input type='radio' name='q1'>Berlin<br>
+    <input type='radio' name='q1'>London<br>
+    <input type="radio" name="q1" id="correct1">Paris<br>
 
-    <p>What is the capital of France?</p>
+    <p>2. How many continents are there on Earth?<br></p>
+    <input type='radio' name='q2'>5<br>
+    <input type="radio" name="q2" id="correct2">7<br>
+    <input type='radio' name='q2'>6<br>
 
-    <script src="script1.js"></script>
+    <p>3. Which planet is known as the Red Planet?<br></p>
+    <input type="radio" name="q3" id="correct3">Mars<br>
+    <input type='radio' name='q3'>Jupiter<br>
+    <input type='radio' name='q3'>Saturn<br>
 
+    <p>4. What gas do plants breathe in that humans and animals breathe out?<br></p>
+    <input type='radio' name='q4'>Oxygen<br>
+    <input type='radio' name='q4'>Nitrogen<br>
+    <input type="radio" name="q4" id="correct4">Carbon Dioxide<br>
+
+    <p>5. What is the largest mammal in the world?<br></p>
+    <input type='radio' name='q5'>Giraffe<br>
+    <input type="radio" name="q5" id="correct5">Blue Whale<br>
+    <input type='radio' name='q5'>Elephant<br>
+
+    <button onclick="result()">Show result</button>
+    <p id="rez"></p>
+
+
+
+
+
+    <script src="script.js"></script>
 </body>
 </html>

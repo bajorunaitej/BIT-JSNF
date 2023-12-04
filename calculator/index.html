@@ -3,41 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Claculator</title>
-    <link rel="icon" href="calculator.png">
-    <style>
-      body {
-        text-align: center;
-        margin: 50px;
-      }
-    </style>
+    <title>Skaičiuotuvas</title>
 </head>
-<body>    
-  <h2>Skaičiuotuvas</h2>
+<body>
 
-  <label for="x">Įveskite skaičių x:</label>
-  <input type="number" id="x" required/>
+    <input type="number" id='x' placeholder="Įveskite skaičių">
+    <select name="operation" id="operation">
+        <option value="-">- (atimtis)</option>
+        <option value="+">+ (sudėtis)</option>
+        <option value="*">* (daugyba)</option>
+        <option value="/">/ (dalyba)</option>
+        <option value="**">x²(kėlimas laipsniu)</option>
+    </select>
+    <input type="number" id='y' placeholder="Įveskite skaičių">
 
-  <select id="select">
-    <option value="add">Sudėtis (+)</option>
-    <option value="substract">Atimtis (-)</option>
-    <option value="multiply">Daugyba(*)</option>
-    <option value="divide">Dalyba (/)</option>
-    <option value="power">Kėlimas laipsniu (^)</option>
-  </select>
+    <button onclick="calculate()">Apskaičiuoti</button>
+    <p id="rez"></p>
 
-  <label for="y">Įveskite skaičių y:</label>
-  <input type="number" id="y" required>
-
-  <br>
-
-  <button onclick="calculate()">Apskaičiuoti</button>
-
-  <br>
-
-  <p id="result">Atsakymas: </p>
-
-  <script src="script.js"></script>
-
+    <script src="calc.js"></script>
 </body>
 </html>
+
+<!-- User interface - tai, ką mato vartotojas -->
