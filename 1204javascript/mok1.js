@@ -3,12 +3,12 @@
 
 // }
 
-let people = ['jonas', 'petras', 'algis']
-let i = 0;
-while(i <= people.length) {
-    console.log(people[i].toUpperCase());
-    i++;
-}
+// let people = ['jonas', 'petras', 'algis']
+// let i = 0;
+// while(i <= people.length) {
+//     console.log(people[i].toUpperCase());
+//     i++;
+// }
 
 //do while mes naudoajame kai norime pirma atlikti operacija, o po tik patikrinimą
 // do{
@@ -31,3 +31,13 @@ while(i <= people.length) {
 // for(i=0; i < 10; i++) {
 //     document.write('* * * * * * * * * *<br>');
 // }
+
+// let i = 0;
+// while(i < 10) {
+//     console.log(i);
+//     i++;
+// }
+
+for(let i = 0; i < 10; i++) {
+    console.log(i);
+}
