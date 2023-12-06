@@ -14,8 +14,19 @@ let stars = '';
 for(let i = 0; i < 400; i++) {
     stars += '*';
     if((i + 1) % 50 === 0) {
-        stars += '\n';
+        stars += `<br>`;
     }
 }
-starsContainer.textContent = stars;
+starsContainer.innerHTML = stars;
+
+// **********
+// **********
+// **********
+// **********
+// **********
+// **********
+// **********
+// **********
+// **********
+// **********
 
