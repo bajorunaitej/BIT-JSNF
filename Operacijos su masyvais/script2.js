@@ -48,3 +48,13 @@ console.log('Skaičiai:');
 console.log(sk);
 console.log('Vidurkis: ' + suma/sk.length);
 
+//-----------------------------------------------------------
+//Sukurti du kintamuosius a = 5 bei b = 20; Nepasinaudojant trečiu kintamuoju, apkeisti šių dviejų kintamųjų reikšmes vietomis;
+
+ 
+console.log('Reikšmių sukeitimas vietomis ↓')
+let a = 5,
+    b = 20;
+console.log('a: ' + a + ', ' + 'b: ' + b);
+b = [a, a = b][0];
+console.log('a: ' + a + ', ' + 'b: ' + b);
