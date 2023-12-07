@@ -123,6 +123,18 @@ console.log("Map ↓");
 let masyvas2 = [6, 2, 9, 5, 12];
 console.log(masyvas2);
 
+// find - Gražins primą elementą kuris praėjo testą.
+const findArray = masyvas.find((num) => num > 8);
+
+// Gražins 9 nes jis yra pirmas elementas kuris yra didesnis už 8.
+console.log(findArray);
+
+// findIndex - Gražins pirmo elemento indeksą masyve kuris praeis testą.
+const findIndexArray = masyvas.findIndex((num) => num > 8);
+
+// Gražins 2 nes 9 yra 3 elementas masyve (antras indexas nes pradedama skaičiuoti nuo 0)
+console.log(findIndexArray);
+
 
 let modifikuotasMasyvas = masyvas2.map((value, index) => {
     console.log(`Indeksas: ${index}, reikšmė: ${value}`);
