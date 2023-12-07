@@ -65,7 +65,7 @@ console.log(arr5);
 console.log(average);
 
 
-//For of ciklas - skirtas atlikti operacijas su visais masyvo, objekto elementais:
+//For in ciklas - skirtas atlikti operacijas su visais masyvo, objekto elementais:
 //Grąžina einamojo masyvo elemento indekso reikšmę
 const arr6 = generateArrayOfRandomNumbers2(1,1000,30);
 console.log(arr6);
