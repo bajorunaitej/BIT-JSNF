@@ -93,3 +93,69 @@ console.log("-------3--------");
 for (let i = 70; i >=0; i--) {
     console.log(i);
 }
+
+//Pašalinti visus lyginius elementus
+
+const masyvas = [6, 2, 9, 5, 12];
+
+// let filteredValues = masyvas.filter((num) =>{
+//     //true
+//     //false
+//     // return num % 2 !== 0;
+
+//     return num > 7;
+// });
+//Trumpesnis užrašymas ↓
+// let filteredValues = masyvas.filter((num) => num > 7);
+let filteredValues = masyvas.filter(function(num) {return num === 2});
+
+//preaėję filtrą elementai lieka filteredValues masyve
+console.log(filteredValues);
+
+console.log(masyvas);
+
+//Masyvas po filtracijos lieka toks pat
+
+
+//Map atlieka operacijas su visais masyvo elementais ↓
+console.log("Map ↓");
+
+let masyvas2 = [6, 2, 9, 5, 12];
+console.log(masyvas2);
+
+
+let modifikuotasMasyvas = masyvas2.map((value, index) => {
+    console.log(`Indeksas: ${index}, reikšmė: ${value}`);
+    return value + index
+});
+console.log(modifikuotasMasyvas);
+
+//Reduce - grąžina rezultatą operacijos su visais elementais ↓
+console.log(masyvas2);
+let suma = masyvas2.reduce((total, value) => total + value);
+//Vidurkio apskaičiavimas pasinaudojant reduce ↓
+console.log(suma / masyvas2.length);
+
+//some
+//tikrinimas ar bent vienas iš masyvo elem. praeina patikrinimą
+let isThereNumberLargerThan12 = masyvas2.some((value) => value > 9);
+console.log(isThereNumberLargerThan12);
+
+
+//every
+//tikrina ar visi elem. iš masyvo praeina patikrinimą
+
+let isEveryNumberLargerThan1 = masyvas2.every((value) => value > 3);
+console.log(isEveryNumberLargerThan1);
+
+//sort
+
+masyvas2.sort(function(a, b) {
+    // jei grąžinama reikšmė:
+    // > 0 sort a after b, e.g.[b, a]
+    // < 0 sort a before b, e.g. [a, b]
+    // === 0 keep original order of a and b
+    return a - b;
+    });
+console.log(masyvas2);
+
