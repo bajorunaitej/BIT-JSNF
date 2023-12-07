@@ -1,0 +1,36 @@
+body {
+    background-color: rgba(38, 38, 146, 0.722);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 350px;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.29);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 8px;
+}
+
+input {
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0);
+    border-bottom: 1px dashed rgb(46, 41, 32);
+    padding: 10px 5px;
+    font-size: 1rem;
+}
+
+.btn {
+    padding: 8px 5px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    color: white;
+    background-color: blueviolet;
+}

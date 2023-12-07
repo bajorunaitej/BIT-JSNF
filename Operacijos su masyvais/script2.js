@@ -48,6 +48,10 @@ console.log('Skaičiai:');
 console.log(sk);
 console.log('Vidurkis: ' + suma/sk.length);
 
+// let suma1 = sk.reduce((total, value) => total + value);
+// //Vidurkio apskaičiavimas pasinaudojant reduce ↓
+// console.log(suma1 / sk.length);
+
 //-----------------------------------------------------------
 //Sukurti du kintamuosius a = 5 bei b = 20; Nepasinaudojant trečiu kintamuoju, apkeisti šių dviejų kintamųjų reikšmes vietomis;
 
