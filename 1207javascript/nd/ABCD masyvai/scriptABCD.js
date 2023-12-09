@@ -35,7 +35,7 @@ let pagalAbecele = raidziuMasyvas.sort();
 console.log(pagalAbecele);
 
 //--------------------------------------------------------------
-// Sugeneruokite 3 masyvus pagal 1 uždavinio sąlygą. Sudėkite masyvų reikšmes, sudėdami reikšmes pagal atitinkamus indeksus. Paskaičiuokite kiek unikalių (po vieną, nesikartojančių) reikšmių ir kiek unikalių kombinacijų gavote.
+// 3. Sugeneruokite 3 masyvus pagal 1 uždavinio sąlygą. Sudėkite masyvų reikšmes, sudėdami reikšmes pagal atitinkamus indeksus. Paskaičiuokite kiek unikalių (po vieną, nesikartojančių) reikšmių ir kiek unikalių kombinacijų gavote.
 console.log('3. Sugeneruoti trys masyvai, sudėtos masyvų reikšmės, reikšmės pagal atit. indeksus..')
 
 let A1, A2, A3;
@@ -95,7 +95,7 @@ for (let i = 0; i < bendrasMasyvas.length; i++) {
 console.log(`Nesikartojančios raidės: ${nesikartojancios}`);
 console.log(`Unikalios: ${unikalios}`);
 //-----------------------------------------------------------------------------------------
-// Sugeneruokite du masyvus, kurių reikšmės yra atsitiktiniai skaičiai nuo 100 iki 999. Masyvų ilgiai 100. Masyvų reikšmės turi būti unikalios savo masyve (t.y. neturi kartotis).
+// 4. Sugeneruokite du masyvus, kurių reikšmės yra atsitiktiniai skaičiai nuo 100 iki 999. Masyvų ilgiai 100. Masyvų reikšmės turi būti unikalios savo masyve (t.y. neturi kartotis).
 
 let first = [];
 let second = [];
@@ -104,6 +104,7 @@ for (let i = 0; i < 100; i++) {
     first.push(rand(100,999));
     second.push(rand(100,999));
 }
+console.log("4. uždavinys");
 console.log("Pirmas masyvas: ↓")
 console.log(first);
 console.log("Antras masyvas: ↓")
@@ -122,26 +123,42 @@ console.log(`Antras masyvas: ${uniqueSecond}`);
 
 
 //------------------------------------------------------------
-//Sugeneruokite masyvą, kuris būtų sudarytas iš reikšmių, kurios yra pirmame 3 uždavinio masyve, bet nėra antrame 3 uždavinio masyve.
-
+//5. Sugeneruokite masyvą, kuris būtų sudarytas iš reikšmių, kurios yra pirmame 3 uždavinio masyve, bet nėra antrame 3 uždavinio masyve.
+console.log("5. uždavinys");
 console.log("Masyvas iš pirmo raidžių masyvo, bet nėra trečiame masyve");
 
-// Function for finding elements 
-// which are there in a[] but not
-// in b[].
-function findMissing(a,b,n,m) {
-    for (let i = 0; i < n; i++)
-    {
-        let j;
-        for (j = 0; j < m; j++) {
-            if (a[i] == b[j])
-                break;
-        }
-        if (j == m) console.log(a[i] + " ");
-    }
+const setA = new Set(raidziuMasyvas1);
+const setB = new Set(raidziuMasyvas3);
+
+const inFirstButNotInThird = Array.from(setA).filter(x => !setB.has(x));
+
+console.log(inFirstButNotInThird);
+//------------------------------------------------------------
+console.log("5. uždavinys su 4 užd. masyvais");
+const set1 = new Set(first);
+const set2 = new Set(second);
+
+const inFirstButNotInSecond = Array.from(set1).filter(x => !set2.has(x));
+
+console.log(inFirstButNotInSecond);
+
+//------------------------------------------------------------
+// 6. Sugeneruokite masyvą iš elementų, kurie kartojasi abiejuose 4 uždavinio masyvuose.
+console.log("6. uždavinys");
+
+let both = first.filter(value => second.includes(value));
+console.log(both);
+
+//------------------------------------------------------------
+// 7. Sugeneruokite masyvą, kurio indeksus sudarytų pirmo 4 uždavinio masyvo reikšmės, o jo reikšmės būtų iš antrojo masyvo.
+
+const result = [];
+console.log("7. uždavinys");
+
+for (let i = 0; i < first.length; i++) {
+  const index = first[i];
+  if (index >= 0 && index < second.length) {
+    result.push(second[index])};
 }
 
-const n = raidziuMasyvas1.length;
-const m = raidziuMasyvas3.length;
-const inFirstButButInThird = findMissing(raidziuMasyvas1, raidziuMasyvas2, n, m);
-console.log(inFirstButButInThird);
+console.log(result);
