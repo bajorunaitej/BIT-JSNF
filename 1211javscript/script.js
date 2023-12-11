@@ -8,14 +8,14 @@
 7. Išrūšiuoti masyvą didėjančia tvarka; + 
 8. Išrūšiuoti masyvą mažėjančia tvarka; + 
 9. Atrasti didžiausią bei mažiausią reikšmes skaičių masyve. + 
-10. Apskaičiuoti visų skaičių vidurkį;
+10. Apskaičiuoti visų skaičių vidurkį; + 
 
 1.Sukurti funkciją, kuri generuoja x kiekį atsitiktinių string'ų, sudarytą iš strLength simbolių. Generavimas nuo A iki Z + 
 2. Patikrinti, ar String masyve egzistuoja reikšmių, prasidedančių bei užsibaigiančių raide A. Jei taip - pranešti kokia šio string pozicija masyve bei šio elemento reikšmė; + 
 3. Išfiltruokite visas masyvo reikšmes, pasidedančias raidėmis: 'X', 'M', 'K' + 
-4. Išfiltruokite visas masyvo reikšmes, kurių viduriniai du simboliai yra vienodi. Sukurkite išfiltruotų reikšmių masyvą;
-5. Jei išfiltruotų reikšmių masyve reikšmių mažiau nei 3 - rikiuoti didėjančia, kitu atveju - rikiuoti didėjančia tvarka.
-6. Kiekvienai string'ų masyvo reikšmei pridėti po dar vieną atsitiktinę raidę gale;
+4. Išfiltruokite visas masyvo reikšmes, kurių viduriniai du simboliai yra vienodi. Sukurkite išfiltruotų reikšmių masyvą; + 
+5. Jei išfiltruotų reikšmių masyve reikšmių mažiau nei 3 - rikiuoti didėjančia, kitu atveju - rikiuoti didėjančia tvarka. + 
+6. Kiekvienai string'ų masyvo reikšmei pridėti po dar vieną atsitiktinę raidę gale; + 
 7. Kiekvieną stringų masyvo elementų reikšmę išrikiuoti pagal abecelę didėjančia tvarka
 8. Sukurkite naują masyvą atsitiktinėms Sring'ų reikšmėms generuoti. Generuokite atsitiktines String reikšmes iš 4 simbolių tol, kol jame bus žodis XMAS;
 9. Išrikiuokite masyvą priešinga nei abecelės tvarka
@@ -163,3 +163,53 @@ console.log('Prasideda raide M: ');
 console.log(startsWithSpecificLetter(raidziuMasyvas, 'M'));
 console.log('Prasideda raide K: ');
 console.log(startsWithSpecificLetter(raidziuMasyvas, 'K'));
+
+//4 uzd
+console.log('4 užd');
+
+//Išfiltruokite visas masyvo reikšmes, kurių viduriniai du simboliai yra vienodi. Sukurkite išfiltruotų reikšmių masyvą;
+
+const filteredArray = [];
+for (let i = 0; i < raidziuMasyvas.length; i++) {
+    if(raidziuMasyvas[i].charAt(1) === raidziuMasyvas[i].charAt(2)) filteredArray.push(raidziuMasyvas[i]);
+}
+console.log(filteredArray);
+
+//5 uzd
+console.log('5 užd');
+
+//Jei išfiltruotų reikšmių masyve reikšmių mažiau nei 3 - rikiuoti didėjančia, kitu atveju - rikiuoti mažėjančia tvarka.
+let count = 0;
+for(let value of filteredArray) {
+    count += value;
+    if(count < 3) filteredArray.sort();
+    else filteredArray.sort().reverse();
+}
+console.log(filteredArray);
+
+//6 uzd
+console.log('6 užd');
+//Kiekvienai string'ų masyvo reikšmei pridėti po dar vieną atsitiktinę raidę gale;
+const additionaLetter = [];
+for (let i = 0; i < raidziuMasyvas.length; i++) {
+    additionaLetter.push(raidziuMasyvas[i].concat(String.fromCharCode(rand(65,90))));
+}
+console.log(additionaLetter);
+
+//7 uzd
+console.log('7 užd');
+//Kiekvieną stringų masyvo elementų reikšmę išrikiuoti pagal abėcėlę didėjančia tvarka
+
+// for (let i = 0; i < additionaLetter.length; i++) {
+//     additionaLetter[i].sort();
+// }
+// console.log(additionaLetter);
+
+//8 uzd
+console.log('8 užd');
+// const stringXMAS = [];
+// for (let i = 0; i < 100; i++) {
+//     stringXMAS.push(generateString(4));
+//     break;
+// }
+// console.log(stringXMAS);
