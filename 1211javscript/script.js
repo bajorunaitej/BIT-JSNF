@@ -10,9 +10,9 @@
 9. Atrasti didžiausią bei mažiausią reikšmes skaičių masyve. + 
 10. Apskaičiuoti visų skaičių vidurkį;
 
-1.Sukurti funkciją, kuri generuoja x kiekį atsitiktinių string'ų, sudarytą iš strLength simbolių. Generavimas nuo A iki Z
-2. Patikrinti, ar String masyve egzistuoja reikšmių, prasidedančių bei užsibaigiančių raide A. Jei taip - pranešti kokia šio string pozicija masyve bei šio elemento reikšmė;
-3. Išfiltruokite visas masyvo reikšmes, pasidedančias raidėmis: 'X', 'M', 'K'
+1.Sukurti funkciją, kuri generuoja x kiekį atsitiktinių string'ų, sudarytą iš strLength simbolių. Generavimas nuo A iki Z + 
+2. Patikrinti, ar String masyve egzistuoja reikšmių, prasidedančių bei užsibaigiančių raide A. Jei taip - pranešti kokia šio string pozicija masyve bei šio elemento reikšmė; + 
+3. Išfiltruokite visas masyvo reikšmes, pasidedančias raidėmis: 'X', 'M', 'K' + 
 4. Išfiltruokite visas masyvo reikšmes, kurių viduriniai du simboliai yra vienodi. Sukurkite išfiltruotų reikšmių masyvą;
 5. Jei išfiltruotų reikšmių masyve reikšmių mažiau nei 3 - rikiuoti didėjančia, kitu atveju - rikiuoti didėjančia tvarka.
 6. Kiekvienai string'ų masyvo reikšmei pridėti po dar vieną atsitiktinę raidę gale;
@@ -25,13 +25,19 @@
 function rand(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
+
+console.log('Pirma dalis: ↓');
 //1uzd
+console.log('1 užd');
+
 const generateRandomNumbersArray = (Length, min, max) => {
     const arr = [];
     for (let i = 0; i < Length; i++) arr.push(rand(min, max));
     return arr;
 }
 //2uzd
+console.log('2 užd');
+
 const generateString = (Length) => {
     let str = '';
     for (let i = 0; i < Length; i++) {
@@ -47,22 +53,31 @@ for (let i = 0; i < 100; i++) {
 console.log(stringArray);
 
 //3uzd
+console.log('3 užd');
+
 stringArray.sort();
 console.log(stringArray);
 
 //4uzd
+console.log('4 užd');
+
 stringArray.sort().reverse();
 console.log(stringArray);
 
 //5uzd
+console.log('5 užd');
+
 const numbersArray = generateRandomNumbersArray(100, -100, 200);
 console.log(numbersArray);
 
 //6uzd
+console.log('6 užd');
+
 if(numbersArray.includes(68)) console.log('68 yra masyve');
 else console.log('68 nėra masyve');
 
 //7uzd - išrūšiuoti masyvą didėjančia tvarka
+console.log('7 užd');
 
 numbersArray.sort((num1, num2) => {
     return num1 - num2
@@ -70,11 +85,12 @@ numbersArray.sort((num1, num2) => {
 console.log(numbersArray);
 
 //8uzd
-
+console.log('8 užd');
 numbersArray.reverse();
 console.log(numbersArray);
 
 //9uzd
+console.log('9 užd');
 
 // let max = -1000, min = 1000;
 // for (let value of numbersArray) {
@@ -93,3 +109,57 @@ let min = Math.min(...numbersArray);
 let max = Math.max(...numbersArray);
 console.log(min);
 console.log(max);
+
+//10 uzd
+console.log('10 užd');
+let sum = 0;
+for (let i = 0; i < numbersArray.length; i++) {
+    sum += numbersArray[i];
+}
+console.log(`Vidurkis: ${sum/numbersArray.length}`);
+
+//II dalis
+//1 uzd
+console.log('II dalis ↓');
+console.log('1 užd');
+
+const generateRandomString = (Length) => {
+    let str = '';
+    for (let i = 0; i < Length; i++) {
+        str += String.fromCharCode(rand(65,90));
+    }
+    return str;
+}
+const raidziuMasyvas = [];
+for (let i = 0; i < 100; i++) {
+    raidziuMasyvas.push(generateRandomString(4));
+}
+console.log(raidziuMasyvas);
+
+//2 uzd
+console.log('2 užd');
+
+for (let i = 0; i < raidziuMasyvas.length; i++) {
+    if(raidziuMasyvas[i].startsWith('A') && raidziuMasyvas[i].endsWith('A')) console.log(`Indeksas: ${raidziuMasyvas.indexOf(raidziuMasyvas[i])}; reikšmė: ${raidziuMasyvas[i]}`);
+}
+//3 uzd
+console.log('3 užd');
+
+const startsWithX = [];
+//raidziuMasyvas.filter(function(letter) {return letter === 'X'});
+// for(let index in raidziuMasyvas) { 
+//     if(raidziuMasyvas[index].startsWith('X')) startsWithX += raidziuMasyvas[index];
+// }
+const startsWithSpecificLetter = (array, letter) => {
+    arr = [];
+    for (let i = 0; i < array.length; i++) {
+        if(array[i].startsWith(letter)) arr.push(array[i]);
+    }
+    return arr;
+}
+console.log('Prasideda raide X: ');
+console.log(startsWithSpecificLetter(raidziuMasyvas, 'X'));
+console.log('Prasideda raide M: ');
+console.log(startsWithSpecificLetter(raidziuMasyvas, 'M'));
+console.log('Prasideda raide K: ');
+console.log(startsWithSpecificLetter(raidziuMasyvas, 'K'));
