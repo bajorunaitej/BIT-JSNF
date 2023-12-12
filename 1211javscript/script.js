@@ -16,7 +16,7 @@
 4. Išfiltruokite visas masyvo reikšmes, kurių viduriniai du simboliai yra vienodi. Sukurkite išfiltruotų reikšmių masyvą; + 
 5. Jei išfiltruotų reikšmių masyve reikšmių mažiau nei 3 - rikiuoti didėjančia, kitu atveju - rikiuoti didėjančia tvarka. + 
 6. Kiekvienai string'ų masyvo reikšmei pridėti po dar vieną atsitiktinę raidę gale; + 
-7. Kiekvieną stringų masyvo elementų reikšmę išrikiuoti pagal abecelę didėjančia tvarka
+7. Kiekvieną stringų masyvo elementų reikšmę išrikiuoti pagal abecelę didėjančia tvarka +
 8. Sukurkite naują masyvą atsitiktinėms Sring'ų reikšmėms generuoti. Generuokite atsitiktines String reikšmes iš 4 simbolių tol, kol jame bus žodis XMAS;
 9. Išrikiuokite masyvą priešinga nei abecelės tvarka
 10. Atraskite, kurioje masyvo pozicijoje randasi žodis 'XMAS'
@@ -200,6 +200,9 @@ console.log(additionaLetter);
 console.log('7 užd');
 //Kiekvieną stringų masyvo elementų reikšmę išrikiuoti pagal abėcėlę didėjančia tvarka
 
+
+let sortedArray = additionaLetter.map(value => value.split('').sort().join(''));
+console.log(sortedArray);
 // for (let i = 0; i < additionaLetter.length; i++) {
 //     additionaLetter[i].sort();
 // }
