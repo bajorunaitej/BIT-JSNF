@@ -360,3 +360,18 @@ const products = [
       thumbnail: "https://i.dummyjson.com/data/products/30/thumbnail.jpg"
     }
   ]
+
+  const starTotal = 5;
+  for(let rating of products) {
+    const starPercentage = (products.rating / starTotal) * 100;
+    
+    const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
+
+    const starsInnerElement = document.querySelector(`.rating-${products.rating} .stars-inner`);
+
+    if (starsInnerElement) {
+      starsInnerElement.style.width = starPercentageRounded;
+  }
+
+    // document.querySelector(`${rating}.stars-inner`).computedStyleMap.width = starPercentageRounded;
+  }

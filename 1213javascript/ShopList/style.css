@@ -1,0 +1,48 @@
+body {
+}
+
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  margin:10px 20px 10px 10px;
+}
+.container img {
+  width: 12.5rem;
+}
+.product {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.price {
+  font-size: x-large;
+}
+.addToCart {
+  background-color: rgb(248, 174, 14);
+  font-size: small;
+  width: 10rem;
+  height: 2rem;
+  border: none;
+  border-radius: 2px;
+}
+
+.stars-outer {
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+}
+.stars-outer::before {
+  content: "\f006 \f006 \f006 \f006 \f006";
+}
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width:0;
+}
+.stars-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  color: #f8ce0b;
+}
