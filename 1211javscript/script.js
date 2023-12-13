@@ -17,8 +17,8 @@
 5. Jei išfiltruotų reikšmių masyve reikšmių mažiau nei 3 - rikiuoti didėjančia, kitu atveju - rikiuoti didėjančia tvarka. + 
 6. Kiekvienai string'ų masyvo reikšmei pridėti po dar vieną atsitiktinę raidę gale; + 
 7. Kiekvieną stringų masyvo elementų reikšmę išrikiuoti pagal abecelę didėjančia tvarka +
-8. Sukurkite naują masyvą atsitiktinėms Sring'ų reikšmėms generuoti. Generuokite atsitiktines String reikšmes iš 4 simbolių tol, kol jame bus žodis XMAS;
-9. Išrikiuokite masyvą priešinga nei abecelės tvarka
+8. Sukurkite naują masyvą atsitiktinėms Sring'ų reikšmėms generuoti. Generuokite atsitiktines String reikšmes iš 4 simbolių tol, kol jame bus žodis XMAS; +
+9. Išrikiuokite masyvą priešinga nei abecelės tvarka + 
 10. Atraskite, kurioje masyvo pozicijoje randasi žodis 'XMAS'
 
 */
@@ -209,10 +209,38 @@ console.log(sortedArray);
 // console.log(additionaLetter);
 
 //8 uzd
+//Sukurkite naują masyvą atsitiktinėms Sring'ų reikšmėms generuoti. Generuokite atsitiktines String reikšmes iš 4 simbolių tol, kol jame bus žodis XMAS;
 console.log('8 užd');
-// const stringXMAS = [];
-// for (let i = 0; i < 100; i++) {
-//     stringXMAS.push(generateString(4));
-//     break;
-// }
-// console.log(stringXMAS);
+
+let amountOfTries = 0;
+let XMASarray = [];
+
+while(true) {
+    const randomStringXMAS = generateString(4);
+
+    if(randomStringXMAS === 'XMAS') {
+        XMASarray.push(randomStringXMAS);
+        break;
+    }
+    else {
+        XMASarray.push(randomStringXMAS);
+        amountOfTries++;
+    }
+}
+
+console.log(amountOfTries);
+console.log(XMASarray);
+
+
+//9 uzd
+//Išrikiuokite masyvą priešinga nei abecelės tvarka
+console.log('9 užd');
+
+let sortedXMASarray = XMASarray.sort().reverse();
+console.log(sortedXMASarray);
+
+//10 uzd
+//Atraskite, kurioje masyvo pozicijoje randasi žodis 'XMAS'
+console.log('10 užd');
+
+console.log(XMASarray.indexOf('XMAS'));
