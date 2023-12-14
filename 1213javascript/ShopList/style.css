@@ -6,12 +6,10 @@
 .container {
   display: flex;
   justify-content: space-evenly;
-  margin:10px 200px 10px;
+  margin: 5px auto;
   border-top: 2px solid rgba(128, 128, 128, 0.555);
-  border-width: 100%;
   padding-top: 10px;
   padding-bottom: 5px;
-  gap: 15px;
 }
 .container img {
   width: 15rem;
@@ -23,11 +21,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 300px;
-}
-.rating {
-  font-size: 24px;
-  color: #FFD700; /* Golden yellow color for stars */
+  width: 400px;
 }
 .description {
   word-wrap: break-word;
@@ -50,4 +44,25 @@ del {
   height: 2rem;
   border: none;
   border-radius: 2px;
+}
+
+.stars-outer {
+  position: relative;
+  display: inline-block;
+}
+
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+.stars-outer::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: #ccc;
 }

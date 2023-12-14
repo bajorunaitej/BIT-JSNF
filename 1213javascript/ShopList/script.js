@@ -361,21 +361,6 @@ const products = [
     }
   ]
 
-  // const starTotal = 5;
-  // for(let rating of products) {
-  //   const starPercentage = (products.rating / starTotal) * 100;
-    
-  //   const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
-
-  //   const starsInnerElement = document.querySelector(`.rating-${products.rating} .stars-inner`);
-
-  //   if (starsInnerElement) {
-  //     starsInnerElement.style.width = starPercentageRounded;
-  // }
-
-  //   // document.querySelector(`${rating}.stars-inner`).computedStyleMap.width = starPercentageRounded;
-  // }
-
 const dynamicDataElement = document.getElementById('dynamic-data'),
   thumbnailInputElement = document.getElementById('thumbnail'),
   titleInputElement = document.getElementById('title'),
@@ -384,17 +369,21 @@ const dynamicDataElement = document.getElementById('dynamic-data'),
   priceInputElement = document.getElementById('price'),
   newPriceInputElement = document.getElementById('newPrice');
 
-// const getStarsHTML = (rating) => {
-//   const fullStars = Math.floor(rating);
-//   const halfStar = rating % 1 !== 0 ? '<i class="fas fa-star-half-alt"></i>' : '';
-//   const emptyStars = 5 - fullStars - (halfStar !== '' ? 1 : 0);
 
-//   const starHTML = '<i class="fas fa-star"></i>';
-//   const fullStarsHTML = starHTML.repeat(fullStars);
-//   const emptyStarsHTML = starHTML.repeat(emptyStars);
-
-//   return `${fullStarsHTML}${halfStar}${emptyStarsHTML}`;
-// };
+const starsTotal = 5;
+document.addEventListener('DOMContentLoaded', getRating);
+//Get ratings
+function getRating() {
+  for(let product of products) {
+    //Get percentage
+    const starPercentage = (product.rating / starsTotal) * 100;
+    //Round
+    const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
+    
+    //Set width of stars inner to percentage
+    document.querySelector(`.${product.rating} .stars-inner`).style.width = starPercentageRounded;
+  }
+}
 
 const getTableContents = () => {
   let dynamicHTML = '';
