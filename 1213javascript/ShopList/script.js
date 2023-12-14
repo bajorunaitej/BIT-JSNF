@@ -361,17 +361,59 @@ const products = [
     }
   ]
 
-  const starTotal = 5;
-  for(let rating of products) {
-    const starPercentage = (products.rating / starTotal) * 100;
+  // const starTotal = 5;
+  // for(let rating of products) {
+  //   const starPercentage = (products.rating / starTotal) * 100;
     
-    const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
+  //   const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
 
-    const starsInnerElement = document.querySelector(`.rating-${products.rating} .stars-inner`);
+  //   const starsInnerElement = document.querySelector(`.rating-${products.rating} .stars-inner`);
 
-    if (starsInnerElement) {
-      starsInnerElement.style.width = starPercentageRounded;
+  //   if (starsInnerElement) {
+  //     starsInnerElement.style.width = starPercentageRounded;
+  // }
+
+  //   // document.querySelector(`${rating}.stars-inner`).computedStyleMap.width = starPercentageRounded;
+  // }
+
+const dynamicDataElement = document.getElementById('dynamic-data'),
+  thumbnailInputElement = document.getElementById('thumbnail'),
+  titleInputElement = document.getElementById('title'),
+  ratingInputElement = document.getElementById('rating'),
+  descriptionInputElement = document.getElementById('description'),
+  priceInputElement = document.getElementById('price'),
+  newPriceInputElement = document.getElementById('newPrice');
+
+// const getStarsHTML = (rating) => {
+//   const fullStars = Math.floor(rating);
+//   const halfStar = rating % 1 !== 0 ? '<i class="fas fa-star-half-alt"></i>' : '';
+//   const emptyStars = 5 - fullStars - (halfStar !== '' ? 1 : 0);
+
+//   const starHTML = '<i class="fas fa-star"></i>';
+//   const fullStarsHTML = starHTML.repeat(fullStars);
+//   const emptyStarsHTML = starHTML.repeat(emptyStars);
+
+//   return `${fullStarsHTML}${halfStar}${emptyStarsHTML}`;
+// };
+
+const getTableContents = () => {
+  let dynamicHTML = '';
+  for(const product of products) {
+    dynamicHTML += `<div class="container">
+      <img src="${product.thumbnail}" alt="${product.thumbnail}" id="image">
+      <div class="product">
+          <h3 id="title">${product.title}</h3>
+          <div class="stars-outer">
+              <div class="stars-inner" id="rating">${product.rating}</div>
+          </div>
+          <p  class="description" id="description">${product.description}</p>
+      </div>
+      <div class="fromPriceToCart">
+          <p class="price" id="newPrice">$${(product.price*((100-product.discountPercentage)/100)).toFixed(2)}<sup><del id="price"> $ ${product.price}</del></sup></p>
+          <button class="addToCart" on>Add to Cart</button>
+      </div>
+    </div>`;
   }
-
-    // document.querySelector(`${rating}.stars-inner`).computedStyleMap.width = starPercentageRounded;
-  }
+  dynamicDataElement.innerHTML = dynamicHTML;
+};
+getTableContents();
