@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change event</title>
+    <style>
+        input {
+            padding: .5rem 1.25rem;
+            font-size: small;
+            border-radius: 5px;
+
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="value" placeholder="įveskite reikšmę">
+
+    <script>
+        const inputElement = document.querySelector('#value');
+
+        inputElement.addEventListener('change', (event)=>{
+            console.log('Pildymas baigtas')
+        });
+
+        inputElement.addEventListener('focus', (event)=>{
+            console.log('Laukelis aktyvuotas');
+            console.log(event);
+        });
+
+        inputElement.addEventListener('focusout', (event)=>{
+            console.log('Laukelis deaktyvuotas');
+            console.log(event);
+        });
+
+        const body = document.querySelector('body');
+
+        body.addEventListener('load', ()=>{
+            console.log('Psl užsikrovė');
+        })
+
+        // inputElement.onchange = () => {}
+    </script>
+
+</body>
+</html>
