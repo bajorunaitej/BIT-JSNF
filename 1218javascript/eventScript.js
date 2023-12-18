@@ -1,40 +1,41 @@
-// document.querySelector('p').addEventListener('click', () => {
-//     console.log("go away!")
+// document.querySelector("p").addEventListener("click", () => {
+// 	console.log("uuu dont touch me there");
 // });
 
-// document.querySelector('p').onclick = () => {
-//     console.log("go away!")
+// document.querySelector("p").onclick = () => {
+// 	console.log("uuu dont touch me there");
 // };
 
-const names = [
-    'Juste', 'Rasa', 'Antanas', 'Jolanta', 'Domantas'
-];
+const names = ["Justinas", "Asta", "Rasa", "Jonas", "Antanas"];
 const nameInputElement = document.querySelector("#name");
 
+// document.querySelector('#list').value='';
+
 function showValues(list) {
-    let dynamicHTML = "";
-    for(const name of list) {
-        dynamicHTML.innerHTML += `<li>${name}</li>`;
-    }
-    document.querySelector('#list').innerHTML = dynamicHTML;
+  let dynamicHTML = "";
+  for (const name of list) {
+    dynamicHTML += `<li>${name}</li>`;
+  }
+  document.querySelector("#list").innerHTML = dynamicHTML;
 }
+
 showValues(names);
 
+nameInputElement.addEventListener("keyup", (event) => {
+  // 1. budas kaip gauti inputo reiksme
+  // const inputValue = event.target.value;
+  // 2. budas..
+  const inputValue = nameInputElement.value;
 
-nameInputElement.addEventListener('keyup', (event) =>{
+  const filteredArray = names.filter((value) =>
+    value.toLowerCase().includes(inputValue.toLowerCase())
+  );
 
-    //1. budas kaip gauti inputo reikšme
-    // cont inputValue = event.target.value;
-    //2. būdas..
-    const inputValue = nameInputElement.value;
+  showValues(filteredArray);
 
-    const filteredArray = names.filter((val)=>val.includes(inputValue));
-    
-
+  console.log(filteredArray);
 });
-// nameInputElement.addEventListener('keydown', (event) =>{
-//     console.log('mygtukas buvo prispaustas')
 
+// nameInputElement.addEventListener("keydown", (event) => {
+// 	console.log("Mygtukas buvo prispaustas");
 // });
-
-
