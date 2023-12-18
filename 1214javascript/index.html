@@ -16,12 +16,12 @@
                 </div>
                 <div class="col-4 mt-2">
                     <label for="price">Kaina: </label>
-                    <input type="text" id="price" name="price" class="form-control">
+                    <input type="number" id="price" name="price" class="form-control">
                 </div>
                 <!-- name -  -->
                 <div class="col-4 mt-2">
                     <label for="stock">Kiekis: </label>
-                    <input type="text" id="stock" name="stock" class="form-control">
+                    <input type="number" id="stock" name="stock" class="form-control">
                 </div>
                 <div class="col-4 mt-2">
                     <label for="brand">Prekinis ženklas: </label>
@@ -42,6 +42,42 @@
                     <button class="btn btn-primary mt-4" id="submit">submit</button>
                 </div>
             </div>
+        </form>
+        <hr>
+        <h3>Filtras ↓</h3>
+        <form action="">
+            <div class="row mb-5">
+                <div class="col-4 mt-2">
+                    <label for="titleF">Pavadinimas</label>
+                    <input type="text" id="titleF" name="titleF" class="form-control">
+                </div>
+                <div class="col-4 mt-2">
+                    <label for="priceF">Kaina: </label>
+                    <input type="number" id="priceF" name="priceF" class="form-control">
+                </div>
+                <!-- name -  -->
+                <div class="col-4 mt-2">
+                    <label for="stockF">Kiekis: </label>
+                    <input type="number" id="stockF" name="stockF" class="form-control">
+                </div>
+                <div class="col-4 mt-2">
+                    <label for="brandF">Prekinis ženklas: </label>
+                    <input type="text" id="brandF" name="brandF" class="form-control">
+                </div>
+                <div class="col-4">
+                    <label for="categoryF">Kategorija: </label>
+                    <select type="text" id="categoryF" name="categoryF" class="form-control form-select">
+                        <option>smartphones</option>
+                        <option>laptops</option>
+                        <option>fragrances</option>
+                        <option>skincare</option>
+                        <option>groceries</option>
+                        <option>home - decoration</option>
+                    </select>
+                </div>
+            </div>
+            
+
         </form>
 
         <table class="table table-striped">

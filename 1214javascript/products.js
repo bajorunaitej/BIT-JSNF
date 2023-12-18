@@ -241,7 +241,7 @@ const products =  [
     },
     {
       id: 21,
-      title: "- Daal Masoor 500 grams",
+      title: "Daal Masoor 500 grams",
       description: "Fine quality Branded Product Keep in a cool and dry place",
       price: 20,
       discountPercentage: 4.81,
@@ -379,6 +379,34 @@ const dynamicDataElement = document.getElementById('dynamic-data'),
   categoryInputElement = document.getElementById('category'),
   submitButtonElement = document.getElementById('submit');
 
+const filteredTitleInputElement = document.getElementById('titleF'),
+  filteredPriceInputElement = document.getElementById('priceF'),
+  filteredStockInputElement = document.getElementById('stockF'),
+  filtereBrandInputElement = document.getElementById('brandF'),
+  filteredCategoryInputElement = document.getElementById('categoryF');
+
+
+filteredTitleInputElement.addEventListener('keyup', (event) => {
+  let value = $(this).val();
+  console.log('Value: ', value);
+  const data = filteredTitle(value, products);
+  getTableContents();
+});
+
+function searchTable(value, data) {
+  const filteredTitle = [];
+
+  for (const product of products) {
+    const value = value.toLowerCase();
+    const titleInput = product.title.toLowerCase();
+    
+    if(titleInput.includes(value)) {
+      filteredTitle.push(product.title)
+    }
+  }
+  return filteredTitle;
+}
+
 //Automatinis funkcijos iškvietimas apskliaudus f-ją ir už jos padėjus skliaustelius
 const getTableContents = () => {
   let dynamicHTML = '';
@@ -432,7 +460,6 @@ const updateProduct = (e) => {
   products[currentProduct].brand = brandInputElement.value; 
   products[currentProduct].category = categoryInputElement.value; 
   getTableContents();
-
 
   currentProduct = undefined;
   editMode = false;
