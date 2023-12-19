@@ -366,15 +366,17 @@ function generateStars(rating){
     const starHalf = `<i class="bi bi-star-half"></i>`,
         fullStar = `<i class="bi bi-star-fill"></i>`,
         emptyStar = `<i class="bi bi-star"></i>`;
+
     let dynamicHTML = '';
-    const countOfFullStars = math.floor(rating),//pilnų stars kiekis
+
+    const countOfFullStars = Math.floor(rating),//pilnų stars kiekis
         halfStarShouldExist = (rating - countOfFullStars) >= 0.5, //true arba false
         emptyStarCount = halfStarShouldExist 
         ? 4-countOfFullStars 
         : 5-countOfFullStars;
-    for (let i = 0; i < countOfFullStars.length; i++) dynamicHTML += fullStar;
+    for (let i = 0; i < countOfFullStars; i++) dynamicHTML += fullStar;
     if(halfStarShouldExist) dynamicHTML += starHalf;
-    for (let i = 0; i < emptyStarCount.length; i++) dynamicHTML += emptyStar;
+    for (let i = 0; i < emptyStarCount; i++) dynamicHTML += emptyStar;
 
     return dynamicHTML;
 }
@@ -387,7 +389,8 @@ function showProducts() {
         <div class="product">
             <div class="productImage">
                 <span class="discount">-${Math.round(product.discountPercentage)}</span>
-                <img src="${product.thumbnail}" alt="Product image"
+                <img src="${product.thumbnail}" 
+                alt="Product image"
                 class="productImg">
             </div>
             <div class="productDetails">
@@ -398,7 +401,8 @@ function showProducts() {
                 <p class="productDescription">${product.description}</p>
             </div>
             <div class="productPrice">
-                <div class="price">$${(product.price*((100-product.discountPercentage)/100)).toFixed(2)}<sup class="olderPrice">$${product.price.toFixed(2)}</sup></div>
+                <div class="price">$${(product.price*((100-product.discountPercentage)/100)).toFixed(2)}<sup class="olderPrice">$${product.price.toFixed(2)}</sup>
+                </div>
                 <button class="addToCart">Add to cart</button>
             </div>
         </div>`
