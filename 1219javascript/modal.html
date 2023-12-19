@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .modalBackground {
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            background-color: rgba(0, 0, 0, .3);
+            display: flex;
+            position: fixed;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal {
+            background-color: white;
+            width: 50%;
+            height: 50%;
+            padding: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="modalBackground">
+        <div class="modal">
+            <div class="buttons">
+                <h3>Very interesting content</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eius iusto repellat officia veritatis nostrum necessitatibus, minima, cumque laboriosam id voluptatem ad aliquid blanditiis iste, enim modi asperiores eos. Nesciunt obcaecati neque, nisi quasi sit, commodi reprehenderit omnis aut ut ab assumenda esse dolorem amet magnam! Ex nisi distinctio vitae voluptas, culpa beatae, et qui laboriosam quibusdam natus a, expedita dolor. Quibusdam perspiciatis adipisci culpa architecto, dolorem consequatur nobis obcaecati quis quisquam accusantium neque. Nulla aliquam ea quas quod inventore nihil asperiores in neque veniam. Accusantium minima voluptas quasi debitis sequi consequuntur deserunt omnis nihil recusandae blanditiis sed, explicabo magni.</p>
+                <hr>
+                <button onclick="closeModal()">close</button>
+        </div>
+    </div>
+
+    </div>
+    <div class="container">
+        <h3>Title</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo porro similique incidunt vel sit optio officiis asperiores accusamus voluptatem explicabo suscipit eum quae, pariatur possimus hic cum amet quasi natus eius voluptatum. Tenetur, voluptates dolorum quo, ipsam sequi placeat odio, blanditiis neque sapiente deleniti nobis a modi quidem ex ullam nulla possimus! Dolores explicabo eligendi exercitationem doloribus? Accusamus velit eaque ut nemo nostrum est cumque vero. Ad, corrupti. Dignissimos quibusdam harum possimus reprehenderit neque iste, laborum iure, nesciunt, ab laudantium vero? Tempora fuga illo rem. Earum expedita, laudantium soluta dolorum eveniet eaque quam dicta tenetur at maxime a ipsa quas?</p>
+        <hr>
+        <h3>Title</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo porro similique incidunt vel sit optio officiis asperiores accusamus voluptatem explicabo suscipit eum quae, pariatur possimus hic cum amet quasi natus eius voluptatum. Tenetur, voluptates dolorum quo, ipsam sequi placeat odio, blanditiis neque sapiente deleniti nobis a modi quidem ex ullam nulla possimus! Dolores explicabo eligendi exercitationem doloribus? Accusamus velit eaque ut nemo nostrum est cumque vero. Ad, corrupti. Dignissimos quibusdam harum possimus reprehenderit neque iste, laborum iure, nesciunt, ab laudantium vero? Tempora fuga illo rem. Earum expedita, laudantium soluta dolorum eveniet eaque quam dicta tenetur at maxime a ipsa quas?</p>
+        <button onclick="openModal()">Open modal</button>
+        <hr>
+    </div>
+    <script>
+        const modalBackground = document.querySelector('.modalBackground');
+        const modal = document.querySelector('.modal');
+        function openModal() {
+            modalBackground.style.visibility = "visible";
+
+        }
+
+        function closeModal() {
+            modalBackground.style.visibility = 'hidden';
+        }
+
+        modalBackground.onclick = (event) => {
+            event.stopPropagation();
+            closeModal();
+            console.log()
+
+        }
+
+        modal.onclick = () => {
+            console.log('clicked on modal');
+        }
+    </script>
+</body>
+</html>

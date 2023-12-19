@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=DM+Sans:opsz,wght@9..40,700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
+    <link rel="icon" href="../shopping-list.png">
+    <style>
+        body {
+            font-family: "Roboto", sans-serif;;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .product {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+
+        }
+        .productImage {
+            width: 20%;
+        }
+        .productImg {
+            width: 20%;
+        }
+        .productDetails {
+            width: 50%;
+        }
+
+        .productPrice {
+            width: 20%;
+        }
+
+        .stars {
+            color: rgb(230, 196, 8);
+        }
+
+        .productTitle {
+            margin: 0;
+            font-size: small;
+            color: rgb(37, 116, 219);
+        }
+        .productDescription {
+            margin: 1rem 0;
+            font-size: small;
+        }
+        .price {
+            color: rgb(117, 22, 22);
+        }
+        .olderPrice {
+            color: rgb(131, 126, 126);
+            text-decoration: line-through;
+            margin-left: .5rem;
+        }
+        .addToCart {
+            background-color: rgb(230, 171, 8);
+            border: none;
+            padding: .5rem 1.25rem;
+            margin-top: 1rem;
+            border-radius: 3px;
+            width: 100%;
+            cursor: pointer;
+        }
+        .addToCart:hover {
+            background-color: rgb(185, 143, 26);
+
+        }
+        .discount {
+            background-color: red;
+            color: white;
+            padding: 2px 4px;
+            font-size: small;
+            position: relative;
+            top: 20px;
+            left: 80%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <hr>
+        <div class="product">
+            <div class="productImage">
+                <span class="discount">-17 %</span>
+                <img src="https://i.dummyjson.com/data/products/1/thumbnail.jpg" alt="Product image"
+                class="productImg">
+            </div>
+            <div class="productDetails">
+                <h3 class="productTitle">Samsung Universe 9</h3>
+                <span class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                </span>
+                <p class="productDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque placeat officia suscipit dolore alias tenetur hic nobis natus at repudiandae.</p>
+            </div>
+            <div class="productPrice">
+                <div class="price">$250.00 <sup class="olderPrice">$300.00</sup></div>
+                <button class="addToCart">Add to cart</button>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
