@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindromas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgba(9, 112, 172, 0.438);
+        }
+
+        .container {
+            width: 18rem;
+            height: 10rem;
+            background-color: rgba(240, 255, 255, 0.404);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 10px;
+            box-shadow: 10px 10px 5px 0 rgba(1, 14, 14, 0.404);
+            -webkit-box-shadow: 10px 10px 5px 0 rgba(1, 14, 14, 0.404);
+            -moz-box-shadow: 10px 10px 5px 0 rgba(1, 14, 14, 0.404);
+        }
+
+        input {
+            border: none;
+            border-bottom: 2px solid orange;
+            padding: 5px;
+            font-size: 1rem;
+            background-color: #00000000;
+        }
+
+        .btn {
+            padding:10px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            background-color: purple;
+        }
+
+        .result {
+            margin-top: 1.5rem;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <div class="inputBtn">
+            <input type="text" placeholder="Enter Your Word" class="input">
+            <button class="btn">Check</button>
+        </div>
+        <p class="result">Koszonom szepen</p>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
