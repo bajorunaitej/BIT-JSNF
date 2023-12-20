@@ -171,6 +171,10 @@
 			function closeModal() {
 				modalBackground.style.visibility = "hidden";
 			}
+			modal.onclick = (e) => {
+				e.stopPropagation();
+			}
+			
 
 			// modalBackground.onclick = (event) => {
 			// 	// event.stopPropagation();

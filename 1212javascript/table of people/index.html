@@ -1,115 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Content</title>
-    <link rel="icon" href="group.png">
-    <style>
-        table, 
-        th, 
-        td {
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
-        table {
-            width: 100%;
-            margin-bottom: 2rem;
-        }
-        td {
-            text-align: center;
-        }
-        .space-right {
-            margin-right: 1rem;
-        }
-        form div {
-            width: 50%;
-        }
-        div label {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-        }
-        .container {
-            display: flex;
-            justify-content: space-evenly;
-        }
-        .container input {
-            align-items: center;
-        }
-        button {
-            color: white;
-            background-color: rgb(45, 99, 214);
-            border-radius: 4px;
-            border: 3px solid rgb(79, 113, 185);
-            width: 7rem;
-            height: 2rem;;
-        }
-    </style>
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Document</title>
+		<link rel="icon" href="../group.png">
+		<style>
+			table,
+			th,
+			td {
+				border: 1px solid black;
+				border-collapse: collapse;
+			}
+			table {
+				width: 100%;
+				margin-bottom: 2rem;
+			}
+			td {
+				text-align: center;
+			}
+			.space-right {
+				margin-right: 1rem;
+			}
+			form div {
+				width: 50%;
+			}
+			div label {
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 0.5rem;
+			}
+		</style>
+	</head>
+	<body>
+		<table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Age</th>
+					<th>Nationality</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+		<form>
+			<div>
+				<label>
+					<span class="space-right">First Name</span>
+					<input
+						type="text"
+						placeholder="First Name"
+						id="firstNameInput"
+					/>
+				</label>
+			</div>
+			<div>
+				<label>
+					<span class="space-right">Last Name</span>
+					<input
+						type="text"
+						placeholder="Last Name"
+						id="lastNameInput"
+					/>
+				</label>
+			</div>
+			<div>
+				<label>
+					<span class="space-right">Age</span>
+					<input
+						type="text"
+						placeholder="Age"
+						id="ageInput"
+					/>
+				</label>
+			</div>
+			<div>
+				<label>
+					<span class="space-right">Nationality</span>
+					<input
+						type="text"
+						placeholder="Nationality"
+						id="nationalityInput"
+					/>
+				</label>
+			</div>
+		</form>
+		<div>
+			<!-- Mygtuko funkcionalumas pasinaudojant elementu JS'e -->
+			<button id="add-button">Add</button>
+		</div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Age</th>
-                <th>Nationality</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
-    <div class="container">
-        <div style="display: flex; flex-direction: column;">
-            <form id="form">
-                <h2>Add line</h2>
-                <div>
-                    <label>
-                        <span class="space-right">First name</span>
-                        <input type="text" placeholder="First name" id="firstNameInput"/>
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        <span class="space-right">Last name</span>
-                        <input type="text" placeholder="Last name" id="lastNameInput"/>
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        <span class="space-right">Age</span>
-                        <input type="text" placeholder="Age" id="ageInput"/>
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        <span class="space-right">Nationality</span>
-                        <input type="text" placeholder="Nationality"  id="nationalityInput"/>
-                    </label>
-                </div>
-            </form>
-            <div>
-                <!-- Mygtukas funkcionalumas, pasinaudojant elementu javascript'e -->
-                <button id="add-button">Add</button>
-            </div>
-        </div>
-
-        <form class="form">
-            <div>
-                <h2>Remove line</h2>
-                <label>
-                    <span class="space-right" id="personNumber" id="numberInput">Person number</span>
-                    <input type="number" placeholder="Person number"/>
-                </label>
-                <button id="remove-button">Remove</button>
-            </div>
-        </form>
-    </div>
-
-
-
-    <script src="script.js"></script>
-</body>
+		<h2>Remove</h2>
+		<input
+			type="number"
+			placeholder="numeriukas"
+			id="number"
+		/>
+		<button id="remove-button">Remove</button>
+		<!-- <script src="./js/objektai.js"></script> -->
+		<script src="script.js"></script>
+	</body>
 </html>
