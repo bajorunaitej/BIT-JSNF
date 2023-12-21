@@ -1,4 +1,3 @@
-const products = JSON.parse(localStorage.getItem("products"));
 console.log(products);
 
 function generateStars(rating) {
@@ -22,12 +21,10 @@ function generateStars(rating) {
 function showProducts() {
 	let dynamicHTML = "";
 	for (const product of products) {
-		dynamicHTML += `	<hr />
+		dynamicHTML += `<hr />
         <div class="product">
             <div class="product-image">
-                <span class="discount">-${Math.round(
-									product.discountPercentage
-								)}%</span>
+                <span class="discount">-${Math.round(product.discountPercentage)}%</span>
                 <img
                     src="${product.thumbnail}"
                     alt="product image"

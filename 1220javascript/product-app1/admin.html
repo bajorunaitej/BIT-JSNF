@@ -18,16 +18,25 @@
 			crossorigin="anonymous"
 		></script>
 		<title>Document</title>
+		<style></style>
 	</head>
 	<body>
 		<div class="container">
 			<nav class="mb-3">
-				<a href="./products.html" class="btn btn-primary me-3">Produktai</a>
-				<a href="./admin.html" class="btn btn-primary">Admin panelė</a>
+				<a
+					href="./products.html"
+					class="me-3 btn btn-primary"
+					>Produktai</a
+				>
+				<a
+					href="./admin.html"
+					class="btn btn-primary"
+					>Admin panelė</a
+				>
 			</nav>
 			<form>
 				<h2>Produktų pridėjimas</h2>
-				<div class="row mb-5">
+				<div class="row mb-2">
 					<!-- - 12 vienoje eiluteje, tie columnai kelsis i sekancia eilute -->
 
 					<div class="col-4">
@@ -132,53 +141,53 @@
 					</div>
 				</div>
 			</form>
-			<hr>
+			<hr />
 			<form action="">
 				<h2>Produktų filtracija</h2>
 				<div class="row mb-5">
 					<div class="col-4 mt-2">
-						<label for="filterProductName">Pavadinimas:</label>
+						<label for="filter-product-name">Pavadinimas:</label>
 						<input
 							type="text"
-							id="filterProductName"
-							name="filterProductName"
+							id="filter-product-name"
+							name="filter-product-name"
 							class="form-control"
 						/>
 					</div>
 					<div class="col-4 mt-2">
-						<label for="filterProductPriceForm">Kaina nuo:</label>
+						<label for="filter-product-priceFrom">Kaina nuo:</label>
 						<input
 							type="number"
-							id="filterProductPriceForm"
-							min="0";
-							name="filterProductPriceForm"
+							id="filter-product-priceFrom"
+							min="0"
+							name="filter-product-priceFrom"
 							class="form-control"
 						/>
 					</div>
 					<div class="col-4 mt-2">
-						<label for="filterProductPriceTo">Kaina iki:</label>
+						<label for="filter-product-priceTo">Kaina iki:</label>
 						<input
 							type="number"
-							id="filterProductPriceTo"
-							min="0";
-							name="filterProductPriceTo"
+							id="filter-product-priceTo"
+							min="0"
+							name="filter-product-priceTo"
 							class="form-control"
 						/>
 					</div>
 					<div class="col-4 mt-2">
-						<label for="filterProductBrand">Prekinis ženklas:</label>
+						<label for="filter-product-brand">Prekinis ženklas:</label>
 						<input
 							type="text"
-							id="filterProductBrand"
-							name="filterProductBrand"
+							id="filter-product-brand"
+							name="filter-product-brand"
 							class="form-control"
 						/>
 					</div>
 					<div class="col-4 mt-2">
-						<label for="filterProductCategory">Kategorija:</label>
+						<label for="filter-product-category">Kategorija:</label>
 						<select
-							name="filterProductCategory"
-							id="filterProductCategory"
+							name="filter-product-category"
+							id="filter-product-category"
 							class="form-select"
 						>
 							<option>smartphones</option>
@@ -190,11 +199,11 @@
 						</select>
 					</div>
 					<div class="col-4 mt-2">
-						<label for="filterProductDescription">Aprašymas:</label>
+						<label for="filter-product-description">Aprašymas:</label>
 						<input
 							type="text"
-							id="filterProductDescription"
-							name="filterProductDescription"
+							id="filter-product-description"
+							name="filter-product-description"
 							class="form-control"
 						/>
 					</div>
@@ -222,13 +231,14 @@
 						<td>Apple</td>
 						<td>Maistas</td>
 					</tr>
-					<!-- +dinaminis turinys -->
+					<!-- +
+                    dinaminis turinys -->
 				</tbody>
 			</table>
 		</div>
 		<dialog
 			id="productInfo"
-			style="width: 70%"
+			style="width: 70%; padding: 0"
 		></dialog>
 
 		<script>
@@ -237,15 +247,15 @@
 			//READ - Peržiūrėti įrašą. Good
 			//UPDATE - Atnaujinti įrašą. Good
 			//DELETE - Ištrinti įrašą. Good
-			if (!localStorage.getItem("products")) localStorage.setItem("products", "[]");
-			
+			if (!localStorage.getItem("products"))
+				localStorage.setItem("products", "[]");
+
 			const products = JSON.parse(localStorage.getItem("products"));
 
-			if(!localStorage.getItem('currentId')) {
-				localStorage.setItem('currentId', '1')
-			}
+			if (!localStorage.getItem("currentId"))
+				localStorage.setItem("currentId", "1");
 
-			let currentId = +localStorage.getItem('currentId');
+			let currentId = +localStorage.getItem("currentId");
 
 			let editMode = false;
 			let currentProduct;
@@ -261,16 +271,23 @@
 				photoElement = document.getElementById("imageUrl"),
 				discountElement = document.getElementById("discount"),
 				ratingElement = document.getElementById("rating"),
-				descriptionElement = document.getElementById("description");
-				filterNameElement = document.getElementById('filterProductName');
-				filterPriceFromElement = document.getElementById('filterProductPriceForm');
-				filterPriceToElement = document.getElementById('filterProductPriceTo');
-				filterBrandElement = document.getElementById('filterProductBrand');
-				filterCategoryElement = document.getElementById('filterProductCategory');
-				filterDescriptionElement = document.getElementById('filterProductDescription');
+				descriptionElement = document.getElementById("description"),
+				filterNameElement = document.getElementById("filter-product-name"),
+				filterPriceFromElement = document.getElementById(
+					"filter-product-priceFrom"
+				),
+				filterPriceToElement = document.getElementById(
+					"filter-product-priceTo"
+				),
+				filterBrandElement = document.getElementById("filter-product-brand"),
+				filterCategoryElement = document.getElementById(
+					"filter-product-category"
+				),
+				filterDescriptionElement = document.getElementById(
+					"filter-product-description"
+				);
 
 			filterNameElement.onkeyup = filter;
-
 			filterPriceFromElement.onkeyup = filter;
 			filterPriceToElement.onkeyup = filter;
 			filterBrandElement.onkeyup = filter;
@@ -299,8 +316,6 @@
 				getTableContents(filteredArray);
 				// filteredArray = filteredArray.filter();
 			}
-
-
 			//Sis budas - suveikia
 			// generateTableContent()
 			// function generateTableContent()
@@ -350,42 +365,40 @@
 				let elementIndex = products.findIndex((value) => value.id === id);
 				const product = products[elementIndex];
 
-
-				let dynamicHTML = `<div id="modalBody" style="width= 100%; height= 100%;">
-					<div style="max-width: 70%; margin: 0 auto; padding: .5rem">
-						<img
-							src="${product.thumbnail}"
-							alt="product photo"
-						/>
-						<div class="product-details">
-							<div class="row">
-								<span class="col-lg-2 fw-bold">Nuolaida:</span>
-								<span class="col-lg-1">-${product.discountPercentage}%</span>
-							</div>
-							<div class="row">
-								<span class="col-lg-2 fw-bold">Įvertinimas</span>
-								<span class="col-lg-1">${product.rating}</span>
-							</div>
-							<div class="row">
-								<span class="col-lg-2 fw-bold">Aprašymas</span>
-								<span class="col-lg-10"
-									>${product.description}</span
-								>
-							</div>
-						</div>
-						<button class="btn btn-danger mt-3" onclick = "modalElement.close()">Close</button>
-					</div></div>`
+				let dynamicHTML = `<div id="modalBody" style="width:100%; height: 100%;"><div style="max-width: 70%; margin: 0 auto; padding: .5rem;">
+				<img
+					src="${product.thumbnail}"
+					alt="product photo"
+				/>
+				<div class="product-details">
+					<div class="row">
+						<span class="col-lg-2 fw-bold">Nuolaida:</span>
+						<span class="col-lg-1">-${product.discountPercentage}%</span>
+					</div>
+					<div class="row">
+						<span class="col-lg-2 fw-bold">Įvertinimas</span>
+						<span class="col-lg-1">${product.rating}</span>
+					</div>
+					<div class="row">
+						<span class="col-lg-2 fw-bold">Aprašymas</span>
+						<span class="col-10"
+							>${product.description}</span
+						>
+					</div>
+				</div>
+				<button class="btn btn-danger mt-3" onclick="modalElement.close()">Uždaryti</button>
+			</div></div>`;
 				modalElement.innerHTML = dynamicHTML;
-				document.querySelector('#modalBody').onclick = (e) => {
-				e.stopPropagation();
-				console.log('clicked on modal window');}
-
+				document.querySelector("#modalBody").onclick = (event) => {
+					event.stopPropagation();
+					console.log("Clicked on modal window");
+				};
 				modalElement.showModal();
 			};
 
 			modalElement.onclick = () => {
 				modalElement.close();
-			}
+			};
 
 			const createNewRecord = (event) => {
 				//Prevencija nuo iprastinio elgesio.
@@ -405,7 +418,7 @@
 				currentId++;
 				products.push(newProduct);
 				localStorage.setItem("products", JSON.stringify(products));
-				localStorage.setItem('currentId', currentId)
+				localStorage.setItem("currentId", currentId);
 				getTableContents(products);
 			};
 
@@ -472,7 +485,7 @@
 				categoryInputElement.value = product.category;
 				photoElement.value = product.thumbnail;
 				ratingElement.value = product.rating;
-				discountElement.value = product.discountElement;
+				discountElement.value = product.discountPercentage;
 				descriptionElement.value = product.description;
 
 				submitButtonElement.innerText = "Update";
