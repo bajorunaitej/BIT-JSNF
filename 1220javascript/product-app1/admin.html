@@ -291,12 +291,16 @@
 			filterPriceFromElement.onkeyup = filter;
 			filterPriceToElement.onkeyup = filter;
 			filterBrandElement.onkeyup = filter;
+			filterDescriptionElement.onkeyup = filter;
+			filterCategoryElement.onkeyup = filter;
 
 			function filter() {
 				let productName = filterNameElement.value.toLowerCase();
 				let minPrice = +filterPriceFromElement.value;
 				let maxPrice = +filterPriceToElement.value;
 				let brandName = filterBrandElement.value.toLowerCase();
+				let descriptionName = filterDescriptionElement.value.toLowerCase();
+				let categoryName = filterCategoryElement.value;
 
 				console.log(brandName);
 				let filteredArray = products.filter((product) =>
@@ -313,6 +317,13 @@
 				filteredArray = filteredArray.filter((product) =>
 					product.brand.toLowerCase().includes(brandName)
 				);
+
+				filteredArray = filteredArray.filter((product) =>
+				product.description.toLowerCase().includes(descriptionName));
+
+				filteredArray = filteredArray.filter((product) => 
+				product.category.includes(categoryName));
+
 				getTableContents(filteredArray);
 				// filteredArray = filteredArray.filter();
 			}
