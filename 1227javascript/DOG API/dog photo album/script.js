@@ -22,7 +22,6 @@ function parseAllBreeds(breeds) {
     let dynamicHTML = '';
 
     for(let breed in breeds) {
-        // console.log(breed);
         //breed - veislės pavadinimas
         //masyve esančios reikšmės - sub-veislė
 
@@ -37,32 +36,38 @@ function parseAllBreeds(breeds) {
             breedsArray.push(`${subBreed} ${breed}`);
             }
         }
-        breedSelectElement.innerHTML = dynamicHTML;
     }
+    parseDogImages(breedsArray[0]);
+    breedSelectElement.innerHTML = dynamicHTML;
 }
 
 function parseDogImages(breed) {
-    let dynamicURL = generateDynamicDogPhotosURL(breed);//3.1
-    fetch(dynamicURL)
-    .then((response) => response.text()) //3.2
-    .then((response) => generateDyanimDogPhotos(response.message))//3.3
+    let dynamicURL = generateDynamicDogPhotoURL(breed);//3.1
+    fetch(dynamicURL) //3.2
+    .then((response) => response.json())
+    .then((response) => generateDynamicDogPhotos(response.message))//3.3
 }
 
 
 
-function generateDynamicDogPhotosURL(breed) {//3.1
+function generateDynamicDogPhotoURL(breed) {
+    //3.1
     let finalBreed = breed.split(" ").reverse().join("/");
     return `https://dog.ceo/api/breed/${finalBreed}/images`;
 }
 
-function generateDyanimDogPhotos(photosArray) {
+function generateDynamicDogPhotos(photosArray) { //3.4
     let dynamicHTML = '';
     for(let photo of photosArray) {
-        dynamicHTML += `<div class="col-4 mx-auto"><img src="${photo}" alt="Dog photo" style="width: 100%;"></div>`
+        dynamicHTML += `<div class="col-4 mx-auto">
+        <img src="${photo}" 
+        style="width: 100%;">
+        </div>`
     }
+    dynamicAlbumElement.innerHTML = dynamicHTML;
 }
 
 //4.
 breedSelectElement.addEventListener('change', () => {
     parseDogImages(breedSelectElement.value);
-})
+});
