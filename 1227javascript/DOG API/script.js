@@ -2,7 +2,7 @@ const dynamicSelect = document.getElementById('breeds');
 const imageContainer = document.getElementById('dogImage');
 const breedName = document.getElementById('breedName');
 
-const breedImages = {};
+const breedImages = [];
 
 function fetchBreedImage() {
     fetch("https://dog.ceo/api/breeds/list/all")
