@@ -64,34 +64,82 @@ nav {
     text-align: center;
 }
 
-.close {
-    font-size: 50px;
-    display: flex;
-    justify-content: end;
-}
-.drinkHeader {
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(3, 3, 3, 0.596);
     display: flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
 }
-.aboutDrink {
+
+.modalWindow {
+    background-color: rgba(29, 88, 122, 0.87);
+    min-width: 400px;
+    min-height: 600px;
+    border-radius: 5px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    height: fit-content;
+    width: fit-content;
+    padding: 4px;
+}
+
+.modaWindowMain  {
+    display: flex;
     flex-direction: column;
 }
 
-.about {
+.close {
+    display: flex;
+    justify-content: end;
+    cursor: pointer;
+}
+
+.aboutDrink img {
+    width: 325px;
+    border-radius: 0.375rem; /*6px */
+}
+
+.drink {
+    margin-left: .5rem; /*8px */
+}
+
+.drinkName {
     text-align: center;
+    margin-top: 1rem;
+    font-size: x-large;
 }
 
-.about p {
-    display: inline-block;
+.drinkDetails {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-top: 1rem;
+}
+
+.drinkDetailsSpecific {
+    display: flex;
+    justify-content: space-between;
+}
+.drinkDetailsSpecific1 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.recipe {
+    display: flex;
+    justify-content:space-between;
+    margin-top: 1rem;
+}
+.recipe span {
     font-weight: bold;
+    width: 40%;
 }
-
-.about span {
-    margin-left: 30px;
-    font-weight: lighter;
+.recipe p {
     font-style: italic;
 }
