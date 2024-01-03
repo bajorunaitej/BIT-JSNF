@@ -15,11 +15,12 @@ async function fillSelelctElement() {
                 "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list",
     ];
     
-    const allPromises = allUrls.map(url => 
+    const allPromises = allUrls.map((url) => 
         fetch(url).then((response) => response.json())
         );
     
     const allValues = await Promise.all(allPromises);
+    console.log(allValues);
     const [allCategories, allGlasses, allIngredients] = allValues;
     selectValues.categories = allCategories.drinks.map(categoryObj => categoryObj.strCategory
         );
