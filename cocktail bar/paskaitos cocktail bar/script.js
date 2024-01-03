@@ -14,7 +14,8 @@ async function fillSelelctElement() {
     .then((response) => {
         fillCategorySelect(response.drinks, categorySelectName, "strCategory")
         //Map metodas gražina is objekto masyvo objekto laukus strCategory
-        categoriesArray.push(...response.drinks.map((value) => value.strCategory)
+        categoriesArray.push(
+            ...response.drinks.map((value) => value.strCategory)
         );
     })
     .catch((error) => console.log(error))
