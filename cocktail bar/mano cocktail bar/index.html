@@ -8,9 +8,49 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
+        <!-- Modal'inis langas -->
+    <div class="modalBg" id="modalBg">
+        <div class="modal">
+            <div class="modalCloseBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+                  </svg>
+            </div>
+            <div>
+                <img src="" alt=""  class="modalImg">
+            </div>
+            <div class="modalDetails">
+                <h3 class="modalTitle">Sunrise</h3>
+                <div class="row">
+                    <b>Category:</b>
+                    <p id="modalCategory">Cocktail</p>
+                </div>
+                <div class="row">
+                    <b>Alcohol:</b>
+                    <p id="modalAlcohol">Alcoholic</p>
+                </div>
+                <div class="row">
+                    <b>Glass type:</b>
+                    <p id="modalGlass">Highball glass</p>
+                </div>
+                <div class="row">
+                    <b>Ingredients:</b>
+                    <div class="ingredients" id="modalIngredients">
+                        <p class="ingredient"><b>Creme de:</b> <span>1 oz</span> </p>
+                        <p class="ingredient"><b>Creme de:</b> <span>1 oz</span> </p>
+                        <p class="ingredient"><b>Creme de:</b> <span>1 oz</span> </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <b>Recipe:</b>
+                    <p id="modalRecipe">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores asperiores doloribus mollitia cumque, quaerat aperiam dolorem sit fugit ex consequatur?</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <nav>
         <div class="nav-container">
             <input type="text" id="cocktailName" placeholder="Kokteilio pavadinimas">
@@ -27,72 +67,10 @@
             <button id="supriseMe">Nustebink!</button>
         </div>
     </nav>
-    <!-- Modal'inis langas -->
-
-    <dialog class="modal" id="modal">
-        <div class="modalWindow">
-            <div class="modaWindowMain">
-                <div class="close">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
-                      </svg>
-                </div>
-                <div class="aboutDrink">
-                    <img src="https://www.thecocktaildb.com/images/media/drink/006k4e1504370092.jpg" alt="drink image">
-                    <div class="drink">
-                        <h2 class="drinkName">Horse's Neck</h2>
-                        <div class="drinkDetails">
-                            <div class="drinkDetailsSpecific">
-                                <span style="font-weight: bold;">Category:</span>
-                                <span style="font-style: italic; width: 50%;">Ordinary drink</span>
-                            </div>
-                            <div class="drinkDetailsSpecific">
-                                <span style="font-weight: bold;">Alcohol:</span>
-                                <span style="font-style: italic; width: 50%;">Alcoholic</span>
-                            </div>
-                            <div class="drinkDetailsSpecific">
-                                <span style="font-weight: bold;">Glass:</span>
-                                <span style="font-style: italic; width: 50%;">Highball glass</span>
-                            </div>
-                            <div class="drinkDetailsSpecific1">
-                                <span style="font-weight: bold;">Ingredients:</span>
-                                <span style="font-style: italic; width: 50%;">
-                                    <ul>
-                                        <li style="display: flex; gap: 0.75rem;">
-                                            <p style="font-weight: bold;">Lemon peel:</p>1 long strip
-                                        </li>
-                                        <li style="display: flex; gap: 0.75rem;">
-                                            <p style="font-weight: bold;">Brandy:</p>2 oz
-                                        </li>
-                                        <li style="display: flex; gap: 0.75rem;">
-                                            <p style="font-weight: bold;">Ginger ale:</p>5 oz
-                                        </li>
-                                        <li style="display: flex; gap: 0.75rem;">
-                                            <p style="font-weight: bold;">Bitters:</p>2 dashes
-                                        </li>
-                                    </ul>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="recipe">
-                            <span>Recipe:</span>
-                            <p>
-                                Pour brandy and ginger ale directly into highball glass with ice cubes. Stir gently. Garnish with lemon zest. If desired, add dashes of Angostura Bitter.
-                            </p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </dialog>
-    </div>
 
     <div class="container drinks">
         <div class="drink"></div>
     </div>
-
 
     <script src="script.js"></script>
 </body>

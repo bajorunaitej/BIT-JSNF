@@ -210,6 +210,4 @@ modal.addEventListener('click', (e) => {
     }
 });
 
-
-
 initialisation();
