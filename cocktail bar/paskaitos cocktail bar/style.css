@@ -64,3 +64,65 @@ nav {
     text-align: center;
 }
 
+.modalBg {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.63);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.modal {
+    position: relative;
+    background-color: white;
+    max-width: 800px;
+    width: 60%;
+    max-height: 800px;
+    height: 60%;
+    padding: 1.5rem;
+    overflow-y: scroll;
+
+}
+.modalCloseBtn {
+    position: absolute;
+    right: 2%;
+    top: 1%;
+    font-size: 20px;
+    cursor: pointer;
+    width: min-content;
+}
+.modalCloseBtn:hover {
+    color: rgb(47, 6, 158);
+}
+
+.modalImg {
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+.row p {
+    width: 80%;
+    text-align: left;
+}
+p {
+    margin: 0;
+}
+.ingredients {
+    width: 80%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.ingredient span {
+    width: 50%;
+    text-align: left;
+}
