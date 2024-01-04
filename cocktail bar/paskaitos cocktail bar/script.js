@@ -5,9 +5,12 @@ const ingredientSelectName = document.querySelector('#ingredientSelect');
 const dyanmicDrinkElement = document.querySelector('.drinks');
 const buttoneSearch = document.querySelector('#search');
 
+const modal = document.querySelector('#modalBg');
+
 const supriseMeButton = document.querySelector('#supriseMe');
 
-const selectValues = [], drinksArray = [];
+const selectValues = {},
+    drinksArray = [];
 
 async function fillSelelctElement() {
     const allUrls = ["https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list",
@@ -55,7 +58,7 @@ async function fillSelelctElement() {
 }
 
 function fillCategorySelect(properties, selectElement, strFieldName) {
-    let dynamicHTML = '';
+    let dynamicHTML = "";
     for(const property of properties) {
         dynamicHTML += `<option>${property[strFieldName]}</option>`
         //categoriesArray.push(property.strCategory)
@@ -85,11 +88,12 @@ async function getAllDrinks() {
 }
 
 function generateDrinksHTML(drinks) {
-    let dynamicHTML = '';
+    let dynamicHTML = "";
 
     for(let drink of drinks) {
-        dynamicHTML += `<div class="drink" onclick ="openModal(${drink.idDrink})>
-        <img src="${drink.strDrinkThumb}" alt="">
+        dynamicHTML += `<div class="drink" onclick ="openModal(${drink.idDrink})">
+        <img 
+            src="${drink.strDrinkThumb}" alt="">
         <h2 class="drinkTitle">${drink.strDrink}</h2>
     </div>`;
     }
@@ -116,7 +120,8 @@ async function filter() {
 
     if(searchValue) 
     {
-        filteredArray = filteredArray.filter((drinkObj) => drinkObj.strDrink.toLowerCase().includes(searchValue.toLowerCase())
+        filteredArray = filteredArray.filter((drinkObj) =>
+            drinkObj.strDrink.toLowerCase().includes(searchValue.toLowerCase())
         );
     }
     if(category !== "Pasirinkite kategoriją") {
@@ -132,7 +137,7 @@ async function filter() {
                 (drinkOfCategory) => drink.idDrink === drinkOfCategory.idDrink
             )
         );
-    };
+    }
 
     if(glass !== "Pasirinkite stiklinės tipą") {
         const promise = await fetch(
@@ -149,9 +154,9 @@ async function filter() {
         );
     }
 
-    if(glass !== "Pasirinkite ingredientą") {
+    if(ingredient !== "Pasirinkite ingredientą") {
         const promise = await fetch(
-            `https://www.thecocktaildb.com/api/json/v1/1/list.php?i=${glass.replaceAll(
+            `https://www.thecocktaildb.com/api/json/v1/1/list.php?i=${ingredient.replaceAll(
                 " ",
                 "_"
             )}`
@@ -179,13 +184,14 @@ async function initialisation() {
     // console.log(drinksArray);
     //2.dinaminis gerimu atvaizdavimas
 }
-const modal = document.querySelector('.modalBg');
+
 async function openModal(id) {
     modal.style.display = "flex";
-    const promise = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
+
+    const promise = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
     const response = await promise.json();
     const drink = response.drinks[0];
-    document.querySelector('.modalImg').innerText = drink.strDrinkThumb;
+    document.querySelector('.modalImg').src = drink.strDrinkThumb;
     document.querySelector('#modalCategory').innerText = drink.strCategory;
     document.querySelector('#modalAlcohol').innerText = drink.strAlcoholic;
     console.log(drink);
@@ -196,6 +202,13 @@ function closeModal() {
     modal.style.display = "none";
 }
 document.querySelector('.modalCloseBtn').onclick = closeModal;
+// document.querySelector('#modalBg').onclick = closeModal;
+
+modal.addEventListener('click', (e) => {
+    if(e.target === modal) {
+        closeModal();
+    }
+});
 
 
 
