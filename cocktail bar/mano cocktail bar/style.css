@@ -101,10 +101,10 @@ nav {
 .modal {
     position: relative;
     background-color: rgb(167, 130, 149);
-    max-width: 800px;
-    width: 60%;
-    max-height: 800px;
-    height: 60%;
+    max-width: 400px;
+    width: 80%;
+    max-height: 600px;
+    height: 90%;
     padding: 1.5rem;
     overflow-y: scroll;
 
@@ -147,6 +147,14 @@ nav {
 .modalCloseBtn svg:hover {
     fill: rgba(58, 7, 7, 0.678);
 }
+.drinkIcon {
+    position: absolute;
+    right: 5%;
+    bottom: 30%;
+    fill: rgba(58, 7, 7, 0.192);
+    width: 100px;
+    height: 100px;
+}
 
 .modalDetails h3 {
     font-size:x-large;
@@ -155,7 +163,7 @@ nav {
 }
 
 .modalImg {
-    width: 90%;
+    width: 50%;
     margin: 0 auto;
     display: block;
 }
