@@ -88,8 +88,10 @@ async function filter() {
 		filteredArray = filteredArray.filter((drinkObj) =>
 			drinkObj.strDrink.toLowerCase().includes(searchValue.toLowerCase())
 		);
+        console.log(searchValue);
+        console.log(filteredArray);
 	}
-	if (category !== "Pasirinkite kategoriją") {
+    if (glass !== "Pasirinkite kategoriją") {
 		const promise = await fetch(
 			`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category.replaceAll(
 				" ",
@@ -103,6 +105,41 @@ async function filter() {
 			)
 		);
 	}
+	// if (category !== "Pasirinkite kategoriją") {
+    //     try {
+    //         const promise = await fetch(
+    //             `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category.replaceAll(
+    //                 " ",
+    //                 "_"
+    //             )}`
+    //         );
+
+    //         if (promise.ok) {
+    //             const drinksOfCategory = await promise.json();
+    //             filteredArray = filteredArray.filter((drink) =>
+    //                 drinksOfCategory.drinks.some(
+    //                     (drinkOfCategory) => drink.idDrink === drinkOfCategory.idDrink
+    //                 )
+    //             );
+    //         } else {
+    //             console.error(`Error fetching category: ${promise.status}`);
+    //         }
+    //     } catch (error) {
+    //         console.error("Error fetching category:", error);
+    //     }
+    // }
+
+
+        // // console.log(promise);
+		// const drinksOfCategory = await promise.json();
+        // // console.log(drinksOfCategory);
+		// filteredArray = filteredArray.filter((drink) =>
+		// 	drinksOfCategory.drinks.some(
+		// 		(drinkOfCategory) => drink.idDrink === drinkOfCategory.idDrink
+		// 	)
+		// );
+
+
 	if (glass !== "Stiklinės tipas") {
 		const promise = await fetch(
 			`https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=${glass.replaceAll(
@@ -131,6 +168,7 @@ async function filter() {
 			)
 		);
 	}
+    console.log(filteredArray);
 	generateDrinksHTML(filteredArray);
 }
 
@@ -143,10 +181,80 @@ async function initialisation() {
     buttoneSearch.addEventListener('click', filter);
 };
 
-async function openModal(id) {
+// async function openModal(id) {
+//     modal.style.display = "flex";
+
+//     const promise = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
+//     const response = await promise.json();
+//     const drink =  response.drinks[0];
+//     document.querySelector('.modalImg').src = drink.strDrinkThumb;
+//     document.querySelector('.modalTitle').innerText = drink.strDrink;
+//     document.querySelector('#modalCategory').innerText = drink.strCategory;
+//     document.querySelector('#modalAlcohol').innerText = drink.strAlcoholic;
+//     document.querySelector('#modalGlass').innerText = drink.strGlass;
+//     document.querySelector('#modalRecipe').innerText = drink.strInstructions;
+//     // ingredientų listas
+
+//     let dynamicHTML = '';
+//     for (let i = 1; i < 16; i++) {
+
+//         const ingredientKey = `strIngredient${i}`;
+//         const measureKey = `strMeasure${i}`;
+
+//         const ingredient = drink[ingredientKey];
+//         const measure = drink[measureKey];
+
+//         if(ingredient !== null && ingredient !== undefined) {
+
+//             // document.querySelector('.ingredient').innerText = ingredient;
+//             // document.querySelector('#measure').innerText = measure;
+
+//             dynamicHTML += `<p class="ingredient"><b>${ingredient}:</b> <span>${measure}</span></p>`;
+//         }
+//     document.querySelector('.ingredients').innerHTML = dynamicHTML;
+//     }
+
+// }
+
+// async function openRandomModal() {
+//     modal.style.display = "flex";
+
+//     const promise = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`);
+//     const response = await promise.json();
+//     const drink =  response.drinks[0];
+//     document.querySelector('.modalImg').src = drink.strDrinkThumb;
+//     document.querySelector('.modalTitle').innerText = drink.strDrink;
+//     document.querySelector('#modalCategory').innerText = drink.strCategory;
+//     document.querySelector('#modalAlcohol').innerText = drink.strAlcoholic;
+//     document.querySelector('#modalGlass').innerText = drink.strGlass;
+//     document.querySelector('#modalRecipe').innerText = drink.strInstructions;
+//     // ingredientų listas
+
+//     let dynamicHTML = '';
+//     for (let i = 1; i < 16; i++) {
+
+//         const ingredientKey = `strIngredient${i}`;
+//         const measureKey = `strMeasure${i}`;
+
+//         const ingredient = drink[ingredientKey];
+//         const measure = drink[measureKey];
+
+//         if(ingredient !== null && ingredient !== undefined) {
+
+//             // document.querySelector('.ingredient').innerText = ingredient;
+//             // document.querySelector('#measure').innerText = measure;
+
+//             dynamicHTML += `<p class="ingredient"><b>${ingredient}:</b> <span>${measure}</span></p>`;
+//         }
+//     document.querySelector('.ingredients').innerHTML = dynamicHTML;
+//     }
+
+// }
+
+async function openModalByUrl(url) {
     modal.style.display = "flex";
 
-    const promise = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
+    const promise = await fetch(url);
     const response = await promise.json();
     const drink =  response.drinks[0];
     document.querySelector('.modalImg').src = drink.strDrinkThumb;
@@ -167,8 +275,7 @@ async function openModal(id) {
         const measure = drink[measureKey];
 
         if(ingredient !== null && ingredient !== undefined) {
-            console.log(ingredient);
-            console.log(measure);
+
             // document.querySelector('.ingredient').innerText = ingredient;
             // document.querySelector('#measure').innerText = measure;
 
@@ -176,7 +283,14 @@ async function openModal(id) {
         }
     document.querySelector('.ingredients').innerHTML = dynamicHTML;
     }
+}
 
+async function openModal(id) {
+    await openModalByUrl(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
+}
+
+async function openRandomModal() {
+    await openModalByUrl(`https://www.thecocktaildb.com/api/json/v1/1/random.php`);
 }
 
 function closeModal() {
@@ -184,6 +298,8 @@ function closeModal() {
 }
 
 document.querySelector('.modalCloseBtn').onclick = closeModal;
+// supriseMeButton.onclick = closeModal;
+
 
 modal.addEventListener('click', (event) => {
     if(event.target === modal) {

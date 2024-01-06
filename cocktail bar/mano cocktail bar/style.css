@@ -147,14 +147,6 @@ nav {
 .modalCloseBtn svg:hover {
     fill: rgba(58, 7, 7, 0.678);
 }
-.drinkIcon {
-    position: absolute;
-    right: 5%;
-    bottom: 30%;
-    fill: rgba(58, 7, 7, 0.192);
-    width: 100px;
-    height: 100px;
-}
 
 .modalDetails h3 {
     font-size:x-large;
@@ -163,9 +155,11 @@ nav {
 }
 
 .modalImg {
-    width: 50%;
-    margin: 0 auto;
     display: block;
+    margin: 0 auto;
+    width: 70%;
+    border-radius: 5px;
+    border: 5px solid rgba(58, 7, 7, 0.4);
 }
 
 .row {
