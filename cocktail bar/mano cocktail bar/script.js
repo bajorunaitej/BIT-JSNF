@@ -4,6 +4,9 @@ const glassSelectName = document.querySelector("#glassTypeSelect");
 const ingredientSelectName = document.querySelector("#ingredientSelect");
 const dyanmicDrinkElement = document.querySelector(".drinks");
 const buttoneSearch = document.querySelector("#search");
+const lettersSelect = document.querySelector('.letters');
+const unsetButton = document.querySelector('.unsetBtn');
+const unsetButtonElement = document.querySelector('.unset');
 
 const modal = document.querySelector("#modalBg");
 
@@ -92,6 +95,7 @@ function generateDrinksHTML(drinks) {
   }
   dyanmicDrinkElement.innerHTML = dynamicHTML;
 }
+
 
 async function filter() {
   const searchValue = cocktailNameFilterElement.value,
@@ -187,8 +191,15 @@ async function filter() {
   // );
 
   console.log(filteredArray);
-  generateDrinksHTML(filteredArray);
+  generateDrinksHTML(filteredArray);  
+  unsetButtonElement.style.display = 'flex';
+  console.log(filteredArray.length);
+  if(filteredArray.length === 0) {
+    document.querySelector('.drinks').innerHTML = `<p class="noDrinks">Tokių gėrimukų neturime &#128532;</p>`;
+  };
 }
+
+
 
 async function initialisation() {
   // Select'ų užpildymas
@@ -197,77 +208,19 @@ async function initialisation() {
   await getAllDrinks();
   generateDrinksHTML(drinksArray);
   buttoneSearch.addEventListener("click", filter);
+  unsetButton.addEventListener('click', resetFilter);
+
 }
 
-// async function openModal(id) {
-//     modal.style.display = "flex";
+function resetFilter() {
+  cocktailNameFilterElement.value = '';
+  categorySelectElement.value = 'Pasirinkite kategoriją';
+  glassSelectName.value = 'Stiklinės tipas';
+  ingredientSelectName.value = 'Ingredientas';
 
-//     const promise = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
-//     const response = await promise.json();
-//     const drink =  response.drinks[0];
-//     document.querySelector('.modalImg').src = drink.strDrinkThumb;
-//     document.querySelector('.modalTitle').innerText = drink.strDrink;
-//     document.querySelector('#modalCategory').innerText = drink.strCategory;
-//     document.querySelector('#modalAlcohol').innerText = drink.strAlcoholic;
-//     document.querySelector('#modalGlass').innerText = drink.strGlass;
-//     document.querySelector('#modalRecipe').innerText = drink.strInstructions;
-//     // ingredientų listas
-
-//     let dynamicHTML = '';
-//     for (let i = 1; i < 16; i++) {
-
-//         const ingredientKey = `strIngredient${i}`;
-//         const measureKey = `strMeasure${i}`;
-
-//         const ingredient = drink[ingredientKey];
-//         const measure = drink[measureKey];
-
-//         if(ingredient !== null && ingredient !== undefined) {
-
-//             // document.querySelector('.ingredient').innerText = ingredient;
-//             // document.querySelector('#measure').innerText = measure;
-
-//             dynamicHTML += `<p class="ingredient"><b>${ingredient}:</b> <span>${measure}</span></p>`;
-//         }
-//     document.querySelector('.ingredients').innerHTML = dynamicHTML;
-//     }
-
-// }
-
-// async function openRandomModal() {
-//     modal.style.display = "flex";
-
-//     const promise = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`);
-//     const response = await promise.json();
-//     const drink =  response.drinks[0];
-//     document.querySelector('.modalImg').src = drink.strDrinkThumb;
-//     document.querySelector('.modalTitle').innerText = drink.strDrink;
-//     document.querySelector('#modalCategory').innerText = drink.strCategory;
-//     document.querySelector('#modalAlcohol').innerText = drink.strAlcoholic;
-//     document.querySelector('#modalGlass').innerText = drink.strGlass;
-//     document.querySelector('#modalRecipe').innerText = drink.strInstructions;
-//     // ingredientų listas
-
-//     let dynamicHTML = '';
-//     for (let i = 1; i < 16; i++) {
-
-//         const ingredientKey = `strIngredient${i}`;
-//         const measureKey = `strMeasure${i}`;
-
-//         const ingredient = drink[ingredientKey];
-//         const measure = drink[measureKey];
-
-//         if(ingredient !== null && ingredient !== undefined) {
-
-//             // document.querySelector('.ingredient').innerText = ingredient;
-//             // document.querySelector('#measure').innerText = measure;
-
-//             dynamicHTML += `<p class="ingredient"><b>${ingredient}:</b> <span>${measure}</span></p>`;
-//         }
-//     document.querySelector('.ingredients').innerHTML = dynamicHTML;
-//     }
-
-// }
+  generateDrinksHTML(drinksArray);
+  unsetButtonElement.style.display = 'flex';
+}
 
 async function openModalByUrl(url) {
   modal.style.display = "flex";
@@ -327,3 +280,32 @@ modal.addEventListener("click", (event) => {
 });
 
 initialisation();
+
+function generateLetters() {
+  for (let charCode = 65; charCode <= 90; charCode++) {
+      const letter = String.fromCharCode(charCode);
+      const letterButton = document.createElement('letterBtn');
+      letterButton.textContent = letter;
+      letterButton.addEventListener('click', () => {
+        filterDrinksByLetter(letter);
+      });
+      lettersSelect.appendChild(letterButton);
+  }
+}
+generateLetters();
+
+async function filterDrinksByLetter (char) {
+  const response = await fetch(
+      `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${char}`);
+  const firstLetter = await response.json();
+  const drinks = firstLetter.drinks;
+  console.log(drinks);
+  if (drinks !== null) {
+      generateDrinksHTML(drinks);
+  } else {
+    document.querySelector('.drinks').innerHTML = `<p class="noDrinks">Iš tokios raidės gėrimukų nepagaminome &#128532;</p>`;
+    unsetButtonElement.style.display = 'flex';
+    generateDrinksHTML(drinks);
+  }
+
+}
