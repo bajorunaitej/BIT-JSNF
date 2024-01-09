@@ -199,6 +199,8 @@ async function filter() {
     document.querySelector('.zeroResults').style.display = "flex";
     document.querySelector('.zeroResults').innerHTML = `<p class="noDrinks">Tokių gėrimukų neturime &#128532;</p>`;
   };
+
+  localStorage.setItem('filteredArray', JSON.stringify(filteredArray));
 }
 
 async function filterByAlcohol() {
@@ -232,6 +234,25 @@ async function filterByAlcohol() {
   unsetButtonElement.style.display = 'flex';
 }
 
+function generateDrinksFromLocalStorage() {
+  const storedFilteredArray = localStorage.getItem('filteredArray');
+
+  if(storedFilteredArray) {
+    const filteredArray = JSON.parse(storedFilteredArray);
+
+    generateDrinksHTML(filteredArray);
+    unsetButtonElement.style.display = 'flex';
+    if(filteredArray.length === 0) {
+      document.querySelector('.zeroResults').style.display = "flex";
+      document.querySelector('.zeroResults').innerHTML = `<p class="noDrinks">Išsifiltruok, jei nori ką nors matyti &#128521;</p>`;
+    }
+  }
+}
+
+window.onload = function () {
+  generateDrinksFromLocalStorage();
+};
+
 async function initialisation() {
   // Select'ų užpildymas
   await fillSelectElement();
@@ -241,6 +262,7 @@ async function initialisation() {
   buttoneSearch.addEventListener("click", filter);
   unsetButton.addEventListener('click', resetFilter);
   document.querySelector('#modalAlcohol').addEventListener('click', filterByAlcohol);
+  generateDrinksFromLocalStorage();
 }
 
 function resetFilter() {
