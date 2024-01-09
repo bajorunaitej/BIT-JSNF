@@ -47,16 +47,27 @@ nav {
 .nav-container button:hover {
     background-color: #3d263cb9;
 }
-
 .letters {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 10px;
     padding-bottom: 15px;
+}
+
+.letters button {
+    background-color: #9a7084;
+    border: none;
+    border-radius: 10px;
     font-weight: bold;
     font-size: 25px;
     color: #271c26b9;
     cursor: pointer;
+    transition: .4s;
+}
+.letters button:hover {
+    border-radius: 4px;
+    background-color: #9a7084;;
 }
 
 .unset {
@@ -98,10 +109,12 @@ nav {
 
 .drink:hover {
     background-color: #e666bd36;
+    width: 78%;
+
 }
 .drink:active {
     background-color: #e666bd36;
-    width: 79%;
+    width: 78%;
     transition: .1s;
 
 }
@@ -240,8 +253,9 @@ nav {
 
 .row {
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
     margin: 1rem 1.5rem;
+    gap: 10px;
 }
 .row p {
     width: 80%;
@@ -249,6 +263,18 @@ nav {
 }
 .row b {
     font-style: italic;
+}
+.row button {
+    background-color: #3f2e3eb9;
+    border: 0;
+    border-radius: 4px;
+    color: white;
+    padding: .25rem .5rem;
+    cursor: pointer;
+    transition: .2s;
+}
+.row button:hover {
+    background-color: #3d263cb9;
 }
 p {
     margin: 0;
@@ -269,8 +295,13 @@ p {
     font-size: 30px;
     font-weight: bold;
     color: rgb(37, 23, 53);
-    width: 1200px;
-    text-align: center;
-    height: 100%;
-    margin-top: 200px;
+
+}
+
+.zeroResults {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    display: none;
 }

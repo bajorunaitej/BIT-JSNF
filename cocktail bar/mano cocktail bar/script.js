@@ -9,8 +9,9 @@ const unsetButton = document.querySelector('.unsetBtn');
 const unsetButtonElement = document.querySelector('.unset');
 
 const modal = document.querySelector("#modalBg");
-
 const supriseMeButton = document.querySelector("#supriseMe");
+
+// console.log(document.querySelector('#modalAlcohol').innerText);
 
 const selectValues = {},
   drinksArray = [];
@@ -157,6 +158,8 @@ async function filter() {
       )
     );
   }
+
+  //---------------------------------------------------------------------------------------------
   // if (category !== "Pasirinkite kategoriją") {
   //     try {
   //         const promise = await fetch(
@@ -165,7 +168,6 @@ async function filter() {
   //                 "_"
   //             )}`
   //         );
-
   //         if (promise.ok) {
   //             const drinksOfCategory = await promise.json();
   //             filteredArray = filteredArray.filter((drink) =>
@@ -193,13 +195,42 @@ async function filter() {
   console.log(filteredArray);
   generateDrinksHTML(filteredArray);  
   unsetButtonElement.style.display = 'flex';
-  console.log(filteredArray.length);
   if(filteredArray.length === 0) {
-    document.querySelector('.drinks').innerHTML = `<p class="noDrinks">Tokių gėrimukų neturime &#128532;</p>`;
+    document.querySelector('.zeroResults').style.display = "flex";
+    document.querySelector('.zeroResults').innerHTML = `<p class="noDrinks">Tokių gėrimukų neturime &#128532;</p>`;
   };
 }
 
+async function filterByAlcohol() {
+  const alcoholType = document.querySelector('#modalAlcohol').innerText.trim();
+  let filteredAlcohol = [...drinksArray];
 
+  const alcoholListResponse = await fetch('https://www.thecocktaildb.com/api/json/v1/1/list.php?a=list');
+  const alcoholListData = await alcoholListResponse.json();
+  const availableAlcoholTypes = alcoholListData.drinks.map(drink => drink.strAlcoholic);
+
+  if (availableAlcoholTypes.includes(alcoholType)) {
+    const promise = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${alcoholType.replaceAll(" ", "_")}`);
+    const drinksOfAlcohol = await promise.json();
+
+    if (drinksOfAlcohol.drinks && drinksOfAlcohol.drinks.length > 0) {
+      filteredAlcohol = filteredAlcohol.filter((drink) => {
+        return drinksOfAlcohol.drinks.some(
+          (drinkOfAlcohol) => drink.idDrink === drinkOfAlcohol.idDrink
+        );
+      });
+    }
+  }
+
+  if (filteredAlcohol.length === 0) {
+    document.querySelector('.zeroResults').style.display = "flex";
+    document.querySelector('.zeroResults').innerHTML = `<p class="noDrinks">Tokių gėrimukų neturime &#128532;</p>`;
+  }
+
+  console.log("Išfiltruoti gėrimai: " + filteredAlcohol.length);
+  generateDrinksHTML(filteredAlcohol);
+  unsetButtonElement.style.display = 'flex';
+}
 
 async function initialisation() {
   // Select'ų užpildymas
@@ -209,7 +240,7 @@ async function initialisation() {
   generateDrinksHTML(drinksArray);
   buttoneSearch.addEventListener("click", filter);
   unsetButton.addEventListener('click', resetFilter);
-
+  document.querySelector('#modalAlcohol').addEventListener('click', filterByAlcohol);
 }
 
 function resetFilter() {
@@ -217,9 +248,11 @@ function resetFilter() {
   categorySelectElement.value = 'Pasirinkite kategoriją';
   glassSelectName.value = 'Stiklinės tipas';
   ingredientSelectName.value = 'Ingredientas';
+  unsetButtonElement.style.display = 'none';
+  document.querySelector('.drinks').style.display = "grid";
+  document.querySelector('.zeroResults').style.display = "none";
 
   generateDrinksHTML(drinksArray);
-  unsetButtonElement.style.display = 'flex';
 }
 
 async function openModalByUrl(url) {
@@ -240,7 +273,6 @@ async function openModalByUrl(url) {
   for (let i = 1; i < 16; i++) {
     const ingredientKey = `strIngredient${i}`;
     const measureKey = `strMeasure${i}`;
-
     const ingredient = drink[ingredientKey];
     const measure = drink[measureKey];
 
@@ -284,7 +316,7 @@ initialisation();
 function generateLetters() {
   for (let charCode = 65; charCode <= 90; charCode++) {
       const letter = String.fromCharCode(charCode);
-      const letterButton = document.createElement('letterBtn');
+      const letterButton = document.createElement('button');
       letterButton.textContent = letter;
       letterButton.addEventListener('click', () => {
         filterDrinksByLetter(letter);
@@ -298,14 +330,16 @@ async function filterDrinksByLetter (char) {
   const response = await fetch(
       `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${char}`);
   const firstLetter = await response.json();
-  const drinks = firstLetter.drinks;
-  console.log(drinks);
-  if (drinks !== null) {
-      generateDrinksHTML(drinks);
-  } else {
-    document.querySelector('.drinks').innerHTML = `<p class="noDrinks">Iš tokios raidės gėrimukų nepagaminome &#128532;</p>`;
+  const letterFilteredDrinks = firstLetter.drinks;
+  console.log(letterFilteredDrinks);
+  if (letterFilteredDrinks === null) {
     unsetButtonElement.style.display = 'flex';
-    generateDrinksHTML(drinks);
-  }
+    document.querySelector('.drinks').style.display = "none";
+    document.querySelector('.zeroResults').style.display = "flex";
+    document.querySelector('.zeroResults').innerHTML = `<p class="noDrinks">Iš tokios raidės gėrimukų nepagaminome &#128532;</p>`;
 
+  }else {
+    generateDrinksHTML(letterFilteredDrinks);
+    unsetButtonElement.style.display = 'flex';
+  }
 }
