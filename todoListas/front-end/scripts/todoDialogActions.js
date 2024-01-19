@@ -76,21 +76,51 @@ async function addNewTodo() {
 	todoInputElement.value = "";
 
 	const response = await postNewTodo({
-		username: "Justelio19",
 		todo: inputValue,
 	});
 	const newTodoObject = response.newTodo;
 
-	const newTodo = `<div
+	const newTodo = generateTodoHtml(newTodoObject);
+	todoListElement.innerHTML += newTodo;
+	addDragFunctionalityToAllElements();
+	addClickListenersToTodoDialogButtons();
+}
+
+function showAllTodos(todos) {
+	let innerHtml = "";
+
+	for (const todo of todos) {
+		innerHtml += generateTodoHtml(todo);
+	}
+	todoListElement.innerHTML = innerHtml;
+	addDragFunctionalityToAllElements();
+	addClickListenersToTodoDialogButtons("show all todos");
+
+}
+
+function showAllDones(todos) {
+	let innerHtml = "";
+
+	for (const todo of todos) {
+		innerHtml += generateTodoHtml(todo);
+	}
+	doneListElement.innerHTML = innerHtml;
+	addDragFunctionalityToAllElements();
+	addClickListenersToTodoDialogButtons("show all dones");
+
+}
+//Kadangi html kodas kartojasi trijose vietose, sukuriama viena funkcija, kad jis nebesikartotų - geroji praktika
+function generateTodoHtml(todo) {
+	return `<div
 	class="todo justify-content-between draggable"
 	draggable="true"
-	todo-id="${newTodoObject.id}"
+	todo-id="${todo.id}"
 >
 	<input
 		type="checkbox"
 		name="todo"
 	/>
-	<span class="todo-text">${newTodoObject.todo}</span>
+	<span class="todo-text">${todo.todo}</span>
 	<div class="dropdown">
 		<i
 			class="bi bi-three-dots"
@@ -102,7 +132,7 @@ async function addNewTodo() {
 				<a
 					class="dropdown-item text-white todo-move"
 					href="#"
-					todomove="${newTodoObject.id}"
+					todomove="${todo.id}"
 					>Done</a
 				>
 			</li>
@@ -110,7 +140,7 @@ async function addNewTodo() {
 				<a
 					class="dropdown-item text-white todo-delete"
 					href="#"
-					tododelete="${newTodoObject.id}"
+					tododelete="${todo.id}"
 					>Delete</a
 				>
 			</li>
@@ -118,124 +148,13 @@ async function addNewTodo() {
 				<a
 					class="dropdown-item text-white todo-update"
 					href="#"
-					todoupdate="${newTodoObject.id}"
+					todoupdate="${todo.id}"
 					>Update</a
 				>
 			</li>
 		</ul>
 	</div>
-</div>`;
-	todoListElement.innerHTML += newTodo;
-	addDragFunctionalityToAllElements();
-	addClickListenersToTodoDialogButtons();
-}
-
-function showAllTodos(todos) {
-	let innerHtml = "";
-
-	for (const todo of todos) {
-		innerHtml += `<div
-		class="todo justify-content-between draggable"
-		draggable="true"
-		todo-id="${todo.id}"
-	>
-		<input
-			type="checkbox"
-			name="todo"
-		/>
-		<span class="todo-text">${todo.todo}</span>
-		<div class="dropdown">
-			<i
-				class="bi bi-three-dots"
-				data-bs-toggle="dropdown"
-				aria-expanded="false"
-			></i>
-			<ul class="dropdown-menu bg-dark">
-				<li>
-					<a
-						class="dropdown-item text-white todo-move"
-						href="#"
-						todomove="${todo.id}"
-						>Done</a
-					>
-				</li>
-				<li>
-					<a
-						class="dropdown-item text-white todo-delete"
-						href="#"
-						tododelete="${todo.id}"
-						>Delete</a
-					>
-				</li>
-				<li>
-					<a
-						class="dropdown-item text-white todo-update"
-						href="#"
-						todoupdate="${todo.id}"
-						>Update</a
-					>
-				</li>
-			</ul>
-		</div>
-	</div>`;
-	}
-	addDragFunctionalityToAllElements();
-	addClickListenersToTodoDialogButtons("show all todos");
-	todoListElement.innerHTML = innerHtml;
-}
-
-function showAllDones(todos) {
-	let innerHtml = "";
-
-	for (const todo of todos) {
-		innerHtml += `<div
-		class="todo justify-content-between draggable"
-		draggable="true"
-		todo-id="${todo.id}"
-	>
-		<input
-			type="checkbox"
-			name="todo"
-		/>
-		<span class="todo-text">${todo.todo}</span>
-		<div class="dropdown">
-			<i
-				class="bi bi-three-dots"
-				data-bs-toggle="dropdown"
-				aria-expanded="false"
-			></i>
-			<ul class="dropdown-menu bg-dark">
-				<li>
-					<a
-						class="dropdown-item text-white todo-move"
-						href="#"
-						todomove="${todo.id}"
-						>Move back</a
-					>
-				</li>
-				<li>
-					<a
-						class="dropdown-item text-white todo-delete"
-						href="#"
-						tododelete="${todo.id}"
-						>Delete</a
-					>
-				</li>
-				<li>
-					<a
-						class="dropdown-item text-white todo-update"
-						href="#"
-						todoupdate="${todo.id}"
-						>Update</a
-					>
-				</li>
-			</ul>
-		</div>
-	</div>`;
-	}
-	addDragFunctionalityToAllElements();
-	addClickListenersToTodoDialogButtons("show all dones");
-	doneListElement.innerHTML = innerHtml;
+</div>`
 }
 
 getAllTodos();
