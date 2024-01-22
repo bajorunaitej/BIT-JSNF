@@ -19,6 +19,11 @@ function moveFromTodoToDone(event) {
 	event.target.onclick = moveFromDoneToTodo;
 }
 
+function moveFromTodoToDoneTextUpdate(event) {
+	event.target.innerText = texts.moveElementText.done;
+	event.target.onclick = moveFromDoneToTodo;
+}
+
 function moveFromDoneToTodo(event) {
 	const targetId = event.target.attributes.todomove.value;
 	const moveTarget = document.querySelector(`[todo-id="${targetId}"]`);

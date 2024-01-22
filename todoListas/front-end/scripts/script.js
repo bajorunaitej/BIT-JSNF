@@ -1,6 +1,6 @@
 async function checkSession() {
 	try {
-		const promise = await fetch('http://localhost/server/user/session-check', {
+		const promise = await fetch('http://localhost/server/users/session-check', {
 			credentials: "include",
 		});
 		const answer = await promise.json();
@@ -19,7 +19,7 @@ const usernameField = document.querySelector("#register-username"),
 	registerButton = document.querySelector("#send-registration");
 
 async function register() {
-	const promise = await fetch("http://localhost:3000/user/register", {
+	const promise = await fetch("http://localhost:3000/users/register", {
 		method: "POST",
 		credentials: 'include',
 		headers: {

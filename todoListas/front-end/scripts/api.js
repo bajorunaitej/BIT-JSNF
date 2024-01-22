@@ -40,13 +40,14 @@ async function getAllTodos() {
 	} catch (error) {}
 }
 
-async function updateTodo(todo) {
+async function updateTodoApi(todo) {
 	const promise = await fetch(`http://localhost/server/todos/${todo.id}`, {
+		method: "put",
 		credentials: "include",
 		headers: {
 			"Content-Type": "application/json",
 		},
-		body: JSON.stringify(todo)
+		body: JSON.stringify(todo),
 	});
 	const result = await promise.json();
 	if(promise.ok) {
@@ -54,6 +55,19 @@ async function updateTodo(todo) {
 	}
 	else{
 		return result;
+	}
+}
+
+async function deleteTodo(id) {
+	const promise = await fetch(`http://localhost/server/todos/${id}`, {
+		method: "Delete"
+	});
+	const response = await promise.json();
+
+	if(!promise.ok) {
+		console.error('Nepavyko ištrinti todo įrašo');
+	}else{
+		return response;
 	}
 }
 

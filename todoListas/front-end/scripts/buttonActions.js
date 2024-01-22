@@ -40,6 +40,7 @@ const deleteTodoElement = () => {
 		".todo input:checked"
 	);
 	for (const inputElement of allTodosCheckedInputs) {
+		deleteTodo(inputElement.parentElement.attributes["todo-id"]);
 		inputElement.parentElement.remove();
 	}
 };

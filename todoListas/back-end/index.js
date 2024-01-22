@@ -4,6 +4,7 @@ const cors = require("cors");
 const fs = require("fs");
 const data = require("./data.json");
 const FileStore = require("session-file-store")(sessions);
+const usersController = require()
 
 const server = express();
 
@@ -48,7 +49,7 @@ async function writeFile(obj) {
 // 	// res.send("Labas pasauli!");
 // });
 //New user registration
-server.post("/user/register", async (req, res) => {
+server.post("/users/register", async (req, res) => {
 	// console.log(req.body);
 	try {
 		const username = req.body.username;
@@ -90,7 +91,7 @@ server.get("/users/:id", (req, res) => {
 	}
 });
 //Existing user login endpoint
-server.post("/user/login", (req, res) => {
+server.post("/users/login", (req, res) => {
 	//1. Validuojame, ar req.body turi tokius laukus username, password
 	const username = req.body.username, //John
 		password = req.body.password; // ledinukas -> a65f41as65f1as65f1as6f1as6f51as6f15as6f51a6sf1
@@ -121,7 +122,7 @@ server.post("/user/login", (req, res) => {
 	}
 });
 //Session check
-server.get("/user/session-check", (req, res) => {
+server.get("/users/session-check", (req, res) => {
 	if (req.session.loggedIn)
 		return res
 			.status(200)
@@ -176,8 +177,9 @@ server.put("/todos/:id", (req, res) => {
 	const id = +req.params.id;
 	if (isNaN(id))
 		return res.status(400).json({ message: "Įveskite tinkamą id" });
-	const { username, todo, done } = req.body;
-	console.log(username, todo);
+	const {todo, done } = req.body;
+	const username = req.session.username;
+	// console.log(username, todo);
 	const existingUser = data.users.find(
 		(user) => user.username.toLowerCase() === username.toLowerCase()
 	);
@@ -191,7 +193,7 @@ server.put("/todos/:id", (req, res) => {
 	data.todos[existingTodo] = {
 		...data.todos[existingTodo],
 		todo: todo || data.todos[existingTodo].todo,
-		username,
+		// todo,
 		done,
 	};
 	writeFile(data);
