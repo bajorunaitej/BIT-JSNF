@@ -28,4 +28,4 @@ myBankAccount.withdraw(700);
 myBankAccount.accountNumber; //savybė
 
 //Privatus laukas - #, nerodomas
-console.log((myBankAccount.balance));
+console.log(myBankAccount.balance);
