@@ -1,11 +1,11 @@
 async function checkSession() {
 	try {
-		const promise = await fetch('http://localhost/server/users/session-check', {
+		const promise = await fetch("http://localhost/server/users/session-check", {
 			credentials: "include",
 		});
 		const answer = await promise.json();
-		if(answer.sessionValid) {
-			window.location.href = 'http://localhost/todos.html';
+		if (answer.sessionValid) {
+			window.location.href = "http://localhost/todos.html";
 		}
 	} catch (err) {
 		console.log(err);
@@ -19,9 +19,9 @@ const usernameField = document.querySelector("#register-username"),
 	registerButton = document.querySelector("#send-registration");
 
 async function register() {
-	const promise = await fetch("http://localhost:3000/users/register", {
+	const promise = await fetch("http://localhost/server/users/register", {
 		method: "POST",
-		credentials: 'include',
+		credentials: "include",
 		headers: {
 			"Content-Type": "application/json",
 		},
@@ -40,10 +40,8 @@ registerButton.onclick = register;
 const loginUsernameElement = document.querySelector("#login-username"),
 	loginPasswordElement = document.querySelector("#login-password"),
 	loginButton = document.querySelector("#login-button");
-
-	
 async function login() {
-	fetch("http://localhost:3000/user/login", {
+	fetch("http://localhost/server/users/login", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -60,4 +58,3 @@ async function login() {
 	// window.location.href = "http://127.0.0.1:5500/front-end/todos.html";
 }
 loginButton.onclick = login;
-

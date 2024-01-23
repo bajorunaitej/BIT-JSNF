@@ -1,4 +1,4 @@
-//Įrašymas į failą
+const fs = require("fs"); //failu sistemos modulis
 
 async function writeFile(obj) {
 	await fs.writeFile("./data.json", JSON.stringify(obj), (err) => {
@@ -6,4 +6,4 @@ async function writeFile(obj) {
 	});
 }
 
-module.exports = {writeFile};
+module.exports = { writeFile };

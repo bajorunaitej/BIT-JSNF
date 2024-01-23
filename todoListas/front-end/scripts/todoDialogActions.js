@@ -15,10 +15,9 @@ function moveFromTodoToDone(event) {
 	const targetId = event.target.attributes.todomove.value;
 	const moveTarget = document.querySelector(`[todo-id="${targetId}"]`);
 	doneListElement.appendChild(moveTarget);
-	event.target.innerText = texts.moveElementText.done;
-	event.target.onclick = moveFromDoneToTodo;
+	moveFromTodoToDoneTextUpdate(event);
+	updateTodoApi({ id: targetId, done: true });
 }
-
 function moveFromTodoToDoneTextUpdate(event) {
 	event.target.innerText = texts.moveElementText.done;
 	event.target.onclick = moveFromDoneToTodo;
@@ -28,6 +27,10 @@ function moveFromDoneToTodo(event) {
 	const targetId = event.target.attributes.todomove.value;
 	const moveTarget = document.querySelector(`[todo-id="${targetId}"]`);
 	todoListElement.appendChild(moveTarget);
+	moveFromDoneToTodoTextUpdate(event);
+	updateTodoApi({ id: targetId, done: false });
+}
+function moveFromDoneToTodoTextUpdate(event) {
 	event.target.innerText = texts.moveElementText.todo;
 	event.target.onclick = moveFromTodoToDone;
 }
@@ -41,6 +44,10 @@ function updateTodo(event) {
 		"Iveskite nauja todo reiksme:",
 		updateTarget.innerText
 	);
+	updateTodoApi({
+		id: targetId,
+		todo: updateTarget.innerText,
+	});
 	//Siusti uzklausa i serveri
 }
 
@@ -70,6 +77,7 @@ function addClickListenersToTodoDialogButtons(a) {
 		deleteButton.onclick = (event) => {
 			const targetId = event.target.attributes.tododelete.value;
 			const deleteTarget = document.querySelector(`[todo-id="${targetId}"]`);
+			deleteTodo(targetId);
 			deleteTarget.remove();
 		};
 	}
@@ -85,7 +93,7 @@ async function addNewTodo() {
 	});
 	const newTodoObject = response.newTodo;
 
-	const newTodo = generateTodoHtml(newTodoObject);
+	const newTodo = generateTodoHTML(newTodoObject);
 	todoListElement.innerHTML += newTodo;
 	addDragFunctionalityToAllElements();
 	addClickListenersToTodoDialogButtons();
@@ -94,28 +102,25 @@ async function addNewTodo() {
 function showAllTodos(todos) {
 	let innerHtml = "";
 
-	for (const todo of todos) {
-		innerHtml += generateTodoHtml(todo);
-	}
+	for (const todo of todos) innerHtml += generateTodoHTML(todo);
+
 	todoListElement.innerHTML = innerHtml;
 	addDragFunctionalityToAllElements();
 	addClickListenersToTodoDialogButtons("show all todos");
-
 }
 
 function showAllDones(todos) {
 	let innerHtml = "";
 
-	for (const todo of todos) {
-		innerHtml += generateTodoHtml(todo);
-	}
+	for (const todo of todos) innerHtml += generateTodoHTML(todo);
+
 	doneListElement.innerHTML = innerHtml;
+
 	addDragFunctionalityToAllElements();
 	addClickListenersToTodoDialogButtons("show all dones");
-
 }
-//Kadangi html kodas kartojasi trijose vietose, sukuriama viena funkcija, kad jis nebesikartotų - geroji praktika
-function generateTodoHtml(todo) {
+
+function generateTodoHTML(todo) {
 	return `<div
 	class="todo justify-content-between draggable"
 	draggable="true"
@@ -159,7 +164,7 @@ function generateTodoHtml(todo) {
 			</li>
 		</ul>
 	</div>
-</div>`
+</div>`;
 }
 
 getAllTodos();
