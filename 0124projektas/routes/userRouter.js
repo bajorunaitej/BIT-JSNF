@@ -3,7 +3,7 @@ const router = express.Router();
 const UserModel = require('../models/user');
 
 router.post('/register', async (req,res) => {
-    const {username, email} = req.body;
+    const { username, email } = req.body;
 
     if(!username || !email) {
         return res.status(400).json({message: 'Ne visi duomenys pateikti'});
@@ -19,7 +19,8 @@ router.post('/register', async (req,res) => {
 })
 
 router.get('/users', async(req,res) => {
-    const users = await UserModel.find({username: "asdf"});
+    // const users = await UserModel.find({}); - visi user'iai
+    const users = await UserModel.find({username: "anOwl"});
 
     res.status(200).json(users);
 })
