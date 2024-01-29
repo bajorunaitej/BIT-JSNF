@@ -3,7 +3,7 @@ const birthDateInput = document.querySelector('#birth-date');
 const passwordInput = document.querySelector('#password');
 const emailInput = document.querySelector('#email');
 const profilePhoto = document.querySelector('#profile-photo');
-const registerBtn = document.querySelector('.register-btn');
+const registerBtn = document.querySelector('.register-button');
 
 registerBtn.onclick = async() => {
     const data = new FormData();
@@ -14,9 +14,11 @@ registerBtn.onclick = async() => {
     data.append('img', profilePhoto.files[0]);
 
     const promise = await fetch("http://localhost:3000/api/user/register", {
-        method: "post",
-        body: data
+        method: 'post',
+        body: data,
     });
+
+    console.log(promise);
 
     const response = await promise.json();
     console.log(response);
