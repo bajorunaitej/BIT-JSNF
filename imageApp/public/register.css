@@ -1,0 +1,57 @@
+.containerr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+.register-window {
+    background-color: rgba(0, 0, 0, 0.352);
+    border-radius: 10px;
+    width: 500px;
+    text-align: center;
+    padding: 15px;
+    position: absolute;
+    left: 80px;
+}
+
+div{
+    margin-bottom: .5rem;
+}
+
+div span {
+    display: inline-block;
+    width: 30%;
+}
+.flexx {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+input {
+    background-color: rgba(255, 255, 255, 0.525);
+    width: 40%;
+    padding: .3rem;
+    border-radius: 3px;
+    border: 2px solid rgb(161, 160, 160);
+}
+
+input:hover {
+    border: 2px solid cadetblue;
+}
+
+.register-btn {
+    background-color: rgb(22,22,23);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: .5rem 1rem;
+    cursor: pointer;
+}
+
+.register-btn:hover {
+    background-color: rgba(22, 22, 23, 0.753);
+}
+

@@ -1,13 +1,12 @@
-.red {
-	color: red;
-}
-
-.container{
+.container{	
 	max-width: 1000px;
 	margin: 0 auto;
+	color: white;
 }
 
 body{
+	background-image: url('../public/images_icons/gradient.png');
+	height: 100vh;
 	margin: 0;
 	padding: 0;
 	font-family: 'Ubuntu', sans-serif;
@@ -18,17 +17,36 @@ body{
 	justify-content: space-between;
 	align-items: center;
 	flex-direction: row;
+	padding-top: 10px;
 }
 
 nav{
-	background-color: #5e548e;
-	color: white;
-
+	background-color: #16151721;
 }
 
-a{
-	color: white;
-	text-decoration: none;
-	text-transform:uppercase;
-	margin-right: 10px;
+.forum-icon img {
+	height: 45px;
+}
+
+.navigacija a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-right: 15px;
+    position: relative;
+}
+
+.navigacija a:before {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 1px;
+    background-color: white;
+    bottom: -6px;
+    transition: width 0.3s ease;
+}
+
+.navigacija a:hover:before,
+.navigacija a.active:before {
+    width: 100%;
 }
