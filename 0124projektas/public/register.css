@@ -1,0 +1,38 @@
+.conatainer {
+    background-color: rgb(249,248,248);
+    padding: 1rem;
+}
+
+div{
+    margin-bottom: .5rem;
+}
+
+div label span {
+    display: inline-block;
+    width: 15%;
+}
+
+label input {
+    width: 40%;
+    padding: .3rem;
+    border-radius: 3px;
+    border: 1px solid grey;
+}
+
+label input:focus {
+    outline:cadetblue;
+}
+
+.register-btn {
+    background-color: #004442;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: .5rem 1rem;
+    cursor: pointer;
+}
+
+.register-btn:hover {
+    background-color: #08605d;
+}
+

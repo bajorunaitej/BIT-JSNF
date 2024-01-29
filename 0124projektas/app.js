@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 
+
 //DB konfiguracija
 require('./config/dbConnect').config();
 //Express middleware konfiguracija
