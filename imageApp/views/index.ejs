@@ -19,26 +19,8 @@
 	</head>
 	<body>
 		<!-- EJS komponentu itraukimas i html struktūrą -->
-		<%- include('./components/nav-bar.ejs') %> 
-		<div class="container">
-			<!-- IF/ELSE statement'as su EJS sintakse -->
-			<% if(!username) {%>
-
-				<h5>Prašome prisijungti</h5>
+		<%- include('./components/header.ejs') %> 
 		
-				<% }else{ %>
-		
-				<h5>Sveiki atvykę, <%= username %></h5>
-		
-				<% } %>
-		
-				<ul>
-					<!-- FOR ciklas su EJS sintakse -->
-					<% for(const product of list){ %>
-						<li><%= product %></li>
-					<% } %>
-				</ul>
-		</div>
 		<!-- CSS ir JS įtraukimas iš /public aplanko naudojantis serverio endpoint'u -->
 		<script src="public/index.js"></script>
 	</body>

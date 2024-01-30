@@ -12,7 +12,7 @@
     <link rel="icon" href="./public/images_icons/cameracl.png">
 </head>
 <body>
-    <%- include('./components/nav-bar') %>
+    <%- include('./components/header') %>
     <div class="containerr">
         <div class="register-window">
             <h3>Registration</h3>
@@ -51,7 +51,13 @@
                     accept=".jpeg, .png, .gif, .bmp"
                 />
             </div>
-            <button class="register-btn">Register</button>
+            <div>
+				<a
+					href="/login"
+					class="standart-link"
+					>Already have an account?</a>
+			</div>
+            <button class="register-btn" id="registration">Register</button>
         </div>
     </div>
     <script src="/public/register.js"></script>
