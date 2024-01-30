@@ -3,7 +3,19 @@ const birthDateInput = document.querySelector('#birth-date');
 const passwordInput = document.querySelector('#password');
 const emailInput = document.querySelector('#email');
 const profilePhoto = document.querySelector('#profile-photo');
-const registerBtn = document.querySelector('.register-btn');
+const registerBtn = document.querySelector('#registration');
+
+//Profile picture
+profilePhoto.addEventListener('change', (event) => {
+    let file = event.target.files[0];
+    let fileType = file.type;
+    let validImageTypes = ["image/jpeg", "image/png", "image/gif", "image/bmp"];
+
+    if(!validImageTypes.includes(fileType)) {
+        alert("Please select an image type file!");
+        event.target.value = ""; //Reset the input
+    }
+});
 
 registerBtn.onclick = async() => {
     const data = new FormData();

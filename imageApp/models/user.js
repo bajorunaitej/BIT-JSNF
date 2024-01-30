@@ -43,6 +43,11 @@ const schema = new mongoose.Schema({
         type: Number,
         default: 0
     },
+    admin: {
+        type:Boolean,
+        default: false,
+        required: true
+    }
 
 });
 
@@ -50,8 +55,3 @@ const model = mongoose.model('user', schema);
 
 module.exports = model;
 
-// {
-//     username: 'ggggg'
-//     password: 'jklmn'
-//     email: 'asd@gmail.com'
-// }
