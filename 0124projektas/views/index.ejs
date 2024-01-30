@@ -17,7 +17,11 @@
 		/>
 	</head>
 	<body>
+		<% if(!!loggedIn) { %>
+			<%- include('./components/loggedHeader.ejs') %>
+			<% }else{ %>
 		<%- include('./components/header.ejs') %>
+		<% } %>
 		<!-- CONTENT -->
 		<div class="container gap-from-top">
 			<table>

@@ -15,12 +15,12 @@ const schema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: true
+        require: true
     },
     salt: String,
     birthDate: {
         type: String,
-        required: true
+        require: true
     },
     profilePicture: {
         type: String,
@@ -28,8 +28,7 @@ const schema = new mongoose.Schema({
     },
     postsCount: {
         type: Number,
-        value: 0,
-        required: true
+        default: 0,
     },
     commentsCount: {
         type: Number,
@@ -43,7 +42,11 @@ const schema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-
+    admin: {
+        type: Boolean,
+        default: false,
+        required: true
+    },
 });
 
 const model = mongoose.model('user', schema);
