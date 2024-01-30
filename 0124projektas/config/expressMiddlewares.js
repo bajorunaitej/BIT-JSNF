@@ -18,7 +18,7 @@ function config(app) {
 
     //Middleware - skirtas gauti JSON formato duomenis iš kliento
     app.use(express.json())
-    app.use(bodyParser.urlencoded());
+    app.use(bodyParser.urlencoded({extended: true}));
     //Sesijū nustatymai
     app.use(
         session({
