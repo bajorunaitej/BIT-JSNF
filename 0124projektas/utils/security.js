@@ -13,10 +13,10 @@ function generateSalt(){
 };
 
 function isValidCredentials(providedPassword, salt, hashedPassword) {
-    return hashPassword(providedPassword, salt) === hashedPassword
+    return hashPassword(providedPassword, salt) === hashedPassword;
 }
 module.exports = {
     hashPassword,
     generateSalt,
-    isValidCredentials
-}
+    isValidCredentials,
+};

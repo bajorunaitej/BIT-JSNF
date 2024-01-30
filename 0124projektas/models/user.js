@@ -5,7 +5,7 @@ const schema = new mongoose.Schema({
         type: String,
         require: true,
         minLength: 5,
-        maxLength: 40,
+        maxLength: 50,
     },
     email: {
         type: String,
@@ -52,9 +52,3 @@ const schema = new mongoose.Schema({
 const model = mongoose.model('user', schema);
 
 module.exports = model;
-
-// {
-//     username: 'ggggg'
-//     password: 'jklmn'
-//     email: 'asd@gmail.com'
-// }

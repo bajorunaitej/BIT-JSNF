@@ -41,6 +41,7 @@ function config(app) {
 
     //Puslapių route'ai:
     app.use(pagesRouter);
+    
     app.use('/api/user', userRouter);
     // localhost:3000/api/user/userRouter
 

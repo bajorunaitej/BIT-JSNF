@@ -6,7 +6,7 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0"
 		/>
-		<title>Forumas</title>
+		<title><%= title %></title>
 		<link
 			rel="stylesheet"
 			href="/public/index.css"
@@ -17,11 +17,7 @@
 		/>
 	</head>
 	<body>
-		<% if(!!loggedIn) { %>
-			<%- include('./components/loggedHeader.ejs') %>
-			<% }else{ %>
 		<%- include('./components/header.ejs') %>
-		<% } %>
 		<!-- CONTENT -->
 		<div class="container gap-from-top">
 			<table>
@@ -38,7 +34,16 @@
 					include('./components/table-row.ejs') %> <%-
 					include('./components/table-row.ejs') %> <%-
 					include('./components/table-row.ejs') %> <%-
-					include('./components/table-row.ejs') %>
+					include('./components/table-row.ejs') %> <%-
+					include('./components/table-row.ejs') %> <%-
+					include('./components/table-row.ejs') %> <%-
+					include('./components/table-row.ejs') %> <%-
+					include('./components/table-row.ejs') %> <%-
+					include('./components/table-row.ejs') %> <%-
+					include('./components/table-row.ejs') %> <%-
+					include('./components/table-row.ejs') %> <%-
+					include('./components/table-row.ejs') %> <%-
+					include('./components/table-row.ejs') %> 
 				</tbody>
 			</table>
 		</div>

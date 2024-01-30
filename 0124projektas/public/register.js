@@ -1,25 +1,36 @@
-const usernameInput = document.querySelector('#username');
-const birthDateInput = document.querySelector('#birth-date');
-const passwordInput = document.querySelector('#password');
-const emailInput = document.querySelector('#email');
-const profilePhoto = document.querySelector('#profile-photo');
-const registerBtn = document.querySelector('.register-button');
+const usernameInput = document.querySelector("#username"),
+	birthDateInput = document.querySelector("#birth-date"),
+	passwordInput = document.querySelector("#password"),
+	emailInput = document.querySelector("#email"),
+	profilePhoto = document.querySelector("#profile-photo"),
+	registerButton = document.querySelector("#registration");
 
-registerBtn.onclick = async() => {
-    const data = new FormData();
-    data.append('username', usernameInput.value);
-    data.append('birthDate', birthDateInput.value);
-    data.append('password', passwordInput.value);
-    data.append('email', emailInput.value);
-    data.append('img', profilePhoto.files[0]);
+// ---------NAUJA
+profilePhoto.addEventListener("change", function (event) {
+	var file = event.target.files[0];
+	var fileType = file.type;
+	var validImageTypes = ["image/jpeg", "image/png", "image/gif", "image/bmp"];
 
-    const promise = await fetch("http://localhost:3000/api/user/register", {
-        method: 'post',
-        body: data,
-    });
+	if (!validImageTypes.includes(fileType)) {
+		alert("Invalid file type. Please select an image file.");
+		event.target.value = ""; // Reset the input
+	}
+});
 
-    console.log(promise);
+registerButton.onclick = async () => {
+	// console.log("veikiu!");
+	const data = new FormData();
+	data.append("username", usernameInput.value);
+	data.append("birthDate", birthDateInput.value);
+	data.append("password", passwordInput.value);
+	data.append("email", emailInput.value);
+	data.append("img", profilePhoto.files[0]);
 
-    const response = await promise.json();
-    console.log(response);
+	const promise = await fetch("http://localhost:3000/api/user/register", {
+		method: "post",
+		body: data,
+	});
+
+	const response = await promise.json();
+	console.log(response);
 };
