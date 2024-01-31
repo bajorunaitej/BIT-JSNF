@@ -6,9 +6,8 @@ router.get("/", (req, res) => {
 	//index.ejs failo atvaizdavimas iš views aplanko
 
 	const config = {
-		title: "Fortra - best forum in the world!",
-		username: "Justelio19",
-		list: ["Product1", "Product2", "Milk", "Choclate"],
+		title: "Picsome",
+		username: "kapust",
 		activeTab: "Home",
 		loggedIn: !!req.session.user?.loggedIn,
 		message: req.query.message,
@@ -23,7 +22,7 @@ router.get("/register", (req, res) => {
 	}
 	const config = {
 		activeTab: "Register",
-		title: "Fortra - Registration",
+		title: "Picsome - Registration",
 		loggedIn: !!req.session.user?.loggedIn,
 		error: req.query.error,
 	};
@@ -36,7 +35,7 @@ router.get("/login", (req, res) => {
 	}
 	const config = {
 		activeTab: "Login",
-		title: "Fortra - Authentication",
+		title: "Picsome - Authentication",
 		loggedIn: !!req.session.user?.loggedIn,
 		error: req.query.error,
 	};
@@ -53,7 +52,7 @@ router.get("/my-profile", async (req, res) => {
 	console.log(userData);
 	const config = {
 		activeTab: "Profile",
-		title: "Fortra - My profile",
+		title: "Picsome - My profile",
 		profilePhoto: userData.profilePicture,
 		loggedIn: !!req.session.user?.loggedIn,
 		username: userData.username,

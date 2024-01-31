@@ -3,10 +3,11 @@ const mongoose = require('mongoose');
 //Laikinai sukonfiguruoja .env kintamuosius, kad jie būtų matomi mūsų kūrimo aplikose
 require("dotenv").config();
 
-const mongoUrl = process.env.MONGO_CONNECTION.replace('__DB_USER', process.env.DB_USER)
-.replace('__DB_PASSWORD', process.env.DB_PASSWORD)
-.replace('__DB_HOST', process.env.DB_HOST)
-.replace('__DB_NAME', process.env.DB_NAME);
+const mongoUrl = process.env.MONGO_CONNECTION
+    .replace('__DB_USER', process.env.DB_USER)
+    .replace('__DB_PASSWORD', process.env.DB_PASSWORD)
+    .replace('__DB_HOST', process.env.DB_HOST)
+    .replace('__DB_NAME', process.env.DB_NAME);
 
 function config() {
     //process.env - laiko visus aplikos kintamuosius
