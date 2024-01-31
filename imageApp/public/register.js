@@ -3,7 +3,7 @@ const usernameInput = document.querySelector("#username"),
 	passwordInput = document.querySelector("#password"),
 	emailInput = document.querySelector("#email"),
 	profilePhoto = document.querySelector("#profile-photo"),
-	registerButton = document.querySelector("#registration");
+	registerButton = document.querySelector(".standart-button");
 
 // ---------NAUJA
 profilePhoto.addEventListener("change", function (event) {

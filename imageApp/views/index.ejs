@@ -7,19 +7,14 @@
 			content="width=device-width, initial-scale=1.0"
 		/>
 		<title><%= title %></title>
-		<link
-			rel="stylesheet"
-			href="/public/index.css"
-		/>
-		<link
-			rel="stylesheet"
-			href="/public/grid.css"
-		/>
+		<link rel="icon" href="../public/images_icons/cameracl.png">
+		<link rel="stylesheet" href="/public/index.css"/>
+		<link rel="stylesheet" href="/public/header.css"/>
 	</head>
 	<body>
 		<%- include('./components/header.ejs') %>
 		<!-- CONTENT -->
-		<div class="container gap-from-top">
+		<div class="forum-content">
 			<%- include('./components/picsTable.ejs') %>
 		</div>
 

@@ -8,9 +8,6 @@
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
     background: url("../public/images_icons/purple.jpg") no-repeat;
     background-size: cover;
@@ -19,6 +16,9 @@ body {
 
 
 /* --------------Pic gallery -------------*/
+.forum-content {
+	padding: 150px;
+}
 img {
 	max-width: 100%;
 	height: auto;
@@ -32,9 +32,13 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 3px solid rgba(95, 158, 160, 0.671);
+	background: transparent;
+    border: 2px solid rgba(255,255,255, .2);
     padding: 10px; /* Add some padding for spacing */
-	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.397);
+	backdrop-filter: blur(20px);
+    box-shadow: 5px 5px 30px rgba(0,0,0, .5);
+    color: #fff;
+    border-radius: 10px;
 }
 
 .grid-wrapper > div > img {
@@ -45,6 +49,7 @@ img {
 }
 
 .grid-wrapper {
+	margin-top: 15px;
 	display: grid;
 	gap: 10px;
 	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -78,12 +83,17 @@ img {
 
 .pic-details a,
 .pic-name {
-	color: black;
+	color: #fff;
 	text-decoration: none;
-	margin: 10px 5px;
-	font-size: large;
+	margin-right: 10px;
+	margin-left: 5px;
+	font-size: 16px;
 	font-weight: bold;
 	font-style: italic;
+}
+
+.pic-name {
+	margin-top: 10px;
 }
 
 
@@ -91,42 +101,6 @@ img {
 /* -------------------------------- ------*/
 
 /* 
-.active-nav-item {
-	color: white !important;
-}
-.active-nav-item::after {
-	content: "";
-	display: block;
-	width: 100%;
-	height: 4px;
-	background: rgb(58, 218, 75);
-	background: linear-gradient(
-		63deg,
-		rgba(58, 218, 75, 1) 0%,
-		rgba(17, 113, 69, 1) 51%,
-		rgba(0, 68, 66, 1) 100%
-	);
-	position: absolute;
-}
-.standart-button {
-	background-color: #004442;
-	color: white;
-	border: none;
-	border-radius: 4px;
-	padding: 0.5rem 1rem;
-	cursor: pointer;
-}
-.standart-button:hover {
-	background-color: #035553;
-}
-.standart-link {
-	text-decoration: none;
-	color: blue;
-}
-.standart-link:hover {
-	text-decoration: underline;
-}
-
 .heading {
 	font-size: 28px;
 	padding-right: 1rem;
@@ -147,4 +121,4 @@ img {
 }
 .bg-content {
 	background-color: rgb(245, 245, 245);
-} */
+}  */
