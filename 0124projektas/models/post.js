@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const schema = new mongoose.schema({
+const schema = new mongoose.Schema({
     title: {
         type: String,
         minLength: 8,
@@ -32,12 +32,12 @@ const schema = new mongoose.schema({
         ref: 'user',
         required: true,
     },
-    likesCount: {
+    likes: {
         type: Number,
         default: 0, 
         required: true,
     },
-    dislikesCount: {
+    dislikes: {
         type: Number,
         default: 0, 
         required: true,
