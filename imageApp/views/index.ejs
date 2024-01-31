@@ -6,22 +6,23 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0"
 		/>
-		<!-- CSS ir JS įtraukimas iš /public aplanko naudojantis serverio endpoint'u -->
+		<title><%= title %></title>
 		<link
 			rel="stylesheet"
-			href="public/main.css"
+			href="/public/index.css"
 		/>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
-		<link rel="icon" href="../public/images_icons/cameracl.png">
-		<title><%= title %></title>
+		<link
+			rel="stylesheet"
+			href="/public/grid.css"
+		/>
 	</head>
 	<body>
-		<!-- EJS komponentu itraukimas i html struktūrą -->
-		<%- include('./components/header.ejs') %> 
-		
-		<!-- CSS ir JS įtraukimas iš /public aplanko naudojantis serverio endpoint'u -->
-		<script src="public/index.js"></script>
+		<%- include('./components/header.ejs') %>
+		<!-- CONTENT -->
+		<div class="container gap-from-top">
+			<%- include('./components/picsTable.ejs') %>
+		</div>
+
+		<script src="/public/index.js"></script>
 	</body>
 </html>

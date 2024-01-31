@@ -9,12 +9,20 @@
 		<title><%= title %></title>
 		<link
 			rel="stylesheet"
+			href="public/grid.css"
+		/>
+		<link
+			rel="stylesheet"
 			href="/public/index.css"
 		/>
 		<script
 			src="/public/index.js"
 			defer
 		></script>
+		<link
+			rel="stylesheet"
+			href="/public/form.css"
+		/>
 	</head>
 	<body>
 		<%- include('./components/header.ejs') %>
@@ -25,7 +33,7 @@
 			>
 				<div>
 					<label>
-						<span>Log in name</span>
+						<span>Prisijungimo vardas</span>
 						<input
 							type="text"
 							name="loginName"
@@ -34,7 +42,7 @@
 				</div>
 				<div>
 					<label>
-						<span>Password</span>
+						<span>Slaptažodis</span>
 						<input
 							type="password"
 							name="password"
@@ -45,10 +53,10 @@
 					<a
 						href="/register"
 						class="standart-link"
-						>Don't have an account</a
+						>Still don't have an account?</a
 					>
 				</div>
-				<button class="standart-button">LogIn</button>
+				<button class="standart-button">Prisijungti</button>
 			</form>
 		</div>
 	</body>

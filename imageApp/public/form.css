@@ -1,3 +1,11 @@
+.container {
+	background-color: rgb(249, 248, 248);
+	padding: 1rem;
+}
+
+div {
+	margin-bottom: 0.5rem;
+}
 
 div label span {
 	display: inline-block;

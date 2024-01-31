@@ -1,9 +1,11 @@
 const express = require("express");
-const session = require("express-session");
-const MongoStore = require("connect-mongo");
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
 const pagesRouter = require('../routes/pages');
 const userRouter = require('../routes/userRouter');
-const bodyParser = require("body-parser");
+const postRouter = require("../routes/postRouter");
+const bodyParser = require('body-parser');
+
 
 function config(app) {
     //Nustatymas EJS aktyvavimui (middleware)
@@ -17,20 +19,20 @@ function config(app) {
 
     //Middleware - skirtas gauti JSON formato duomenis iš kliento
     app.use(express.json())
-    app.use(bodyParser.urlencoded());
-    //Sesijų nustatymai
+    app.use(bodyParser.urlencoded({extended: true}));
+    //Sesijū nustatymai
     app.use(
         session({
-            secret: process.env.SESSION_SECRET,
+            secret: process.env.SESSIONS_SECRET,
             resave: false,
             saveUninitialized: false,
-            //Sesijų saugojimui duomenų bazėje
+            //Sesijų saugojimas duomenų bazėje
             store: MongoStore.create({
-                mongoUrl: require("./dbConnect").mongoUrl, //mongodb+srv://__DB_USER:__DB_PASSWORD@__DB_HOST/__DB_NAME
-                collectionName: "sessions",
+                mongoUrl: require("./dbConnect").mongoUrl,
+                collectionName: "sessions"
             }),
             cookie: {
-                maxAge: 1000*60*60*24*7,
+                maxAge: 1000*60*60*24*7
             },
         })
     );
@@ -42,6 +44,7 @@ function config(app) {
     app.use(pagesRouter);
     
     app.use('/api/user', userRouter);
+    app.use('/api/post', postRouter);
     // localhost:3000/api/user/userRouter
 
 }

@@ -3,13 +3,13 @@ const mongoose = require('mongoose');
 const schema = new mongoose.Schema({
     username: {
         type: String,
-        require: true,
+        required: true,
         minLength: 5,
-        maxLength: 40,
+        maxLength: 50,
     },
     email: {
         type: String,
-        require: true,
+        required: true,
         minLength: 8,
         maxLength: 80,
     },
@@ -28,8 +28,7 @@ const schema = new mongoose.Schema({
     },
     postsCount: {
         type: Number,
-        value: 0,
-        required: true
+        default: 0,
     },
     commentsCount: {
         type: Number,
@@ -44,14 +43,17 @@ const schema = new mongoose.Schema({
         default: 0
     },
     admin: {
-        type:Boolean,
+        type: Boolean,
         default: false,
         required: true
+    },
+    registrationData: {
+        type: Date,
+        default: new Date(),
+        required: true,
     }
-
 });
 
 const model = mongoose.model('user', schema);
 
 module.exports = model;
-

@@ -1,49 +1,30 @@
-.containerr {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    position: relative;
-}
-
-.register-window {
-    background-color: rgba(0, 0, 0, 0.352);
-    border-radius: 10px;
-    width: 500px;
-    text-align: center;
-    padding: 15px;
-    position: absolute;
-    left: 80px;
+.conatainer {
+    background-color: rgb(249,248,248);
+    padding: 1rem;
 }
 
 div{
     margin-bottom: .5rem;
 }
 
-div span {
+div label span {
     display: inline-block;
-    width: 30%;
-}
-.flexx {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    width: 15%;
 }
 
-input {
-    background-color: rgba(255, 255, 255, 0.525);
+label input {
     width: 40%;
     padding: .3rem;
     border-radius: 3px;
-    border: 2px solid rgb(161, 160, 160);
+    border: 1px solid grey;
 }
 
-input:hover {
-    border: 2px solid cadetblue;
+label input:focus {
+    outline:cadetblue;
 }
 
 .register-btn {
-    background-color: rgb(22,22,23);
+    background-color: #004442;
     color: white;
     border: none;
     border-radius: 4px;
@@ -52,6 +33,6 @@ input:hover {
 }
 
 .register-btn:hover {
-    background-color: rgba(22, 22, 23, 0.753);
+    background-color: #08605d;
 }
 
