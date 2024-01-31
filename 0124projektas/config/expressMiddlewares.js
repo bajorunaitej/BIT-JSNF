@@ -43,6 +43,7 @@ function config(app) {
     app.use(pagesRouter);
     
     app.use('/api/user', userRouter);
+    app.use('/api/post', postsRouter);
     // localhost:3000/api/user/userRouter
 
 }

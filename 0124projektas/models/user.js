@@ -3,24 +3,24 @@ const mongoose = require('mongoose');
 const schema = new mongoose.Schema({
     username: {
         type: String,
-        require: true,
+        required: true,
         minLength: 5,
         maxLength: 50,
     },
     email: {
         type: String,
-        require: true,
+        required: true,
         minLength: 8,
         maxLength: 80,
     },
     password: {
         type: String,
-        require: true
+        required: true
     },
     salt: String,
     birthDate: {
         type: String,
-        require: true
+        required: true
     },
     profilePicture: {
         type: String,
@@ -47,6 +47,11 @@ const schema = new mongoose.Schema({
         default: false,
         required: true
     },
+    registrationData: {
+        type: Date,
+        default: new Date(),
+        required: true,
+    }
 });
 
 const model = mongoose.model('user', schema);

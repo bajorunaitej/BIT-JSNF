@@ -83,4 +83,8 @@ router.get("/logout", async(req,req) => {
     }
 });
 
+router.get("/check-session", async (req,res) => {
+    res.json({message: "will be implemented in the future"})
+})
+
 module.exports = router;
