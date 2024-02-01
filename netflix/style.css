@@ -76,7 +76,7 @@ header {
 }
 
 .email-get-started {
-    margin: 0;
+    margin-top: 20px;
     padding: 0;
     display: flex;
     justify-content: space-between;
@@ -90,6 +90,7 @@ header {
     text-align: left;
     background-color: rgba(0, 0, 0, 0.39);
     border: 1px solid rgb(184, 181, 181);
+    border-radius: 4px;
 }
 
 .email-get-started button {
@@ -105,9 +106,12 @@ header {
     border: none;
 }
 
-.enjoy-tv {
+.enjoy-tv,
+.offline,
+.watch-everywhere,
+.kids-section {
     background-color: rgb(0,0,0);
-    height: 600px;
+    height: 700px;
     border-bottom: 15px solid rgb(35,35,35);
     display: flex;
     justify-content: center;
@@ -135,3 +139,70 @@ header {
 iframe {
     padding: 25px;
 }
+
+
+.offline {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.offline-mobile {
+    position: relative;
+}
+
+.phone {
+    width: 100%;
+}
+
+.downloading {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    width: 360px;
+    position: absolute;
+    background-color: rgba(0,0,0);
+    border: 3px solid rgb(48, 48, 48);
+    border-radius: 8px;
+    bottom: 50px;
+    left: 110px;
+
+}
+
+.stranger-things {
+    width: 50px;
+    height: 72px;
+    margin-right: 20px;
+}
+
+.downloading-stranger-things p {
+    font-size: 16px;
+}
+.downloading-stranger-things p span{
+    font-size: 14px;
+    color: rgb(0,75,236);
+}
+
+.downloading-stranger-things {
+    margin-right: 50px;
+}
+
+.downloading-h2,
+.watch-everywhere-h2 {
+    font-size: 48px;
+    text-align: left;
+    padding-left: .375;
+    width: 40%;
+}
+.downloading-h2 p,
+.watch-everywhere-h2 p {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.watch-everywhere img {
+    width: 40%
+}
+
+
