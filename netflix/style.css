@@ -9,7 +9,7 @@ body {
 
 .netflix-header-sign-up {
     background: url(images/seats.jpg) no-repeat;
-    height: 500px;
+    height: 700px;
     border-bottom: 15px solid rgb(35,35,35);
 }
 .default-ltr-cache-1d568uk {
@@ -60,17 +60,17 @@ header {
     padding: 7.5rem 0 2rem;
 }
 .get-started h1 {
-    font-size: 32px;
+    font-size: 48px;
 }
 
 .get-started p {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     margin: 1rem 0 0;
     font-weight: 400;
 }
 
 .ready-to-watch {
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     font-weight: 400;
     line-height: 1.5;
 }
@@ -103,4 +103,35 @@ header {
     font-size: 20px;
     border-radius: 4px;
     border: none;
+}
+
+.enjoy-tv {
+    background-color: rgb(0,0,0);
+    height: 600px;
+    border-bottom: 15px solid rgb(35,35,35);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.enjoy-tv-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 50px 20px 20px;
+}
+
+.enjoy-tv h2 {
+    font-size: 48px;
+}
+
+.enjoy-tv p {
+    font-size: 1.5rem;
+    margin: 1rem 0 0;
+    font-weight: 400;
+    text-align: left;
+}
+iframe {
+    padding: 25px;
 }
