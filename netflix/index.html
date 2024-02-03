@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Netflix</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dialog-style.css">
     <link rel="icon" href="icons/netflix.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,31 +14,217 @@
     
 </head>
 <body>
-    <div class="netflix-header-sign-up">
-        <header>
-            <svg viewBox="0 0 111 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="default-ltr-cache-1d568uk ev1dnif2">
-                <g>
-                    <path d="M105.06233,14.2806261 L110.999156,30 C109.249227,29.7497422 107.500234,29.4366857 105.718437,29.1554972 L102.374168,20.4686475 L98.9371075,28.4375293 C97.2499766,28.1563408 95.5928391,28.061674 93.9057081,27.8432843 L99.9372012,14.0931671 L94.4680851,-5.68434189e-14 L99.5313525,-5.68434189e-14 L102.593495,7.87421502 L105.874965,-5.68434189e-14 L110.999156,-5.68434189e-14 L105.06233,14.2806261 Z M90.4686475,-5.68434189e-14 L85.8749649,-5.68434189e-14 L85.8749649,27.2499766 C87.3746368,27.3437061 88.9371075,27.4055675 90.4686475,27.5930265 L90.4686475,-5.68434189e-14 Z M81.9055207,26.93692 C77.7186241,26.6557316 73.5307901,26.4064111 69.250164,26.3117443 L69.250164,-5.68434189e-14 L73.9366389,-5.68434189e-14 L73.9366389,21.8745899 C76.6248008,21.9373887 79.3120255,22.1557784 81.9055207,22.2804387 L81.9055207,26.93692 Z M64.2496954,10.6561065 L64.2496954,15.3435186 L57.8442216,15.3435186 L57.8442216,25.9996251 L53.2186709,25.9996251 L53.2186709,-5.68434189e-14 L66.3436123,-5.68434189e-14 L66.3436123,4.68741213 L57.8442216,4.68741213 L57.8442216,10.6561065 L64.2496954,10.6561065 Z M45.3435186,4.68741213 L45.3435186,26.2498828 C43.7810479,26.2498828 42.1876465,26.2498828 40.6561065,26.3117443 L40.6561065,4.68741213 L35.8121661,4.68741213 L35.8121661,-5.68434189e-14 L50.2183897,-5.68434189e-14 L50.2183897,4.68741213 L45.3435186,4.68741213 Z M30.749836,15.5928391 C28.687787,15.5928391 26.2498828,15.5928391 24.4999531,15.6875059 L24.4999531,22.6562939 C27.2499766,22.4678976 30,22.2495079 32.7809542,22.1557784 L32.7809542,26.6557316 L19.812541,27.6876933 L19.812541,-5.68434189e-14 L32.7809542,-5.68434189e-14 L32.7809542,4.68741213 L24.4999531,4.68741213 L24.4999531,10.9991564 C26.3126816,10.9991564 29.0936358,10.9054269 30.749836,10.9054269 L30.749836,15.5928391 Z M4.78114163,12.9684132 L4.78114163,29.3429562 C3.09401069,29.5313525 1.59340144,29.7497422 0,30 L0,-5.68434189e-14 L4.4690224,-5.68434189e-14 L10.562377,17.0315868 L10.562377,-5.68434189e-14 L15.2497891,-5.68434189e-14 L15.2497891,28.061674 C13.5935889,28.3437998 11.906458,28.4375293 10.1246602,28.6868498 L4.78114163,12.9684132 Z"></path>
-                </g>
-            </svg>
-
-            <div class="language-signin-btn">
-                <select class="language-picker" name="language-picker-select" id="language-picker-select">
-                    <option lang="ru" value="russian">Deutsch</option>
-                    <option lang="en" value="english" selected>English</option>
-                    <option lang="fr" value="francais">Français</option>
-                    <option lang="it" value="italiano">Italiano</option>
-                </select>
-
-                <button class="signin-btn">Sign In</button>
+    <div class="main-page">
+        <div class="netflix-header-sign-up">
+            <header>
+                <svg viewBox="0 0 111 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="default-ltr-cache-1d568uk ev1dnif2">
+                    <g>
+                        <path d="M105.06233,14.2806261 L110.999156,30 C109.249227,29.7497422 107.500234,29.4366857 105.718437,29.1554972 L102.374168,20.4686475 L98.9371075,28.4375293 C97.2499766,28.1563408 95.5928391,28.061674 93.9057081,27.8432843 L99.9372012,14.0931671 L94.4680851,-5.68434189e-14 L99.5313525,-5.68434189e-14 L102.593495,7.87421502 L105.874965,-5.68434189e-14 L110.999156,-5.68434189e-14 L105.06233,14.2806261 Z M90.4686475,-5.68434189e-14 L85.8749649,-5.68434189e-14 L85.8749649,27.2499766 C87.3746368,27.3437061 88.9371075,27.4055675 90.4686475,27.5930265 L90.4686475,-5.68434189e-14 Z M81.9055207,26.93692 C77.7186241,26.6557316 73.5307901,26.4064111 69.250164,26.3117443 L69.250164,-5.68434189e-14 L73.9366389,-5.68434189e-14 L73.9366389,21.8745899 C76.6248008,21.9373887 79.3120255,22.1557784 81.9055207,22.2804387 L81.9055207,26.93692 Z M64.2496954,10.6561065 L64.2496954,15.3435186 L57.8442216,15.3435186 L57.8442216,25.9996251 L53.2186709,25.9996251 L53.2186709,-5.68434189e-14 L66.3436123,-5.68434189e-14 L66.3436123,4.68741213 L57.8442216,4.68741213 L57.8442216,10.6561065 L64.2496954,10.6561065 Z M45.3435186,4.68741213 L45.3435186,26.2498828 C43.7810479,26.2498828 42.1876465,26.2498828 40.6561065,26.3117443 L40.6561065,4.68741213 L35.8121661,4.68741213 L35.8121661,-5.68434189e-14 L50.2183897,-5.68434189e-14 L50.2183897,4.68741213 L45.3435186,4.68741213 Z M30.749836,15.5928391 C28.687787,15.5928391 26.2498828,15.5928391 24.4999531,15.6875059 L24.4999531,22.6562939 C27.2499766,22.4678976 30,22.2495079 32.7809542,22.1557784 L32.7809542,26.6557316 L19.812541,27.6876933 L19.812541,-5.68434189e-14 L32.7809542,-5.68434189e-14 L32.7809542,4.68741213 L24.4999531,4.68741213 L24.4999531,10.9991564 C26.3126816,10.9991564 29.0936358,10.9054269 30.749836,10.9054269 L30.749836,15.5928391 Z M4.78114163,12.9684132 L4.78114163,29.3429562 C3.09401069,29.5313525 1.59340144,29.7497422 0,30 L0,-5.68434189e-14 L4.4690224,-5.68434189e-14 L10.562377,17.0315868 L10.562377,-5.68434189e-14 L15.2497891,-5.68434189e-14 L15.2497891,28.061674 C13.5935889,28.3437998 11.906458,28.4375293 10.1246602,28.6868498 L4.78114163,12.9684132 Z"></path>
+                    </g>
+                </svg>
+    
+                <div class="language-signin-btn">
+                    <select class="language-picker" name="language-picker-select" id="language-picker-select">
+                        <option lang="ru" value="russian">Deutsch</option>
+                        <option lang="en" value="english" selected>English</option>
+                        <option lang="fr" value="francais">Français</option>
+                        <option lang="it" value="italiano">Italiano</option>
+                    </select>
+    
+                    <button class="signin-btn" id="signin-btn">Sign In</button>
+                </div>
+            </header>
+    
+            <div class="get-started">
+                <h1>Unlimited movies, TV shows, and more</h1>
+                <p>Watch enywhere. Cancel anytime.</p>
+                <div>
+                    <form class="">
+                        <h3 class="ready-to-watch">Ready to watch? Enter your email to create or restart your membership.</h3>
+                        <div>
+                            <div class="email-get-started">
+                                <input type="email" class="email-input" placeholder="Email address">
+                                <button>Get Started
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" data-mirrorinrtl="true" class="default-ltr-cache-4z3qvp e1svuwfo1" data-name="ChevronRight" aria-hidden="true">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M15.5859 12L8.29303 19.2928L9.70725 20.7071L17.7072 12.7071C17.8948 12.5195 18.0001 12.2652 18.0001 12C18.0001 11.7347 17.8948 11.4804 17.7072 11.2928L9.70724 3.29285L8.29303 4.70706L15.5859 12Z" fill="white">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </header>
-
-        <div class="get-started">
-            <h1>Unlimited movies, TV shows, and more</h1>
-            <p>Watch enywhere. Cancel anytime.</p>
+        </div>
+    
+        <div class="enjoy-tv">
+            <div class="enjoy-tv-text">
+                <h2>Enjoy on your TV</h2>
+                <p>Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more</p>
+            </div>
             <div>
-                <form class="">
+                <iframe width="700" height="450" src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v" frameborder="0"></iframe>
+                <img src="images/tv.png" alt="" class="tv">
+            </div>
+    
+        </div>
+    
+        <div class="offline">
+            <div class="offline-mobile">
+                <div class= "phone">
+                    <img src="images/mobile-0819.jpg" alt="">
+                    <div class="downloading">
+                        <div>
+                            <img class="stranger-things" src="images/boxshot.png" alt="">
+                        </div>
+                        <div class="downloading-stranger-things">
+                            <p>Stranger Things <br><span>Downloading...</span></p>
+                        </div>
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-file-arrow-down" viewBox="0 0  16 16">
+                                <path d="M8 5a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5A.5.5 0 0 1 8 5"/>
+                                <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h2 class="downloading-h2">Download your shows to watch offline<br>
+                <p>Save your favorites easily and always have something to watch</p>
+            </h2>
+        </div>
+    
+        <div class="watch-everywhere">
+            <div class="watch-everywhere-text">
+                <h2>Watch everywhere
+                    <br>
+                    <p>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</p>
+                </h2>
+            </div>
+            <div>
+                <img src="images/R.png" alt="" class="teletubbies">
+                <img src="images/device-pile.png" alt="" class="teletubbies-screen">
+            </div>
+            
+        </div>
+    
+        <div class="kids-section">
+            <div class="kids">
+                <img src="images/kids.png" alt="">
+            </div>
+            <div class="kids-text">
+                <h2>Create profiles for kids <br>
+                <p>Send kids on adventures with their favorite characters in a space made just for them—free with your membership.</p></h2>
+            </div>
+    
+        </div>
+    
+        <div class="FAQs">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq">
+                <div class="question">
+                    <p>What is Netflix?</p>
+    
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+                    </svg>
+                </div>
+                <div class="answer">
+                    <p>
+                        Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices. <br> <br>
+                        You can watch as much as you want, whenever you want without a single commercial – all for one low monthly price. There's always something new to discover and new TV shows and movies are added every week!
+                    </p>
+                </div>
+            </div>
+            <div class="faq">
+                <div class="question">
+                    <p>How much does Netflix cost?</p>
+    
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+                    </svg>
+                </div>
+                <div class="answer">
+                    <p>
+                        Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from EUR 7.99 to EUR 11.99 a month. No extra costs, no contracts.
+                    </p>
+                </div>
+            </div>
+            <div class="faq">
+                <div class="question">
+                    <p>Where I can watch?</p>
+    
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+                    </svg>
+                </div>
+                <div class="answer">
+                    <p>
+                        Watch anywhere, anytime. Sign in with your Netflix account to watch instantly on the web at netflix.com from your personal computer or on any internet-connected device that offers the Netflix app, including smart TVs, smartphones, tablets, streaming media players and game consoles. <br> <br>
+                        You can also download your favorite shows with the iOS, Android, or Windows 10 app. Use downloads to watch while you're on the go and without an internet connection. Take Netflix with you anywhere.
+                    </p>
+                </div>
+            </div>
+            <div class="faq">
+                <div class="question">
+                    <p>How do I cancel?</p>
+    
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+                    </svg>
+                </div>
+                <div class="answer">
+                    <p>
+                        Netflix is flexible. There are no pesky contracts and no commitments. You can easily cancel your account online in two clicks. There are no cancellation fees – start or stop your account anytime.
+                    </p>
+                </div>
+            </div>
+            <div class="faq">
+                <div class="question">
+                    <p>What can I watch on Netflix?</p>
+    
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+                    </svg>
+                </div>
+                <div class="answer">
+                    <p>
+                        Netflix has an extensive library of feature films, documentaries, TV shows, anime, award-winning Netflix originals, and more. Watch as much as you want, anytime you want.
+                    </p>
+                </div>
+            </div>
+            <div class="faq">
+                <div class="question">
+                    <p>Is Netflix good for kids?</p>
+    
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+                    </svg>
+                </div>
+                <div class="answer">
+                    <p>
+                        The Netflix Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and movies in their own space. <br> <br>
+                        Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of content kids can watch and block specific titles you don’t want kids to see.
+                    </p>
+                </div>
+            </div>
+            <div class="faq">
+                <div class="question">
+                    <p>Why am I seeing this language?</p>
+    
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+                    </svg>
+                </div>
+                <div class="answer">
+                    <p>
+                        Your browser preferences determine the language shown here.
+                    </p>
+                </div>
+            </div>
+    
+            <div>
+                <form>
                     <h3 class="ready-to-watch">Ready to watch? Enter your email to create or restart your membership.</h3>
                     <div>
                         <div class="email-get-started">
@@ -55,187 +242,28 @@
         </div>
     </div>
 
-    <div class="enjoy-tv">
-        <div class="enjoy-tv-text">
-            <h2>Enjoy on your TV</h2>
-            <p>Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more</p>
-        </div>
-        <div>
-            <iframe width="700" height="450" src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v" frameborder="0"></iframe>
-            <img src="images/tv.png" alt="" class="tv">
-        </div>
+    <!-- pop-up dialog box, containing a form -->
+    <div class="favDialog">
 
-    </div>
+        <div class="dialog">
+            <div class="signin-close">
+                <h2>Sign In</h2>
+                <i class="bi bi-x-lg" id="close-btn"></i>
+            </div>
+            <div class="inputs">
+                <input type="email" id="dialog-email-input" placeholder="Email or phone number" required>
+                <input type="password" id="dialog-password-input" placeholder="Password" required>
+                <button type="submit" id="sign-in-btn">Sign In</button>
+                <a href="https://www.netflix.com/LoginHelp">Forgot password?</a>
+            </div>
 
-    <div class="offline">
-        <div class="offline-mobile">
-            <div class= "phone">
-                <img src="images/mobile-0819.jpg" alt="">
-                <div class="downloading">
-                    <div>
-                        <img class="stranger-things" src="images/boxshot.png" alt="">
-                    </div>
-                    <div class="downloading-stranger-things">
-                        <p>Stranger Things <br><span>Downloading...</span></p>
-                    </div>
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-file-arrow-down" viewBox="0 0  16 16">
-                            <path d="M8 5a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5A.5.5 0 0 1 8 5"/>
-                            <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1"/>
-                        </svg>
-                    </div>
-                </div>
+            <div class="remember-forgottt">
+                <label><input type="checkbox"> Remember me</label>
+                <p>New to Netflix?<a href="https://www.netflix.com/">Sign up now.</a></p>
             </div>
-        </div>
-        <h2 class="downloading-h2">Download your shows to watch offline<br>
-            <p>Save your favorites easily and always have something to watch</p>
-        </h2>
-    </div>
-
-    <div class="watch-everywhere">
-        <div class="watch-everywhere-text">
-            <h2>Watch everywhere
-                <br>
-                <p>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</p>
-            </h2>
-        </div>
-        <div>
-            <img src="images/R.png" alt="" class="teletubbies">
-            <img src="images/device-pile.png" alt="" class="teletubbies-screen">
-        </div>
-        
-    </div>
-
-    <div class="kids-section">
-        <div class="kids">
-            <img src="images/kids.png" alt="">
-        </div>
-        <div class="kids-text">
-            <h2>Create profiles for kids <br>
-            <p>Send kids on adventures with their favorite characters in a space made just for them—free with your membership.</p></h2>
-        </div>
-
-    </div>
-
-    <div class="FAQs">
-        <h2>Frequently Asked Questions</h2>
-        <div class="faq">
-            <div class="question">
-                <p>What is Netflix?</p>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
-                </svg>
+            <div class="google">
+                <p>This page is protected by Google reCAPTCHA to ensure you're not a bot. <a href="#">Learn more.</a></p>
             </div>
-            <div class="answer">
-                <p>
-                    Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices. <br> <br>
-                    You can watch as much as you want, whenever you want without a single commercial – all for one low monthly price. There's always something new to discover and new TV shows and movies are added every week!
-                </p>
-            </div>
-        </div>
-        <div class="faq">
-            <div class="question">
-                <p>How much does Netflix cost?</p>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
-                </svg>
-            </div>
-            <div class="answer">
-                <p>
-                    Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from EUR 7.99 to EUR 11.99 a month. No extra costs, no contracts.
-                </p>
-            </div>
-        </div>
-        <div class="faq">
-            <div class="question">
-                <p>Where I can watch?</p>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
-                </svg>
-            </div>
-            <div class="answer">
-                <p>
-                    Watch anywhere, anytime. Sign in with your Netflix account to watch instantly on the web at netflix.com from your personal computer or on any internet-connected device that offers the Netflix app, including smart TVs, smartphones, tablets, streaming media players and game consoles. <br> <br>
-                    You can also download your favorite shows with the iOS, Android, or Windows 10 app. Use downloads to watch while you're on the go and without an internet connection. Take Netflix with you anywhere.
-                </p>
-            </div>
-        </div>
-        <div class="faq">
-            <div class="question">
-                <p>How do I cancel?</p>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
-                </svg>
-            </div>
-            <div class="answer">
-                <p>
-                    Netflix is flexible. There are no pesky contracts and no commitments. You can easily cancel your account online in two clicks. There are no cancellation fees – start or stop your account anytime.
-                </p>
-            </div>
-        </div>
-        <div class="faq">
-            <div class="question">
-                <p>What can I watch on Netflix?</p>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
-                </svg>
-            </div>
-            <div class="answer">
-                <p>
-                    Netflix has an extensive library of feature films, documentaries, TV shows, anime, award-winning Netflix originals, and more. Watch as much as you want, anytime you want.
-                </p>
-            </div>
-        </div>
-        <div class="faq">
-            <div class="question">
-                <p>Is Netflix good for kids?</p>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
-                </svg>
-            </div>
-            <div class="answer">
-                <p>
-                    The Netflix Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and movies in their own space. <br> <br>
-                    Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of content kids can watch and block specific titles you don’t want kids to see.
-                </p>
-            </div>
-        </div>
-        <div class="faq">
-            <div class="question">
-                <p>Why am I seeing this language?</p>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
-                </svg>
-            </div>
-            <div class="answer">
-                <p>
-                    Your browser preferences determine the language shown here.
-                </p>
-            </div>
-        </div>
-
-        <div>
-            <form>
-                <h3 class="ready-to-watch">Ready to watch? Enter your email to create or restart your membership.</h3>
-                <div>
-                    <div class="email-get-started">
-                        <input type="email" class="email-input" placeholder="Email address">
-                        <button>Get Started
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" data-mirrorinrtl="true" class="default-ltr-cache-4z3qvp e1svuwfo1" data-name="ChevronRight" aria-hidden="true">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M15.5859 12L8.29303 19.2928L9.70725 20.7071L17.7072 12.7071C17.8948 12.5195 18.0001 12.2652 18.0001 12C18.0001 11.7347 17.8948 11.4804 17.7072 11.2928L9.70724 3.29285L8.29303 4.70706L15.5859 12Z" fill="white">
-                                </path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </form>
         </div>
     </div>
 

@@ -12,20 +12,19 @@ body {
     justify-content: center;
     align-items: center;
     color: white;
+    padding: 100px;
+    display: none;
 }
 
 .dialog {
     background: transparent;
     border-radius: 8px;
     border: 3px solid rgb(48, 48, 48);
-    width: 420px;
+    width: 320px;
     backdrop-filter: blur(20px);
     box-shadow: 5px 5px 30px rgba(0,0,0, .5);
     padding: 48px 68px;
 }
-/* .dialog h2 {
-    padding-left: 0;
-} */
 
 .inputs {
     display: flex;
@@ -45,32 +44,68 @@ body {
 .inputs button {
     background-color: rgb(229, 9, 20);
     color: white;
-    padding: 8px 20px;
+    padding: 20px;
     border-radius: 4px;
     border: none;
     width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
+.inputs a {
+    text-decoration: none;
+    color: white;
+    margin-bottom: 50px;
+}
 
+.inputs a:hover,
+.remember-forgottt a:hover {
+    text-decoration: none;
+    color: rgb(162, 160, 160);
+    text-decoration: underline;
+}
 
-.remember-forgot {
+.signin-close {
     display: flex;
     justify-content: space-between;
-    font-size: 12pxpx;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.signin-close i{
+    cursor: pointer;
+}
+
+.remember-forgottt {
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    font-size: 12px;
     margin: -15px 0 15px;
+    gap: 10px;
+    font-size: 16px;
 }
 
-.remember-forgot label input {
-    accent-color: #fff;
-    margin-right: 3px;
+.remember-forgottt p{
+    color: rgb(184,184,184);
 }
 
-.remember-forgot a {
-    color: #fff;
+.remember-forgottt a {
     text-decoration: none;
+    color: white;
+    margin-left: 5px;
 }
 
-.remember-forgot a:hover {
+.google {
+    color: rgb(184,184,184);
+    font-size: 12px;
+}
+
+.google a {
+    text-decoration: none;
+    color: rgb(184,184,184);
     text-decoration: underline;
+
 }
 
