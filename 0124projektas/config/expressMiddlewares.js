@@ -39,6 +39,7 @@ function config(app) {
 
     //Tarpinio route panaudojimas, pasiekiamas per http://localhost/public endpoint'ą
     app.use("/public", publicRouter);
+    app.use("/tinymce", express.static('node_modules/tinymce'))
 
     //Puslapių route'ai:
     app.use(pagesRouter);

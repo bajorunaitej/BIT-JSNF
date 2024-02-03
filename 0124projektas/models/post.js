@@ -50,7 +50,6 @@ const schema = new mongoose.Schema({
         type: Array,
         default:[],
         required: true
-
     },
     images: {
         type: Array,

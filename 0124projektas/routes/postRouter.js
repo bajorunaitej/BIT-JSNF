@@ -39,6 +39,19 @@ router.delete("/:id", async (req, res) => {
 
 router.post("/", async (req, res) => {
 	//Naujo įrašo sukūrimas
+	const {title, content} = req.body;
+	const authorId = req.session.user.id;
+
+	//Validacija
+	
+
+	//Išsaugojimas db
+	const newPost = new PostModel({
+		title, content, authorId
+	});
+	await newPost.save();
+	res.redirect('/message=Naujas postas buvo sėkmingai sukurtas');
+
 });
 
 router.put("/", async (req, res) => {
