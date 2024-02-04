@@ -12,13 +12,35 @@ router.post("/register", upload.single("img"), async (req, res) => {
 		const fileName = require("../config/multer").lastFileName;
 
 		if (!username || !email || !password || !birthDate) {
-			return res.redirect("/register?error=Ne visi duomenys buvo užpildyti");
+			return res.redirect("/register?error=Not all info is provided!");
+		}
+
+		const validationResult = validate(req.body);
+		if (validationResult !== "success") {
+			return res.redirect("/register?error=" + validationResult);
 		}
 
 		//Patikrinti ar vartotojo username bei email laukeliai yra unikalus
 
 		// await UserModel.find({_id: id}) gaunamas masyvas
 		// await UserModel.findOne({_id: id}) gaunamas vienas irasas
+
+		// vartotojo paieška pagal elektroninį paštą arba vartotojo vardą
+
+		// 2. budas
+		//$or
+		const existingUser = await UserModel.findOne({
+			$or: [{email}, {username}],
+		});
+
+		if(existingUser) {
+			if(username === existingUser.username) {
+				return res.redirect("/register?error=Username already exists");
+			}
+			if(email === existingUser.eamil) {
+				return res.redirect("/register?error=Email already exists");
+			}
+		};
 
 		const salt = security.generateSalt();
 		const hashedPassword = security.hashPassword(password, salt);
@@ -31,10 +53,6 @@ router.post("/register", upload.single("img"), async (req, res) => {
 			birthDate,
 			profilePicture: `/public/images/${fileName}`,
 		};
-		const validationResult = validate(newUserObj);
-		if (validationResult !== "success") {
-			return res.redirect("/register?error=" + validationResult);
-		}
 
 		const newUser = new UserModel(newUserObj);
 		await newUser.save();
@@ -43,15 +61,16 @@ router.post("/register", upload.single("img"), async (req, res) => {
 			id: newUser._id,
 			loggedIn: true,
 		};
-		res.redirect("/?message=registracija buvo sėkminga");
+		res.redirect("/?message=Registrations was successful!");
 	} catch (err) {
-		res.redirect("/register?error=Registracija nepavyko dėl blogų duomenų");
+		res.redirect("/register?error=Registration was unsuccessful due to incorrect information.");
 	}
+
 });
 
 router.get("/users", async (req, res) => {
 	if (!req.session.user.admin)
-		return res.status(403).json({ message: "neturite tam teisiu" });
+		return res.status(403).json({ message: "You have no rights" });
 	console.log(req.session.user);
 	const users = await UserModel.find({});
 

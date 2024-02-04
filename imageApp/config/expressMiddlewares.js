@@ -20,7 +20,7 @@ function config(app) {
     //Middleware - skirtas gauti JSON formato duomenis iš kliento
     app.use(express.json())
     app.use(bodyParser.urlencoded({extended: true}));
-    //Sesijū nustatymai
+    //Sesijų nustatymai
     app.use(
         session({
             secret: process.env.SESSIONS_SECRET,
@@ -28,7 +28,7 @@ function config(app) {
             saveUninitialized: false,
             //Sesijų saugojimas duomenų bazėje
             store: MongoStore.create({
-                mongoUrl: require("./dbConnect").mongoUrl,
+                mongoUrl: require("./dbConnect").mongoUrl, //mongodb+srv://__DB_USER:__DB_PASSWORD@__DB_HOST/__DB_NAME
                 collectionName: "sessions"
             }),
             cookie: {
@@ -39,6 +39,7 @@ function config(app) {
 
     //Tarpinio route panaudojimas, pasiekiamas per http://localhost/public endpoint'ą
     app.use("/public", publicRouter);
+    app.use("/tinymce", express.static("node_modules/tinymce"));
 
     //Puslapių route'ai:
     app.use(pagesRouter);

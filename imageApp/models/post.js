@@ -8,7 +8,7 @@ const schema = new mongoose.Schema({
         required: true,
     },
     content: {
-        type:String,
+        type: String,
         required: true,
         minLength: 20,
     },
@@ -32,12 +32,12 @@ const schema = new mongoose.Schema({
         ref: 'user',
         required: true,
     },
-    likes: {
+    likesCount: {
         type: Number,
         default: 0, 
         required: true,
     },
-    dislikes: {
+    dislikesCount: {
         type: Number,
         default: 0, 
         required: true,
@@ -48,7 +48,7 @@ const schema = new mongoose.Schema({
     },
     tags: {
         type: Array,
-        default:[],
+        default: [],
         required: true
 
     },

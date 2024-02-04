@@ -8,7 +8,7 @@ function hashPassword(password, salt) {
 }
 
 //Salt - papildomas prierašas prie slaptažodžio
-function generateSalt(){
+function generateSalt() {
     return crypto.randomBytes(16).toString('hex');
 };
 
@@ -18,5 +18,5 @@ function isValidCredentials(providedPassword, salt, hashedPassword) {
 module.exports = {
     hashPassword,
     generateSalt,
-    isValidCredentials
+    isValidCredentials,
 }
