@@ -37,7 +37,7 @@ router.post("/register", upload.single("img"), async (req, res) => {
 			if(username === existingUser.username) {
 				return res.redirect("/register?error=Username already exists");
 			}
-			if(email === existingUser.eamil) {
+			if(email === existingUser.email) {
 				return res.redirect("/register?error=Email already exists");
 			}
 		};
@@ -55,6 +55,7 @@ router.post("/register", upload.single("img"), async (req, res) => {
 		};
 
 		const newUser = new UserModel(newUserObj);
+
 		await newUser.save();
 		// Nustatoma sesija vartotojui - po registracijos iš kart įvykdomas prijungimas prie sistemos
 		req.session.user = {

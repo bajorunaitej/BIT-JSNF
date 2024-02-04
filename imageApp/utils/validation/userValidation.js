@@ -16,7 +16,7 @@ function validateUsername(username) {
 	} else if (user.username.length > 50) {
 		return {
 			isValid: false,
-			message: "Username must be shorter than 50 symbols";
+			message: "Username must be shorter than 50 symbols",
 		};
 	}
 

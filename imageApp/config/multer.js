@@ -1,7 +1,7 @@
 const multer = require('multer');
 const path = require('path');
 
-//failu ivesties konfighureacija
+//failu ivesties konfiguracija
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'public/images');

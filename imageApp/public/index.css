@@ -82,11 +82,9 @@ img {
 	margin-top: 10px;
 }
 
+/* --------------------------------------*/
 
 
-/* -------------------------------- ------*/
-
-/* 
 .heading {
 	font-size: 28px;
 	padding-right: 1rem;
@@ -105,9 +103,7 @@ img {
 	color: rgb(162, 39, 39);
 	cursor: pointer;
 }
-.bg-content {
-	background-color: rgb(245, 245, 245);
-}  */
+
 
 .error {
 	background-color: rgb(250, 103, 103);
