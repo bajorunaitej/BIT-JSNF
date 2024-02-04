@@ -12,7 +12,7 @@
     width: 420px;
     background: transparent;
     border: 2px solid rgba(255,255,255, .2);
-    backdrop-filter: blur(20px);
+    /* backdrop-filter: blur(20px); */
     box-shadow: 5px 5px 30px rgba(0,0,0, .5);
     color: #fff;
     border-radius: 10px;
@@ -22,6 +22,7 @@
 .wrapper h1 {
     font-size: 36px;
     text-align: center;
+    font-weight: bold;
 }
 
 .wrapper .input-box {
