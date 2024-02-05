@@ -149,8 +149,8 @@ header {
 }
 .enjoy-tv .tv {
     position: absolute;
-    top: 825px;
-    right: 149px;
+    top: 835px;
+    right: 200px;
 }
 
 
@@ -220,23 +220,31 @@ header {
     margin-top: 10px;
 }
 
-.teletubbies {
-    height: 180px;
+.stranger-things-video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    padding-left: 90px;
 }
-.teletubbies-screen {
+.stranger-things-video video {
+    width: 510px;
+    height: 230px;
+    z-index: 10;
+}
+.stranger-things-screen img {
     position: absolute;
-    top: 2341px;
-    right: 167px;
+    top: -44px;
+    right: -30px;
+    z-index: 1000;
 }
 
 .FAQs {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0;
+    padding: 10px;
     min-height: 900px;
+    height: fit-content;
     
 }
 
@@ -334,3 +342,21 @@ header {
     margin: 24px 0 0;
 }
 
+@media  screen and (max-width: 768px) {
+    .contacts-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .enjoy-tv,
+    .offline,
+    .watch-everywhere,
+    .kids-section{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media  screen and (max-width: 425px) {
+    .contacts-grid {
+        grid-template-columns: 1fr;
+    }
+}
