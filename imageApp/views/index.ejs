@@ -16,11 +16,12 @@
 		<%- include('./components/header.ejs') %>
 		<!-- CONTENT -->
 		<div class="forum-content">
-				<%- include('./components/infoMessage.ejs') %>
+				<%- include('./components/infoMessage.ejs') %><%-
+				include('./components/errorMessage.ejs') %>
 				<a href="/new-post" class="standart-button my-3 inline-block">Create new post</a>
 				<div class="grid-wrapper">
 					<% for(const post of posts) { %> <%- 
-						include('./components/picsTable.ejs', {post}) } %>
+						include('./components/picsTable.ejs', {post}) %> <% } %>
 					<%# include('./components/picsTable.ejs') %>
 					<%# include('./components/picsTable.ejs') %>
 					<%# include('./components/picsTable.ejs') %>
