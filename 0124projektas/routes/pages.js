@@ -1,12 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const UserModel = require("../models/user");
-const UserModel = require("../models/post");
+const PostModel = require("../models/post");
+const postModifications = require("../utils/postModifications");
 
-
-router.get("/", async(req, res) => {
+router.get("/", async (req, res) => {
 	//index.ejs failo atvaizdavimas iš views aplanko
 
+	const posts = await postModifications.getPostsWithAuthors();
+	console.log(posts);
 	const config = {
 		title: "Fortra - best forum in the world!",
 		username: "Justelio19",
@@ -14,7 +16,8 @@ router.get("/", async(req, res) => {
 		activeTab: "Home",
 		loggedIn: !!req.session.user?.loggedIn,
 		message: req.query.message,
-		posts: await PostModel.find({}),
+		error: req.query.error,
+		posts,
 	};
 	res.render("index", config);
 	//Kartu paduodami ir parametrai EJS failui
@@ -69,19 +72,37 @@ router.get("/my-profile", async (req, res) => {
 	};
 	res.render("profile", config);
 });
-
 router.get("/new-post", (req, res) => {
 	if (!req.session.user?.loggedIn) {
 		return res.redirect("/login?error=Jums reikia prisijungti prie paskyros");
 	}
-
 	const config = {
 		title: "Fortra - best forum in the world!",
 		activeTab: "",
 		loggedIn: !!req.session.user?.loggedIn,
 	};
-	res.render("newPost", config);
+	res.render("new-post", config);
 	//Kartu paduodami ir parametrai EJS failui
 });
 
+router.get("/profile/:id", async (req, res) => {
+	const user = await UserModel.find({ _id: req.params.id });
+});
+router.get("/post/:id", async (req, res) => {
+	try {
+		const post = await PostModel.find({ _id: req.params.id });
+		const user = await UserModel.findOne({ _id: "65bb46ed3052e606312d8bc4" });
+		console.log(post);
+		const config = {
+			title: "Fortra - best forum in the world!",
+			activeTab: "",
+			loggedIn: !!req.session.user?.loggedIn,
+			post,
+			user,
+		};
+		res.render("post", config);
+	} catch (err) {
+		res.redirect("/?error=Nerastas irasas");
+	}
+});
 module.exports = router;

@@ -15,11 +15,19 @@
 			rel="stylesheet"
 			href="/public/grid.css"
 		/>
+		<script src="https://cdn.tailwindcss.com"></script>
 	</head>
 	<body>
 		<%- include('./components/header.ejs') %>
 		<!-- CONTENT -->
 		<div class="container gap-from-top">
+			<%- include('./components/infoMessage.ejs') %> <%-
+			include('./components/errorMessage.ejs') %>
+			<a
+				href="/new-post"
+				class="standart-button my-3 inline-block"
+				>Create new post</a
+			>
 			<table>
 				<thead>
 					<tr>
@@ -30,9 +38,8 @@
 					</tr>
 				</thead>
 				<tbody>
-					<% for( const postas of posts) { %>
-						<%- include('./components/table-row.ejs') %>
-					<% } %>
+					<% for( const post of posts ) { %> <%-
+					include('./components/table-row.ejs', {post}) %> <% } %>
 				</tbody>
 			</table>
 		</div>

@@ -1,31 +1,34 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-//Laikinai sukonfiguruoja .env kintamuosius, kad jie būtų matomi mūsų kūrimo aplikose
+// Laikinai sukonfiguruoja .env kintamuosius, kad jie butu matomi musu kurimo aplinkose
 require("dotenv").config();
 
-const mongoUrl = process.env.MONGO_CONNECTION.replace('__DB_USER', process.env.DB_USER)
-.replace('__DB_PASSWORD', process.env.DB_PASSWORD)
-.replace('__DB_HOST', process.env.DB_HOST)
-.replace('__DB_NAME', process.env.DB_NAME);
+const mongoUrl = process.env.MONGO_CONNECTION.replace(
+	"__DB_USER",
+	process.env.DB_USER
+)
+	.replace("__DB_PASSWORD", process.env.DB_PASSWORD)
+	.replace("__DB_HOST", process.env.DB_HOST)
+	.replace("__DB_NAME", process.env.DB_NAME);
 
 function config() {
-    //process.env - laiko visus aplikos kintamuosius
-    // console.log(process.env.MONGO_CONNECTION.replace('__DB_USER', process.env.DB_USER).replace('__DB_PASSWORD', process.env.DB_PASSWORD).replace('__DB_HOST', process.env.DB_HOST).replace('__DB_NAME', process.env.DB_NAME));
+	// process.env - laiko visus aplinkos kintamuosius
 
-    //Prisijungimas prie duomenų bazės pasinaudojant URL
-    mongoose.connect(mongoUrl);
-    const db = mongoose.connection;
+	// console.log(process.env.A_KINTAMASIS);
 
-    //DB listeneriai, kurie nusako, ar prie DB buvo prisijungta sėkmingai ar ne
-    db.on('error', (error) => {//ERROR listeneris
-        console.error('erroras: ' + error);
-    });
+	//Prisijungimas prie duomenų bazės pasinaudojant URL
+	mongoose.connect(mongoUrl);
+	const db = mongoose.connection;
 
-    db.once('open', () => {//PRISOJUNGIMO listeneris
-        console.info('Prie duomenų bazės buvo sėkmingai prisijungta');
-    });
+	//DB listeneriai, kurie nusako ar prie DB  buvo prisijungta sėkmingai ar ne
+	db.on("error", (error) => {
+		//ERROR listeneris
+		console.error("erroras: " + error);
+	});
+	db.once("open", () => {
+		//PRISIJUNGIMO listeneris
+		console.info("Prie duomenų bazės buvo sėkmingai prisijungta");
+	});
 }
 
-//su objektu eksportuoja daugiau funkcijų
-module.exports = {config, mongoUrl};
-// module.exports = config;
+module.exports = { config, mongoUrl };

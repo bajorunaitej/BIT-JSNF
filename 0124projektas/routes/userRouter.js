@@ -7,14 +7,12 @@ const validate = require("../utils/validation/userValidation");
 
 router.post("/register", upload.single("img"), async (req, res) => {
 	try {
-		// console.log(req.body);
 		const { username, password, birthDate, email } = req.body;
 		const fileName = require("../config/multer").lastFileName;
 
 		if (!username || !email || !password || !birthDate) {
 			return res.redirect("/register?error=Ne visi duomenys buvo užpildyti");
 		}
-
 		const validationResult = validate(req.body);
 		if (validationResult !== "success") {
 			return res.redirect("/register?error=" + validationResult);
@@ -25,31 +23,22 @@ router.post("/register", upload.single("img"), async (req, res) => {
 		// await UserModel.find({_id: id}) gaunamas masyvas
 		// await UserModel.findOne({_id: id}) gaunamas vienas irasas
 
-		//Vartotojo paieška pagal email arba username
-		//1
-		// let existingUser = await UserModel.findOne({ username });
-		// if(existingUser) {
-		// 	return res.redirect('/register?error=Vartotojas su tokiu username jau egzistuoja!');
-		// };
+		// vartotojo paieška pagal elektroninį paštą arba vartotojo vardą
 
-		// existingUser = await UserModel.findOne({ email });
-		// if(existingUser) {
-		// 	return res.redirect('/register?error=Vartotojas su tokiu email jau egzistuoja!');
-		// };
-
-		//2. budas
-		// $or
+		// 2. budas
+		//$or
 		const existingUser = await UserModel.findOne({
-			$or: [{email}, {username}],
+			$or: [{ email }, { username }],
 		});
-		if(existingUser) {
-			if( username === existingUser.username) {
-				res.redirect('/register?error=Username alredy exists!')
+
+		if (existingUser) {
+			if (username === existingUser.username) {
+				return res.redirect("/register?error=Username already exists");
 			}
-			if( email === existingUser.email) {
-				res.redirect('/register?error=Email already exists!')
+			if (email === existingUser.email) {
+				return res.redirect("/register?error=Email already exists");
 			}
-		};
+		}
 
 		const salt = security.generateSalt();
 		const hashedPassword = security.hashPassword(password, salt);
