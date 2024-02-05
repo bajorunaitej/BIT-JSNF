@@ -2,9 +2,18 @@ const express = require("express");
 const router = express.Router();
 const UserModel = require("../models/user");
 const PostModel = require("../models/post");
+const postModifications = require("../utils/postModifications");
 
 router.get("/", async(req, res) => {
 	//index.ejs failo atvaizdavimas iš views aplanko
+	const posts = await postModifications.getPostsWithAuthors();
+	console.log(posts);
+	// const modifiedPosts = posts.map(async(post) => {
+	// 	const userId = post.authorId;
+	// 	const user = await UserModel.findOne({_id: userId});
+	// 	post.author = user.username;
+	// 	return post;
+	// })
 
 	const config = {
 		title: "Picsome",
@@ -13,7 +22,8 @@ router.get("/", async(req, res) => {
 		activeTab: "Home",
 		loggedIn: !!req.session.user?.loggedIn,
 		message: req.query.message,
-		posts: await PostModel.find({}),
+		error: req.query.error,
+		posts,
 	};
 	res.render("index", config);
 	//Kartu paduodami ir parametrai EJS failui
@@ -73,7 +83,7 @@ router.get("/my-profile", async (req, res) => {
 
 router.get("/new-post", (req,res) => {
 	if(!re.session.user?.loggedIn) {
-		return res.redirect("/login=error=You must login to your account!")
+		return res.redirect("/login?error=You must login to your account!")
 	}
 	const config = {
 		title: "Picsome - super duper forum!",
@@ -82,6 +92,30 @@ router.get("/new-post", (req,res) => {
 	};
 	res.render("new-post", config)
 	//Kartu paduodami ir parametrai EJS failui
+});
+
+router.get("/profile/:id", async (req, res) => {
+	const user = await UserModel.find({ _id: req.params.id });
+});
+
+router.get("/post/:id", async(req,res) => {
+	try {
+		const post = await PostModel.find({_id: rew.params.id});
+		const user = await PostModel.find({});
+		console.log(post);
+
+		const config = {
+			title: "Picsome - super duper forum!",
+			activeTab: "",
+			loggedIn: !!req.session.user?.loggedIn,
+			post,
+			user,
+		};
+		res.render("post", config)
+	} catch (error) {
+		res.redirect("/?error=Post was not found")
+	}
+
 });
 
 module.exports = router;

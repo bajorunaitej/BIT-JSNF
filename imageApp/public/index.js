@@ -7,3 +7,6 @@ window.addEventListener("scroll", function() {
         header.style.backgroundColor = "#16151730";
     }
 });
+function destroyEvent(event) {
+	event.target.remove();
+}

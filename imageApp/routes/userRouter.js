@@ -55,9 +55,9 @@ router.post("/register", upload.single("img"), async (req, res) => {
 		};
 
 		const newUser = new UserModel(newUserObj);
-
 		await newUser.save();
-		// Nustatoma sesija vartotojui - po registracijos iš kart įvykdomas prijungimas prie sistemos
+
+		// Nustatoma sesija vartotojui - po registracijos iškart įvykdomas prijungimas prie sistemos
 		req.session.user = {
 			id: newUser._id,
 			loggedIn: true,

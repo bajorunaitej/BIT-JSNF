@@ -3,13 +3,13 @@ const usernameInput = document.querySelector("#username"),
 	passwordInput = document.querySelector("#password"),
 	emailInput = document.querySelector("#email"),
 	profilePhoto = document.querySelector("#profile-photo"),
-	registerButton = document.querySelector(".standart-button");
+	registerButton = document.querySelector("#standart-button");
 
 // ---------NAUJA
 profilePhoto.addEventListener("change", function (event) {
-	var file = event.target.files[0];
-	var fileType = file.type;
-	var validImageTypes = ["image/jpeg", "image/png", "image/gif", "image/bmp"];
+	let file = event.target.files[0];
+	let fileType = file.type;
+	let validImageTypes = ["image/jpeg", "image/png", "image/gif", "image/bmp"];
 
 	if (!validImageTypes.includes(fileType)) {
 		alert("Invalid file type. Please select an image file.");
@@ -31,8 +31,6 @@ registerButton.onclick = async () => {
 		method: "post",
 		body: data,
 	});
-
-	console.log(promise);
 
 	const response = await promise.json();
 	console.log(response);
