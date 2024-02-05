@@ -7,9 +7,9 @@ const usernameInput = document.querySelector("#username"),
 
 // ---------NAUJA
 profilePhoto.addEventListener("change", function (event) {
-	let file = event.target.files[0];
-	let fileType = file.type;
-	let validImageTypes = ["image/jpeg", "image/png", "image/gif", "image/bmp"];
+	var file = event.target.files[0];
+	var fileType = file.type;
+	var validImageTypes = ["image/jpeg", "image/png", "image/gif", "image/bmp"];
 
 	if (!validImageTypes.includes(fileType)) {
 		alert("Invalid file type. Please select an image file.");
@@ -25,7 +25,6 @@ registerButton.onclick = async () => {
 	data.append("password", passwordInput.value);
 	data.append("email", emailInput.value);
 	data.append("img", profilePhoto.files[0]);
-	console.log(data);
 
 	const promise = await fetch("http://localhost:3000/api/user/register", {
 		method: "post",

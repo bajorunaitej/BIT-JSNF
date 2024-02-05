@@ -12,7 +12,7 @@ const schema = new mongoose.Schema({
 		type: String,
 		required: true,
 		minLength: 8,
-		maxLength: 80,
+		maxLength: 120,
 		// Unique - nurodo, kad duomenu bazeje butu unikalus įrašas
 		unique: true,
 	},

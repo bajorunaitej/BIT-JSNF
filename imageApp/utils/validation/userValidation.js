@@ -1,10 +1,9 @@
 function validate(user) {
 	const usernameValidation = validateUsername(user.username);
-	if(!usernameValidation.isValid) return usernameValidation.message;
+	if (!usernameValidation.isValid) return usernameValidation.message;
 	const passwordValidation = validatePassword(user.password);
-	if(!passwordValidation.isValid) return passwordValidation.message;
+	if (!passwordValidation.isValid) return passwordValidation.message;
 
-	
 	return "success";
 }
 
@@ -12,53 +11,50 @@ function validateUsername(username) {
 	if (username.length < 5) {
 		return {
 			isValid: false,
-			mesage: "Username must be longer than 5 symbols",
+			message: "Username must be longer than 5 symbols",
 		};
-	} else if (username.length > 50) {
+	} else if (username.length > 70) {
 		return {
 			isValid: false,
-			message: "Username must be shorter than 50 symbols",
+			message: "Username must be shorter than 70 symbols",
 		};
 	}
 
-	return { isValid: true, message: "success" };
+	return { isValid: true, message: "Success" };
 }
 
 function validatePassword(password) {
 	if (password.length < 8) {
 		return {
 			isValid: false,
-			mesage: "Username must be longer than 8 symbols",
-		};
-	} else if (password.length > 80) {
-		return {
-			isValid: false,
-			message: "Username must be shorter than 80 symbols",
+			message: "Password must be longer than 8 symbols",
 		};
 	}
-
-	if(!/[0-9]/.test(password)) {
+	if (password.length > 80) {
 		return {
 			isValid: false,
-			message: "Password must contain at leats one number",
+			message: "Password must be shorter than 80 symbols",
 		};
-	};
-	if(!/[a-z]/.test(password)) {
+	}
+	if (!/[0-9]/.test(password)) {
 		return {
 			isValid: false,
-			message: "Password must contain at leats one lower case",
+			message: "Password must contain at least one number",
 		};
-	};
-	if(!/[A-Z]/.test(password)) {
+	}
+	if (!/[a-z]/.test(password)) {
 		return {
 			isValid: false,
-			message: "Password must contain at leats one upper case",
+			message: "Password must contain at least one lowercase symbol",
 		};
-	};
-
-	return { isValid: true, message: "success" }; 
-};
-
-
+	}
+	if (!/[A-Z]/.test(password)) {
+		return {
+			isValid: false,
+			message: "Password must contain at least one uppercase symbol",
+		};
+	}
+	return { isValid: true, message: "Success" };
+}
 
 module.exports = validate;

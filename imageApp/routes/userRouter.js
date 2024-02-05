@@ -7,14 +7,12 @@ const validate = require("../utils/validation/userValidation");
 
 router.post("/register", upload.single("img"), async (req, res) => {
 	try {
-		// console.log(req.body);
 		const { username, password, birthDate, email } = req.body;
 		const fileName = require("../config/multer").lastFileName;
 
 		if (!username || !email || !password || !birthDate) {
-			return res.redirect("/register?error=Not all info is provided!");
+			return res.redirect("/register?error=Ne visi duomenys buvo užpildyti");
 		}
-
 		const validationResult = validate(req.body);
 		if (validationResult !== "success") {
 			return res.redirect("/register?error=" + validationResult);
@@ -30,17 +28,17 @@ router.post("/register", upload.single("img"), async (req, res) => {
 		// 2. budas
 		//$or
 		const existingUser = await UserModel.findOne({
-			$or: [{email}, {username}],
+			$or: [{ email }, { username }],
 		});
 
-		if(existingUser) {
-			if(username === existingUser.username) {
+		if (existingUser) {
+			if (username === existingUser.username) {
 				return res.redirect("/register?error=Username already exists");
 			}
-			if(email === existingUser.email) {
+			if (email === existingUser.email) {
 				return res.redirect("/register?error=Email already exists");
 			}
-		};
+		}
 
 		const salt = security.generateSalt();
 		const hashedPassword = security.hashPassword(password, salt);
@@ -56,22 +54,20 @@ router.post("/register", upload.single("img"), async (req, res) => {
 
 		const newUser = new UserModel(newUserObj);
 		await newUser.save();
-
-		// Nustatoma sesija vartotojui - po registracijos iškart įvykdomas prijungimas prie sistemos
+		// Nustatoma sesija vartotojui - po registracijos iš kart įvykdomas prijungimas prie sistemos
 		req.session.user = {
 			id: newUser._id,
 			loggedIn: true,
 		};
-		res.redirect("/?message=Registrations was successful!");
+		res.redirect("/?message=registracija buvo sėkminga");
 	} catch (err) {
-		res.redirect("/register?error=Registration was unsuccessful due to incorrect information.");
+		res.redirect("/register?error=Registracija nepavyko dėl blogų duomenų");
 	}
-
 });
 
 router.get("/users", async (req, res) => {
 	if (!req.session.user.admin)
-		return res.status(403).json({ message: "You have no rights" });
+		return res.status(403).json({ message: "neturite tam teisiu" });
 	console.log(req.session.user);
 	const users = await UserModel.find({});
 
@@ -79,9 +75,7 @@ router.get("/users", async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-	// const { loginName, password } = req.body;
-	const loginName = req.body;
-	const password = req.body;
+	const { loginName, password } = req.body;
 
 	const existingUser = loginName.includes("@")
 		? await UserModel.findOne({ email: loginName })

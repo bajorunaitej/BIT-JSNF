@@ -6,7 +6,7 @@ tinymce.init({
         document.querySelector('#preview').innerHTML = editor.getContent();
       });
       editor.on("keyup", () => {
-        document.querySelector("preview").innerHTML = editor.getContent();
+        document.querySelector("#preview").innerHTML = editor.getContent();
       })
     }
   });
