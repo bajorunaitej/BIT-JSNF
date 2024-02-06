@@ -1,6 +1,10 @@
 const express = require("express");
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const pagesRouter = require("../routes/pages");
 const userRouter = require("../routes/user-router");
+const bodyParser = require("body-parser");
+
 
 function config(app) {
     //Nustatymas ejs aktyvavimui ↓
@@ -10,7 +14,29 @@ function config(app) {
     //Statinių failų atvaizdavimas, pasiekiamas per /public aplanką
     publicRouter.use(express.static("public"));
     //middleware - skirtas gauti json formato duomenis iš kliento
-    app.use(express.json())
+    app.use(express.json());
+
+    app.use(bodyParser.urlencoded());
+    //in latest body-parser use like below
+    // app.use(bodyParser.urlencoded({ extended: true}));
+
+    //Sesijų nustatymai
+    app.use(
+        session({
+            secret: process.env.SESSIONS_SECRET,
+            resave: false,
+            saveUninitialized: false,
+
+            //Sesijų saugojimas duomenų bazėje
+            store: MongoStore.create({
+                mongoUrl: require('./db-connect').mongoUrl,
+                collectionName: "sessions"
+            }),
+            cookie: {
+                maxAge: 1000*60*60*24*7,
+            },
+        })
+    );
 
     //Tarpinio route'o panaudojimas, pasiekamas per http://localhost:3005/public/index.js
     app.use('/public', publicRouter);

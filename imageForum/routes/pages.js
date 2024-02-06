@@ -6,13 +6,14 @@ const router = express.Router();
 
 //atvaizduojamas pats pagrindinis route'as - index.html ↓
 router.get('/', (req,res) => {
-
     //index.ejs failo atvaizdavimas iš views aplanko
-    res.render('index', {
+	const config = {
         title: 'Foxx forum',
         username: 'bajor',
         activeTab: "Home",
-    });
+		loggedIn: !!req.session.user?.loggedIn,
+    };
+    res.render('index', config);
     //Kartu paduodami ir parametrai EJS failui
 });
 
@@ -22,6 +23,7 @@ router.get('/register', (req,res) => {
     const config = {
 		activeTab: "Register",
 		title: "Foxx - Registration",
+		loggedIn: !!req.session.user?.loggedIn,
     }
     res.render('register', config);
     //Register route'as skirtas registracija
@@ -34,7 +36,7 @@ router.get("/login", (req, res) => {
 	const config = {
 		activeTab: "Login",
 		title: "Foxx - Authentication",
-		// loggedIn: !!req.session.user?.loggedIn,
+		loggedIn: !!req.session.user?.loggedIn,
 		// error: req.query.error,
 	};
 	res.render("login", config);
@@ -53,7 +55,7 @@ router.get("/my-profile", async (req, res) => {
 		activeTab: "Profile",
 		title: "Foxx - My profile",
 		// profilePhoto: userData.profilePicture,
-		// loggedIn: !!req.session.user?.loggedIn,
+		loggedIn: !!req.session.user?.loggedIn,
 		// username: userData.username,
 		// email: userData.email,
 		// birthDate: userData.birthDate,

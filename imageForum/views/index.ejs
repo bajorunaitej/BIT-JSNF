@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="public/grid.css">
 </head>
 <body>
-    <%# include('./components/header.ejs') %>
+    <%- include('./components/header.ejs')  %>
     <!-- Content -->
     <div class="container gap-from-top">
         <table>
@@ -22,10 +22,10 @@
                 </tr>
             </thead>
             <tbody>
-                <%= include('./components/table-row.ejs') %>
-                <%= include('./components/table-row.ejs') %>
-                <%= include('./components/table-row.ejs') %>
-                <%= include('./components/table-row.ejs') %>
+                <%- include('./components/table-row.ejs') %>
+                <%- include('./components/table-row.ejs') %>
+                <%- include('./components/table-row.ejs') %>
+                <%- include('./components/table-row.ejs') %>
             </tbody>
         </table>
     </div>

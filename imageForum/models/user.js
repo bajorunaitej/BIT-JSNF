@@ -46,6 +46,11 @@ const schema = new mongoose.Schema({
         type: Number,
         default: 0,
     },
+    admin: {
+        default: false,
+        type: Boolean,
+        required: true,
+    }
 });
 
 const model = mongoose.model('user', schema);
