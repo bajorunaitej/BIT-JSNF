@@ -1,24 +1,31 @@
 const express = require('express');
 const router = express.Router();
 const UserModel = require('../models/user');
-const upload = require('../config/multer');
+const upload = require('../config/multer').upload;
+const security = require('../utils/security');
 
 router.post('/register', upload.single("img") ,async(req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     const {username, password, birthDate, email} = req.body;
-    const filename = req.file.originalname;
+    const fileName = require('../config/multer').lastFileName;
+    console.log(fileName);
 
 
     if(!username || !email || !password || !birthDate) {
         return res.status(400).json({message: 'ne visi duomeny pateikti'})
     }
 
+    const salt = security.generateSalt();
+
+    const hashedPassword = security.hashPassword(password, salt)
+
     const newUser = new UserModel({
         username,
         email,
-        password,
+        salt,
+        password: hashedPassword,
         birthDate,
-        profilePicture: `http://localhost:3000/public/images/${filename}`,
+        profilePicture: `http://localhost:3005/public/images/${fileName}`,
     });
     await newUser.save();
     console.log(newUser);

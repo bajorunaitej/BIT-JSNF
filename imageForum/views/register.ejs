@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../public/dev-images/fox.png">
     <title>Registration</title>
     <link rel="stylesheet" href="public/grid.css">
     <link rel="stylesheet" href="public/index.css">
     <script src="/public/index.js"></script>
-    <link rel="stylesheet" href="public/register.css">
+    <link rel="stylesheet" href="public/form.css">
 
 </head>
 <body>
-    <%# include('./components/header.ejs') %>
+    <%- include('./components/header.ejs') %>
     <div class="container gap-from-top">
         <h2>Registration</h2>
         <div>
@@ -39,8 +40,14 @@
             </label>
         </div>
         <div>
-            <input type="file" id="profile-photo"
+            <input type="file" 
+                id="profile-photo"
                 accept=".jpeg, .png, .if, .bmp">
+        </div>
+        <div>
+            <a href="/login"
+                class="standart-link">
+                Already have an account?</a>
         </div>
         <button class="register-button">Register</button>
     </div>

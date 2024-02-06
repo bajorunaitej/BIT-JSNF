@@ -12,13 +12,13 @@ function config(app) {
     //middleware - skirtas gauti json formato duomenis iš kliento
     app.use(express.json())
 
-    //Tarpinio route'o panaudojimas, pasiekamas per http://localhost:3000/public/index.js
+    //Tarpinio route'o panaudojimas, pasiekamas per http://localhost:3005/public/index.js
     app.use('/public', publicRouter);
     //Puslapio rout'ai
     app.use(pagesRouter);
     
     app.use('/api/user', userRouter);
-    //localhost:3000/api/user/register
+    //localhost:3005/api/user/register
 }
 
 module.exports = { config };

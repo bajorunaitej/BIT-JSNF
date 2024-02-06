@@ -21,6 +21,7 @@ const schema = new mongoose.Schema({
         minLength: 8,
         maxLength: 120
     },
+    salt: String,
     birthDate: {
         type: String,
     },

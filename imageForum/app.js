@@ -14,6 +14,6 @@ require('./config/db-connect').config();
 //Express middleware konfiguracija
 require('./config/express-middlewares').config(app);
 
-app.listen(3000, () => {
-    console.log("serveris paleistas, adresas: http://localhost:3000/");
+app.listen(3005, () => {
+    console.log("serveris paleistas, adresas: http://localhost:3005/");
 });
