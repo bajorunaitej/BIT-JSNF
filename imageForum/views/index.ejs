@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum</title>
+    <link rel="stylesheet" href="public/index.css">
+    <link rel="stylesheet" href="public/grid.css">
+</head>
+<body>
+    <%# include('./components/header.ejs') %>
+    <!-- Content -->
+    <div class="container gap-from-top">
+        <table>
+            <thead>
+                <tr>
+                    <th class="col-6">Topics</th>
+                    <th class="col-1">Replies</th>
+                    <th class="col-1">Views</th>
+                    <th class="col-4">Last post</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%= include('./components/table-rows.ejs') %>
+                <%= include('./components/table-rows.ejs') %>
+                <%= include('./components/table-rows.ejs') %>
+                <%= include('./components/table-rows.ejs') %>
+            </tbody>
+        </table>
+    </div>
+    <script src="/public/index.js"></script>
+</body>
+</html>
