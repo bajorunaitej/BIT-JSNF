@@ -39,7 +39,7 @@ function config(app) {
         })
     );
 
-    //Tarpinio route'o panaudojimas, pasiekamas per http://localhost:3005/public/index.js
+    //Tarpinio route'o panaudojimas, pasiekamas per http://localhost:3000/public/index.js
     app.use('/public', publicRouter);
     app.use('/tinymce', express.static('node_modules/tinymce'));
     //Puslapio rout'ai
@@ -47,7 +47,7 @@ function config(app) {
     
     app.use('/api/user', userRouter);
     app.use('/api/post', postRouter);
-    //localhost:3005/api/user/register
+    //localhost:3000/api/user/register
 }
 
 module.exports = { config };

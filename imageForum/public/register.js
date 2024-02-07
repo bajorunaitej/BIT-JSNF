@@ -13,7 +13,7 @@ registerButton.onclick = async () => {
     data.append('email', emailInput.value);
     data.append('img', profilePhotoInput.files[0]);
 
-    const promise = await fetch('http://localhost:3005/api/user/register', {
+    const promise = await fetch('http://localhost:3000/api/user/register', {
         method: 'post',
         body: data,
     });

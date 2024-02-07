@@ -4,17 +4,22 @@ const express = require('express');
 const router = express.Router();
 const UserModel = require('../models/user');
 const PostModel = require('../models/post');
+const postModifications = require('../utils/postModifications');
 
 //atvaizduojamas pats pagrindinis route'as - index.html ↓
 router.get('/', async(req,res) => {
     //index.ejs failo atvaizdavimas iš views aplanko
+	const posts = await postModifications.getPostWithAuthors();
+	console.log(posts);
+
 	const config = {
         title: 'Foxx forum',
         username: 'bajor',
         activeTab: "Home",
 		loggedIn: !!req.session.user?.loggedIn,
 		message: req.query.message,
-		posts: await PostModel.find({}),
+		error: req.query.error,
+		posts,
 
     };
     res.render('index', config);
@@ -87,6 +92,32 @@ router.get('/new-post', (req,res) => {
     };
     res.render('new-post', config);
     //Kartu paduodami ir parametrai EJS failui
+});
+
+router.get("/post/:id", async(req,res) => {
+	// Patikrinimas ar vartotojas yra prisijungęs
+	// if (!req.session.user?.loggedIn) {
+	// 	return res.redirect("/login=You need to login!");
+	// }
+
+	try {
+		const post = await PostModel.findOne({_id: req.params.id });
+		const user = await UserModel.findOne({_id: post.authorId });
+
+		const config = {
+			title: 'Foxx forum',
+			activeTab: "",
+			loggedIn: !!req.session.user?.loggedIn,
+			post,
+			user,
+
+		};
+		res.render("post", config )
+
+	} catch(err) {
+		return res.redirect('/?error=Post is not found');
+	}
+
 });
 
 // router.get("/check-sesion", async (req, res) => {
