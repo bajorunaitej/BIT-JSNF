@@ -41,6 +41,7 @@ function config(app) {
 
     //Tarpinio route'o panaudojimas, pasiekamas per http://localhost:3005/public/index.js
     app.use('/public', publicRouter);
+    app.use('/tinymce', express.static('node_modules/tinymce'));
     //Puslapio rout'ai
     app.use(pagesRouter);
     

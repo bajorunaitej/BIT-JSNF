@@ -17,7 +17,36 @@ router.post('/register', upload.single("img") ,async(req, res) => {
             return res.redirect('/register?error=Not all data was provided!')
         }
 
+        const validationResult = validate(req.body);
+        if( validationResult !== 'success') {
+            res.redirect('/register?error=' + validationResult)
+        }
+
         //patinkrinti ar vartotojo vardas username bei email yra unikalūs
+
+        //unikalūs email ir username
+        //1 būdas
+        // let existingUser = await UserModel.findOne({username});
+        // if(!existingUser)
+        //     return res.redirect('/register?User with such username already exists')
+    
+        // existingUser = await UserModel.findOne({email});
+        // if(!existingUser)
+        //     return res.redirect('/register?User with such email already exists')
+
+        //2 būdas
+        //$or
+        const existingUser = await UserModel.findOne(
+            {$or: [{email}, {username}],
+        });
+        if(existingUser) {
+            if(username === existingUser.username) {
+                return res.redirect('/register?error=Username already exists')
+            }
+            if(email === existingUser.email) {
+                return res.redirect('/register?error=Email already exists')
+            }
+        }
     
         const salt = security.generateSalt();
         const hashedPassword = security.hashPassword(password, salt)
@@ -30,10 +59,7 @@ router.post('/register', upload.single("img") ,async(req, res) => {
             birthDate,
             profilePicture: `/public/images/${fileName}`,
         }
-        const validationResult = validate(newUserObj);
-        if( validationResult !== 'success') {
-            res.redirect('/register?error=' + validationResult)
-        }
+
         const newUser = new UserModel(newUserObj);
         await newUser.save();
         //Nustatoma sesija vartotojui - po registracijos iškart įvykdomas prijungimas prie sistemos

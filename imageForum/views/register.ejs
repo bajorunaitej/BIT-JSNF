@@ -16,7 +16,10 @@
     <div class="container gap-from-top">
         <%- include('./components/errorMessage.ejs') %>
 
-        <form action="/api/user/register" method="post">
+        <form 
+            action="/api/user/register" 
+            method="post"
+            enctype="multipart/form-data">
             <h2 class="text-2xl">Registration</h2>
             <!-- username, password, birthDate, email -->
             <div>

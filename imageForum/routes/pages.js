@@ -3,9 +3,10 @@
 const express = require('express');
 const router = express.Router();
 const UserModel = require('../models/user');
+const PostModel = require('../models/post');
 
 //atvaizduojamas pats pagrindinis route'as - index.html ↓
-router.get('/', (req,res) => {
+router.get('/', async(req,res) => {
     //index.ejs failo atvaizdavimas iš views aplanko
 	const config = {
         title: 'Foxx forum',
@@ -13,6 +14,7 @@ router.get('/', (req,res) => {
         activeTab: "Home",
 		loggedIn: !!req.session.user?.loggedIn,
 		message: req.query.message,
+		posts: await PostModel.find({}),
 
     };
     res.render('index', config);
@@ -69,6 +71,22 @@ router.get("/my-profile", async (req, res) => {
 		dislikes: userData.dislikes,
 	};
 	res.render("profile", config);
+});
+
+router.get('/new-post', (req,res) => {
+	// Patikrinimas ar vartotojas yra prisijungęs
+	if (!req.session.user?.loggedIn) {
+		return res.redirect("/login=You need to login!");
+	}
+
+	const config = {
+        title: 'Foxx forum',
+        activeTab: "",
+		loggedIn: !!req.session.user?.loggedIn,
+
+    };
+    res.render('new-post', config);
+    //Kartu paduodami ir parametrai EJS failui
 });
 
 // router.get("/check-sesion", async (req, res) => {

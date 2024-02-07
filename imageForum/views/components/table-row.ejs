@@ -6,17 +6,17 @@
 				<a
 					class="topic"
 					href=""
-					>Topic</a
+					><%= postas.title></a
 				>
 				<p class="author">Author: <a href="">Apple</a></p>
 			</div>
 		</div>
 	</td>
 	<td class="col-1">
-		<div class="single-number">25</div>
+		<div class="single-number"><%= postas.commentsCount></div>
 	</td>
 	<td class="col-1">
-		<div class="single-number">150</div>
+		<div class="single-number"><%= postas.viewsCount></div>
 	</td>
 	<td class="col-4">
 		<div class="last-post">
@@ -26,8 +26,7 @@
 					<a
 						href=""
 						class="author-outline"
-						>Bajorr</a
-					>
+						>Bajorr</a>
 				</span>
 			</div>
 			<div class="date">Tue Apr 02, 2001 08:50</div>
