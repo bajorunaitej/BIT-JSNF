@@ -69,7 +69,7 @@ router.post('/register', upload.single("img") ,async(req, res) => {
         };
         res.redirect('/?message=Registration was successful!');
     } catch(err) {
-        res.redirect('/register?error=Unsuuccessful registration beacause provided information was incorrect :(')
+        res.redirect('/register?error=Unssuccessful registration because provided information was incorrect :(')
     }
 
 });

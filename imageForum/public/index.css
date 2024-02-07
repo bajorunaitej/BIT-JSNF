@@ -9,7 +9,7 @@ body {
 	font-family: "Roboto", sans-serif;
 }
 header {
-	background-color: #004442;
+	background-color: #b45515e1;
 	transition: background-color 0.3s;
 	padding: 1rem 2rem;
 	display: flex;
@@ -42,9 +42,10 @@ header nav a:hover::after {
 	background: rgb(58, 218, 75);
 	background: linear-gradient(
 		63deg,
-		rgba(58, 218, 75, 1) 0%,
-		rgba(17, 113, 69, 1) 51%,
-		rgba(0, 68, 66, 1) 100%
+		rgb(183, 119, 189) 0%,
+		rgb(135, 86, 139) 0%,
+		rgb(86, 57, 88) 0%,
+
 	);
 	position: absolute;
 }
@@ -74,7 +75,7 @@ body {
 	}
 
 	header nav .nav-item:hover {
-		background-color: #0a5350;
+		background-color: #b45515e1;
 	}
 	header nav .nav-item a {
 		width: 100%;
@@ -102,7 +103,7 @@ body {
 }
 
 .topic-headers {
-	background-color: #343a40;
+	background-color: #633fa7;
 	color: white;
 }
 .topic-headers span {
@@ -147,7 +148,7 @@ tbody tr {
 	border-bottom: solid #b7b7b7 0.25px;
 }
 .single-number {
-	background-color: #0b9968;
+	background-color: #571e10;
 	border-radius: 100%;
 	width: fit-content;
 	text-align: center;
@@ -206,14 +207,14 @@ tbody tr {
 	background: rgb(58, 218, 75);
 	background: linear-gradient(
 		63deg,
-		rgba(58, 218, 75, 1) 0%,
-		rgba(17, 113, 69, 1) 51%,
-		rgba(0, 68, 66, 1) 100%
+		rgb(231, 176, 22) 0%,
+		rgb(173, 125, 36) 51%,
+		rgb(68, 56, 0) 100%
 	);
 	position: absolute;
 }
 .standart-button {
-	background-color: #004442;
+	background-color: #7e206198;
 	color: white;
 	border: none;
 	border-radius: 4px;
@@ -221,11 +222,11 @@ tbody tr {
 	cursor: pointer;
 }
 .standart-button:hover {
-	background-color: #035553;
+	background-color: #4b0a36d0;
 }
 .standart-link {
 	text-decoration: none;
-	color: blue;
+	color: rgb(82, 17, 136);
 }
 .standart-link:hover {
 	text-decoration: underline;
@@ -234,7 +235,7 @@ tbody tr {
 .heading {
 	font-size: 28px;
 	padding-right: 1rem;
-	border-bottom: 4px solid #004442;
+	border-bottom: 4px solid #994a09;
 	width: fit-content;
 }
 

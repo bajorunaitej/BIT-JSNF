@@ -25,7 +25,7 @@ const schema = new mongoose.Schema({
 		type: Number,
 		default: 0,
 	},
-	authorId: {
+	author: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "user",
 		required: true,
@@ -50,6 +50,13 @@ const schema = new mongoose.Schema({
 	tags: {
 		type: Array,
 		default: [],
+	},
+	lastComment: {
+		type: Date,
+	},
+	lastCommentBy: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: "user",
 	},
 });
 

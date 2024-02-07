@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const PostModel = require('../models/post');
-const upload = require('../config/multer').upload;
-const validate = require('../utils/validation/postValidation');
 
 router.get('/', async(req, res) => {
     //Visų įrašų gavimas
@@ -14,7 +12,7 @@ router.get('/:id', async(req, res) => {
     //Vieno konkretaus įrašo gavimas
     const post = await PostModel.find({_id: req.params.id}); //Jei neatrandamas, reikšmė tampa undefined
     if(!post) {
-        return res.status(404).json({message: "Post was not found"});
+        return res.status(404).json({message: "Post not found"});
     }
     res.status(200).json(post);
 });
@@ -22,7 +20,7 @@ router.get('/:id', async(req, res) => {
 router.delete('/:id', async(req, res) => {
     const post = await PostModel.find({_id: req.params.id}); //Jei neatrandamas, reikšmė tampa undefined
     if(!post) {
-        return res.status(404).json({message: "Post was not found"});
+        return res.status(404).json({message: "Post not found"});
     }
     //Jei autorius yra prisijungęs vartotojas ar prisijungęs vartotojas yra admin, tada leidžiame ištrinti įrašą
     if(post.author === req.session.user.id || req.session.user.admin) {
@@ -38,7 +36,7 @@ router.delete('/:id', async(req, res) => {
 router.post('/', async(req, res) => {
     //Naujo įrašo sukūrimas
     const {title, content} = req.body;
-    const authorId = req.session.user.id;
+    const author = req.session.user.id;
 
     //Validacija
 
@@ -46,7 +44,7 @@ router.post('/', async(req, res) => {
     const newPost = new PostModel({
         title,
         content,
-        authorId,
+        author,
     });
     await newPost.save();
     res.redirect('/?message=New post was successfully created!');

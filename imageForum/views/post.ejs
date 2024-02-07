@@ -42,32 +42,31 @@
 					<div
 						class="flex flex-col xl:min-w-[15%] lg:min-w[17%] md:min-w-[18%] sm:min-w-[30%] border border-gray-500 p-2 h-fit"
 					>
-						<img src="/public/dev-images/_7482.jpg" />
+						<img src="<%= user.profilePicture %>" />
 						<h3 class="font-bold"><%= user.username %>></h3>
 						<div class="text-xs">
 							<p class="text-gray-500 italic">
-								Posts: <span>25</span>
+								Posts: <span><%= user.postsCount %></span>
 							</p>
 							<p class="text-gray-500 italic">
-								Comments: <span>2</span>
+								Comments: <span><%= user.commentsCount%></span>
 							</p>
 							<p class="text-gray-500 italic">
 								Registered:
-								<span>2021-12-31</span>
+								<span><%= user.registrationDate.toDateString() %></span>
 							</p>
 						</div>
 						<div class="flex justify-between">
 							<div>
 								<i class="bi bi-hand-thumbs-up thumbs-up"></i>
-								<span>55</span>
+								<span><%= user.likes%></span>
 							</div>
 							<div>
 								<i class="bi bi-hand-thumbs-down thumbs-down"></i>
-								<span>65</span>
+								<span><%= user.dislikes%></span>
 							</div>
 						</div>
-					</div>
-					<div class="w-full my-auto">Post content</div>
+					</div><%- post.content %></div>
 				</div>
 			</div>
 			<%if(loggedIn){%>
@@ -98,8 +97,8 @@
 				id="preview"
 				class="border border-gray-400 rounded p-4 bg-white"
 			></fieldset>
-			<%# for(const comment of comments) { %> <%#
-			include("./components/comment.ejs", {comment}) %> <%# } %>
+			<% for(const comment of comments) { %> <%-
+			include("./components/comments.ejs", {comment}) %> <% } %>
 		</div>
 		<script
 			type="application/javascript"

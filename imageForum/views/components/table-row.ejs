@@ -1,14 +1,14 @@
 <tr>
 	<td class="col-6">
 		<div class="post">
-			<img src="https://placehold.co/300x300" />
+			<img src="/public/dev-images/comment.png" />
 			<div class="topic-details">
 				<a
 					class="topic"
 					href="/post/<%= post._id %>"
 					><%= post.title %></a
 				>
-				<p class="author">Author: <a href=""><%= post.author %></a></p>
+				<p class="author">Author: <a href=""><%= post.author.username %></a></p>
 			</div>
 		</div>
 	</td>
@@ -26,10 +26,10 @@
 					<a
 						href=""
 						class="author-outline"
-						>Bajorr</a>
+						>Komentatorius</a>
 				</span>
 			</div>
-			<div class="date">Tue Apr 02, 2001 08:50</div>
+			<div class="date"><%= new Date(post.lastComment).toDateString() %></div>
 		</div>
 	</td>
 </tr>

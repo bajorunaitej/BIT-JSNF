@@ -2,9 +2,9 @@ const header = document.querySelector(".header");
 
 window.addEventListener("scroll", function () {
 	if (window.scrollY > 100) {
-		header.style.backgroundColor = "#004442e2";
+		header.style.backgroundColor = "#bd5f1f";
 	} else {
-		header.style.backgroundColor = "#004442";
+		header.style.backgroundColor = "#bd5f1f02";
 	}
 });
 
