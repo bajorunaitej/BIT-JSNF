@@ -36,7 +36,7 @@
 			<div class="dashboard">
 				<div class="profile-photo-large">
 					<img
-						src="../public/dev-images/_7482.jpg"
+						src="<%- profilePhoto %>"
 						alt="profilePhoto"
 					/>
 				</div>
@@ -44,15 +44,15 @@
 					<h2 class="heading">Personal information </h2>
 					<span class="data-row">
 						<span class="col-4">Username</span>
-						<span class="col-8">ateikkkk</span>
+						<span class="col-8"><%= username %></span>
 					</span>
 					<span class="data-row">
 						<span class="col-4">Email</span>
-						<span class="col-8">sjsj@gamil.com</span>
+						<span class="col-8"><%= email %></span>
 					</span>
 					<span class="data-row">
 						<span class="col-4">Date of birth</span>
-						<span class="col-8">1998-05-28</span>
+						<span class="col-8"><%= birthDate %></span>
 					</span>
 					<span class="data-row">
 						<button class="standart-button">Change password</button>
@@ -60,21 +60,21 @@
 					<div class="gap-top"></div>
 					<span class="data-row">
 						<span class="col-4">Posted threads:</span>
-						<span class="col-8">1</span>
+						<span class="col-8"><%= postsCount %></span>
 					</span>
 					<span class="data-row">
 						<span class="col-4">Comments:</span>
-						<span class="col-8">5</span>
+						<span class="col-8"><%= commentsCount %></span>
 					</span>
 					<div class="gap-top"></div>
 					<span class="data-row">
 						<span class="col-2">
 							<i class="bi bi-hand-thumbs-up thumbs-up"></i>
-							<span>220</span>
+							<span><%= likes %></span>
 						</span>
 						<span class="col-2">
 							<i class="bi bi-hand-thumbs-down thumbs-down"></i>
-							<span>21</span>
+							<span><%= dislikes %></span>
 						</span>
 					</span>
 				</div>

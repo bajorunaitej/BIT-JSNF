@@ -3,6 +3,7 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const pagesRouter = require("../routes/pages");
 const userRouter = require("../routes/user-router");
+const postRouter = require("../routes/posts-router");
 const bodyParser = require("body-parser");
 
 
@@ -44,6 +45,7 @@ function config(app) {
     app.use(pagesRouter);
     
     app.use('/api/user', userRouter);
+    app.use('/api/post', postRouter);
     //localhost:3005/api/user/register
 }
 

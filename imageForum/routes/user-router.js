@@ -3,38 +3,49 @@ const router = express.Router();
 const UserModel = require('../models/user');
 const upload = require('../config/multer').upload;
 const security = require('../utils/security');
+const validate = require('../utils/validation/userValidation');
 
 router.post('/register', upload.single("img") ,async(req, res) => {
-    // console.log(req.body);
-    const {username, password, birthDate, email} = req.body;
-    const fileName = require('../config/multer').lastFileName;
-    console.log(fileName);
+    try{    
+        // console.log(req.body);
+        const {username, password, birthDate, email} = req.body;
+        const fileName = require('../config/multer').lastFileName;
+        console.log(fileName);
+    
+    
+        if(!username || !email || !password || !birthDate) {
+            return res.redirect('/register?error=Not all data was provided!')
+        }
 
+        //patinkrinti ar vartotojo vardas username bei email yra unikalūs
+    
+        const salt = security.generateSalt();
+        const hashedPassword = security.hashPassword(password, salt)
 
-    if(!username || !email || !password || !birthDate) {
-        return res.status(400).json({message: 'ne visi duomeny pateikti'})
+        const newUserObj = {
+            username,
+            email,
+            salt,
+            password: hashedPassword,
+            birthDate,
+            profilePicture: `/public/images/${fileName}`,
+        }
+        const validationResult = validate(newUserObj);
+        if( validationResult !== 'success') {
+            res.redirect('/register?error=' + validationResult)
+        }
+        const newUser = new UserModel(newUserObj);
+        await newUser.save();
+        //Nustatoma sesija vartotojui - po registracijos iškart įvykdomas prijungimas prie sistemos
+        req.session.user = {
+            id: newUser._id,
+            loggedIn: true,
+        };
+        res.redirect('/?message=Registration was successful!');
+    } catch(err) {
+        res.redirect('/register?error=Unsuuccessful registration beacause provided information was incorrect :(')
     }
 
-    const salt = security.generateSalt();
-
-    const hashedPassword = security.hashPassword(password, salt)
-
-    const newUser = new UserModel({
-        username,
-        email,
-        salt,
-        password: hashedPassword,
-        birthDate,
-        profilePicture: `http://localhost:3005/public/images/${fileName}`,
-    });
-    await newUser.save();
-    //Nustatoma sesija vartotojui - po registracijos iškart įvykdomas prijungimas prie sistemos
-    req.session.user = {
-        id: newUser._id,
-        loggedIn: true,
-        // admin: newUser.username === "bajor",
-    };
-    res.status(200).json(newUser);
 });
 
 router.get('/users', async(req,res) => {
@@ -74,8 +85,10 @@ router.get("/logout", async (req, res) => {
     else {
         req.session.destroy((err) => {
             if(err){
+                console.log("Klaida ištrinant sesiją");
                 return res.redirect("/");
             }else{
+                console.log("Sėkmingas atjungimo atvejis");
                 res.clearCookie("connect.sid");
                 return res.redirect("/login");
             }
