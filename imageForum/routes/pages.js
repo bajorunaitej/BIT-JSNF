@@ -98,6 +98,29 @@ router.get("/new-post", (req, res) => {
   //Kartu paduodami ir parametrai EJS failui
 });
 
+router.get("/profile/:id", async (req, res) => {
+	try {
+		const userData = await UserModel.findOne({ _id: req.params.id });
+		const config = {
+			activeTab: "Profile",
+			title: "Fortra - My profile",
+			profilePhoto: userData.profilePicture,
+			loggedIn: !!req.session.user?.loggedIn,
+			username: userData.username,
+			email: userData.email,
+			birthDate: userData.birthDate,
+			postsCount: userData.postsCount,
+			commentsCount: userData.commentsCount,
+			likes: userData.likes,
+			dislikes: userData.dislikes,
+			id: req.params.id,
+		};
+		res.render("foreign-profile", config);
+	} catch (err) {
+		res.redirect("/?error=netinkamas vartotojo ID");
+	}
+});
+
 router.get("/post/:id", async (req, res) => {
   // Patikrinimas ar vartotojas yra prisijungęs
   // if (!req.session.user?.loggedIn) {
@@ -111,7 +134,10 @@ router.get("/post/:id", async (req, res) => {
       "author"
       );
     
-    const comments = await CommentModel.find({post: req.params.id});
+    const comments = await CommentModel.find({post: req.params.id}).populate({
+      path: "author",
+      select: "username"
+    });
 
     post.viewsCount++;
     post.save();
@@ -121,6 +147,7 @@ router.get("/post/:id", async (req, res) => {
     //   {$inc: { viewsCount: 1},
     // }
     // ).exec();
+
 
     const config = {
 		title: "Foxx forum",
