@@ -1,4 +1,7 @@
-document.querySelectorAll(".thumbs-up").forEach((element) => {
+const thumbsUpList = document.querySelectorAll(".thumbs-up"),
+	thumbsDownList = document.querySelectorAll(".thumbs-down");
+
+thumbsUpList.forEach((element) => {
 	element.onmouseenter = (event) => {
 		event.target.classList.toggle("bi-hand-thumbs-up");
 		event.target.classList.toggle("bi-hand-thumbs-up-fill");
@@ -9,7 +12,7 @@ document.querySelectorAll(".thumbs-up").forEach((element) => {
 	};
 });
 
-document.querySelectorAll(".thumbs-down").forEach((element) => {
+thumbsDownList.forEach((element) => {
 	element.onmouseenter = (event) => {
 		event.target.classList.toggle("bi-hand-thumbs-down");
 		event.target.classList.toggle("bi-hand-thumbs-down-fill");
@@ -19,3 +22,9 @@ document.querySelectorAll(".thumbs-down").forEach((element) => {
 		event.target.classList.toggle("bi-hand-thumbs-down");
 	};
 });
+
+
+const profileThumbsUp = document.querySelector('.thumbs-up.profile-likes');
+profileThumbsUp.onclick = async() => {
+	const promise = await fetch("/like/")
+}

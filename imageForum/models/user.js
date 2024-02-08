@@ -57,7 +57,15 @@ const schema = new mongoose.Schema({
         type: Date,
         default: new Date(),
         required: true,
-    }
+    },
+    profileLikedUsers: {
+        type: Array,
+        default: [],
+    },
+    profileDislikedUsers: {
+        type: Array,
+        default: [],
+    },
 });
 
 const model = mongoose.model('user', schema);
