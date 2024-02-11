@@ -56,5 +56,57 @@ router.put('/', async(req, res) => {
 
 });
 
+router.get("/like/:postId", async (req, res) => {
+	if (!req.session.user?.loggedIn) {
+		return res.status(403).json({ message: "You should log in!" });
+	}
+
+	const post = await PostModel.findOne({ _id: req.params.postId });
+	if (post.postLikedUsers.includes(req.session.user.id)) {
+		return res.status(403).json({ message: "You already liked this post!" });
+	}
+
+	if (post.postDislikedUsers.includes(req.session.user.id)) {
+		post.postDislikedUsers.splice(
+			post.postDislikedUsers.findIndex(
+				(dislikedUser) => req.session.user.id === dislikedUser
+			),
+			1
+		);
+		post.dislikesCount--;
+	}
+
+	console.log(req.session.user.id);
+	post.postLikedUsers.push(req.session.user.id);
+	post.likesCount++;
+	await post.save();
+	res.status(200).json({ message: "Successfully liked post" });
+});;
+
+router.get("/dislike/:postId", async (req, res) => {
+	if (!req.session.user?.loggedIn) {
+		return res.status(403).json({ message: "You should log in!" });
+	}
+
+	const post = await PostModel.findOne({ _id: req.params.postId });
+
+	if (post.postDislikedUsers.includes(req.session.user.id)) {
+		return res.status(403).json({ message: "You already disliked this post!" });
+	}
+
+	if (post.postLikedUsers.includes(req.session.user.id)) {
+		post.postLikedUsers.splice(
+			post.postLikedUsers.findIndex(
+				(dislikedUser) => req.session.user.id === dislikedUser
+			),
+			1
+		);
+		post.likesCount--;
+	}
+	post.postDislikedUsers.push(req.session.user.id);
+	post.dislikesCount++;
+	await post.save();
+	res.status(200).json({ message: "Successfully disliked post" });
+});
 
 module.exports = router;

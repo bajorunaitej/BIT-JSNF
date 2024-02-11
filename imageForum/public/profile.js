@@ -24,7 +24,17 @@ thumbsDownList.forEach((element) => {
 });
 
 
-const profileThumbsUp = document.querySelector('.thumbs-up.profile-likes');
-profileThumbsUp.onclick = async() => {
-	const promise = await fetch("/like/")
-}
+const profileThumbsUp = document.querySelector(".thumbs-up.profile-likes"),
+	profileThumbsDown = document.querySelector(".thumbs-down.profile-dislikes");
+profileThumbsUp.onclick = async () => {
+	const promise = await fetch(`/api/user/like/${id}`);
+	const response = await promise.json();
+
+	console.log(response);
+};
+profileThumbsDown.onclick = async () => {
+	const promise = await fetch(`/api/user/dislike/${id}`);
+	const response = await promise.json();
+
+	console.log(response);
+};
