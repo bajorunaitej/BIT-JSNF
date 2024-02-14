@@ -1,0 +1,16 @@
+section {
+  background-color: rgb(156, 155, 155);
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.error-active {
+  outline: 1px solid red;
+}
+
+.error-box {
+  background-color: rgb(202, 132, 132);
+  color: rgb(94, 24, 24);
+  padding: 0.25rem;
+  font-size: smaller;
+}
