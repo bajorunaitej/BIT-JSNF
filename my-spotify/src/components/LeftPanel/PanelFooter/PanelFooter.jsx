@@ -43,9 +43,10 @@ function PanelFooter() {
         <HiOutlineGlobeAlt className="inline-block items-center mr-2" />
         <strong>English</strong>
       </button>
-      <LanguagesModal open={isOpen} onClose={() => setIsOpen(false)}>
-        Chocoladinė diena
-      </LanguagesModal>
+      <LanguagesModal
+        open={isOpen}
+        onClose={() => setIsOpen(false)}
+      ></LanguagesModal>
     </div>
   );
 }
