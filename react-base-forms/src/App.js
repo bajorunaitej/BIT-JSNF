@@ -10,8 +10,11 @@
 // import Base4 from "./react-base/H1_H2/Base4";
 // import Base5 from "./react-base/ThreeProps/Base5";
 // import Base3 from "./react-base/ZebraAndBever/Base3";
-
-import Form1 from "./react-forms/RandomSquares/Form1";
+// import Form1 from "./react-forms/RandomSquares/Form1";
+// import Form2 from "./react-forms/Cats/Form2";
+// import Form3 from "./react-forms/Form3/Form3";
+// import Form4 from "./react-forms/Form4/Form4";
+import Form5 from "./react-forms/Form5/Form5";
 
 function App() {
   return (
@@ -45,7 +48,11 @@ function App() {
       {/* <Base3 mode={2} />
       <Base4 text1="pirmas" text2="antras" />
       <Base5 text1="Pirmas tekstas" text2="antras tekstas" color="pink" /> */}
-      <Form1 />
+      {/* <Form1 /> */}
+      {/* <Form2 /> */}
+      {/* <Form3 /> */}
+      {/* <Form4 /> */}
+      <Form5 />
     </div>
   );
 }
